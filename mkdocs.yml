@@ -5,24 +5,24 @@ repo_url: https://github.com/GoDiao/blog-source
 copyright: Copyright &copy; 2024 Diao Shengjia
 
 theme:
-  custom_dir: overrides
   name: material
+  custom_dir: overrides
+  language: zh
   icon:
     repo: fontawesome/brands/github
-  language: zh
   palette:
     - scheme: slate
-      primary: deep purple
-      accent: amber
+      primary: indigo
+      accent: cyan
       toggle:
-        icon: material/brightness-7
-        name: Switch to light mode
+        icon: material/weather-night
+        name: 切换至亮色模式
     - scheme: default
-      primary: deep purple
-      accent: amber
+      primary: indigo
+      accent: indigo
       toggle:
-        icon: material/brightness-4
-        name: Switch to dark mode
+        icon: material/weather-sunny
+        name: 切换至深色模式
   features:
     - navigation.instant
     - navigation.instant.progress
@@ -30,11 +30,19 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
     - navigation.footer
+    - content.code.annotate
     - content.code.copy
+    - content.tooltips
     - toc.follow
     - toc.integrate
     - header.autohide
+    - search.suggest
+    - search.highlight
+    - search.share
 
 nav:
   - 首页: index.md
@@ -47,7 +55,6 @@ plugins:
   - wavedrom:
       embed_svg: true
       pymdownx: true
-
 
 markdown_extensions:
   - toc:
@@ -75,6 +82,16 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.tilde
   - footnotes
+  - pymdownx.magiclink
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_css:
   - stylesheets/main.css
@@ -85,7 +102,7 @@ extra_javascript:
 
 extra:
   social:
-    - icon: fontawesome/brands/github 
+    - icon: fontawesome/brands/github
       link: https://github.com/GoDiao
   analytics:
     provider: custom
