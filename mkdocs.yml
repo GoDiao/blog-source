@@ -28,13 +28,12 @@ theme:
     - navigation.instant.progress
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.path
     - navigation.top
+    - header.autohide
+    - navigation.path
     - content.code.copy
     - content.code.annotate
     - toc.follow
-    - header.autohide
 
 nav:
   - 首页: index.md
@@ -86,7 +85,7 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_css:
-  - stylesheets/modern.css
+  - stylesheets/main.css
 
 extra_javascript:
   - javascripts/mathjax.js
