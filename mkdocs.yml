@@ -11,38 +11,30 @@ theme:
   icon:
     repo: fontawesome/brands/github
   palette:
-    - scheme: slate
-      primary: indigo
-      accent: cyan
-      toggle:
-        icon: material/weather-night
-        name: 切换至亮色模式
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: white
+      accent: black
       toggle:
         icon: material/weather-sunny
         name: 切换至深色模式
+    - scheme: slate
+      primary: black
+      accent: grey
+      toggle:
+        icon: material/weather-night
+        name: 切换至亮色模式
   features:
     - navigation.instant
     - navigation.instant.progress
-    - navigation.tracking
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
-    - navigation.expand
     - navigation.path
     - navigation.top
-    - navigation.footer
-    - content.code.annotate
     - content.code.copy
-    - content.tooltips
+    - content.code.annotate
     - toc.follow
-    - toc.integrate
     - header.autohide
-    - search.suggest
-    - search.highlight
-    - search.share
 
 nav:
   - 首页: index.md
@@ -94,7 +86,7 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_css:
-  - stylesheets/main.css
+  - stylesheets/modern.css
 
 extra_javascript:
   - javascripts/mathjax.js

@@ -1,0 +1,294 @@
+/* 1. 字体与间距优化：使用更具现代感的字体栈 */
+:root {
+  --md-text-font: "Inter", "Readex Pro", "Noto Sans SC", sans-serif;
+  --md-code-font: "JetBrains Mono", "Fira Code", monospace;
+  --md-primary-fg-color: #000000;
+}
+
+/* 2. 彻底去掉顶栏阴影，改为极细的底线或毛玻璃效果 */
+.md-header {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(20px);
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background-color: rgba(15, 18, 20, 0.8) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 3. 去掉导航栏的笨重感 */
+.md-tabs {
+  background-color: transparent !important;
+  border-bottom: none;
+}
+
+/* 4. 代码块：高级感的核心 */
+.highlight {
+  border-radius: 12px !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+[data-md-color-scheme="slate"] .highlight {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: #0d1117 !important;
+}
+
+/* 5. 标题动效：增加呼吸感 */
+article h1 {
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+  margin-top: 2em !important;
+  margin-bottom: 1.5em !important;
+}
+
+article h2 {
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+  margin-top: 1.8em !important;
+  margin-bottom: 1em !important;
+  border-bottom: none !important;
+}
+
+article h3 {
+  font-weight: 600 !important;
+  margin-top: 1.5em !important;
+  margin-bottom: 0.8em !important;
+}
+
+/* 6. 侧边栏样式：弱化非活跃项 */
+.md-nav__link {
+  transition: all 0.2s ease;
+  opacity: 0.7;
+}
+
+.md-nav__link--active {
+  opacity: 1 !important;
+  font-weight: 600;
+  color: var(--md-accent-fg-color) !important;
+}
+
+/* 7. 内容区域：增加呼吸感 */
+.md-content {
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}
+
+.md-typeset p {
+  margin-bottom: 1.2em;
+}
+
+/* 8. 链接样式：极简风格 */
+.md-typeset a {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+  transition: all 0.2s ease;
+}
+
+.md-typeset a:hover {
+  opacity: 0.6;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+  opacity: 0.7;
+}
+
+/* 9. 代码内联样式 */
+.md-typeset code {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #000;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-family: var(--md-code-font);
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* 10. 代码块 */
+.md-typeset pre {
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1.2em !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset pre {
+  background-color: #0d1117;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 11. 引用块 */
+.md-typeset blockquote {
+  border-left: 3px solid #000;
+  background-color: rgba(0, 0, 0, 0.02);
+  padding: 1em;
+  border-radius: 4px;
+  margin: 1.5em 0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+  border-left: 3px solid #fff;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* 12. 表格 */
+.md-typeset table {
+  border-collapse: collapse;
+  margin: 1.5em 0;
+}
+
+.md-typeset table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* 13. 列表 */
+.md-typeset ul,
+.md-typeset ol {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+.md-typeset li {
+  margin: 0.5em 0;
+}
+
+/* 14. 侧边栏背景 */
+.md-sidebar {
+  background-color: transparent;
+}
+
+/* 15. 主容器 */
+.md-main {
+  background-color: #fff;
+}
+
+[data-md-color-scheme="slate"] .md-main {
+  background-color: #0f1217;
+}
+
+/* 16. 页脚 */
+.md-footer {
+  background-color: #f5f5f5;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-md-color-scheme="slate"] .md-footer {
+  background-color: #0d1117;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 17. 搜索框 */
+.md-search__input {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-md-color-scheme="slate"] .md-search__input {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 18. 隐藏滚动条，保持极致简约 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 19. 任务列表 */
+.md-typeset .task-list-item {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+/* 20. 图片 */
+.md-content__inner img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.md-content__inner img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+[data-md-color-scheme="slate"] .md-content__inner img {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-md-color-scheme="slate"] .md-content__inner img:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* 21. 标签和徽章 */
+.md-typeset .md-badge {
+  background-color: #000;
+  color: #fff;
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  font-size: 0.75em;
+  font-weight: 600;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-badge {
+  background-color: #fff;
+  color: #000;
+}
+
+/* 22. 提示框 */
+.md-typeset .admonition {
+  border-left: 4px solid #000;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  padding: 1em;
+  margin: 1.5em 0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition {
+  border-left: 4px solid #fff;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* 23. 导航面包屑 */
+.md-breadcrumbs {
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
+/* 24. 内容最大宽度 */
+.md-content__inner {
+  max-width: 900px;
+}
+
+/* 25. 平滑过渡 */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
