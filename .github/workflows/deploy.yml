@@ -39,4 +39,4 @@ jobs:
           destination-github-username: GoDiao
           destination-repository-name: godiao.github.io
           user-email: diaoshengjia@gmail.com
-          target-branch: "master"
+          target-branch: "main"
