@@ -5,7 +5,7 @@ name: Deploy GitHub Pages to external repository
 
 on:
   push:
-     branches: [ "master" ]
+    branches: [ "master" ]
 
 jobs:
   deploy:
@@ -25,21 +25,21 @@ jobs:
           path: /home/runner/.cache
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.13' 
+          python-version: '3.13'
       - uses: Gr1N/setup-poetry@v9
       - run: poetry install
       - run: cd docs/benchmark/data && poetry run python3 ../scripts/plot.py
       - run: cd docs/benchmark/data-trixie && poetry run python3 ../scripts/plot.py
       - run: cd docs/benchmark/data-harmonyos && poetry run python3 ../scripts/plot.py
       - run: DEPLOY=true poetry run mkdocs build
-       - run: cd site && ln -s feed_rss_updated.xml feed.xml
-       - name: Deploy to external repository
-         uses: cpina/github-action-push-to-another-repository@main
-         env:
-           SSH_DEPLOY_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-         with:
-           source-directory: site/
-           destination-github-username: GoDiao
-           destination-repository-name: godiao.github.io
-           user-email: diaoshengjia@gmail.com
-           target-branch: "master"
+      - run: cd site && ln -s feed_rss_updated.xml feed.xml
+      - name: Deploy to external repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+        with:
+          source-directory: site/
+          destination-github-username: GoDiao
+          destination-repository-name: godiao.github.io
+          user-email: diaoshengjia@gmail.com
+          target-branch: "master"
