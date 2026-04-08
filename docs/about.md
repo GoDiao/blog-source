@@ -1,14 +1,8 @@
----
-layout: page
-date: 1970-01-01
-permalink: /about/
----
-
 # 关于
 
 我是 **Diao Shengjia**（刁盛家），目前在新加坡南洋理工大学（NTU Singapore）攻读电气与电子工程硕士学位。
 
-## 🎓 教育背景
+## 教育背景
 
 ### 硕士学位
 - **学校**：Nanyang Technological University (NTU), Singapore
@@ -28,7 +22,7 @@ permalink: /about/
 - **成绩**：CGPA 4.33/5.00
 - **奖学金**：SM2 Scholarship
 
-## 💼 工作经历
+## 工作经历
 
 ### 华为新加坡研究中心 - 视频与音频研究工程师实习生
 **时间**：Jul 2025 - Present
@@ -56,7 +50,7 @@ permalink: /about/
 - 使用 Tcl 和 Python 编写自动化工具，运行时间减少约 33%
 - 与芯片设计工程师合作进行 RTL bring-up 期间的资格认证实验
 
-## 🏆 竞赛成绩
+## 竞赛
 
 ### WSDM Cup - 多语言聊天机器人竞赛
 - **排名**：154/950
@@ -72,7 +66,7 @@ permalink: /about/
   - 提出多智能体协作架构，准确率从 42% 提升至 83%
   - 开发 RLAIF 奖励函数，结合规则约束和 AI 反馈
 
-## 🛠️ 技术栈
+## 技术栈
 
 **编程语言**：English, Mandarin
 
@@ -92,7 +86,7 @@ permalink: /about/
 - ISP/RAW pipelines, PEFT
 - MindSpeed-LLM, Ascend 910B
 
-## 🎯 职业目标
+## 职业目标
 
 - **优先领域**：AI/ML 研究与开发，特别是计算机视觉、LLM 系统和 Agentic AI
 - **工作偏好**：
@@ -101,7 +95,7 @@ permalink: /about/
   - 友好的团队环境，共同目标和协作精神
 - **地点**：灵活（无限制）
 
-## 📞 联系方式
+## 联系方式
 
 - **邮件**：[diaoshengjia@gmail.com](mailto:diaoshengjia@gmail.com)
 - **GitHub**：[@GoDiao](https://github.com/GoDiao)
@@ -109,7 +103,7 @@ permalink: /about/
 - **所在地**：Singapore
 - **国籍**：China
 
-## 🔗 其他
+## 其他
 
 - 活跃的开源贡献者
 - GitHub 账户可用
