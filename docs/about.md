@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # 关于
 
 我是 **Diao Shengjia**（刁盛家），目前在新加坡南洋理工大学（NTU Singapore）攻读电气与电子工程硕士学位。

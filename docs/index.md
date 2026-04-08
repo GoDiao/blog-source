@@ -1,24 +1,29 @@
+---
+hide:
+  - navigation
+---
+
 # Diao Shengjia
 
-NTU 研究生 · 华为 AI 实习生 · 致力于具身智能与多模态大模型
+普通人
 
 ---
 
 ## 核心研究方向
 
-**👁️ 计算机视觉**
+**计算机视觉**
 
 RAW 图像重建、Inverse ISP 算法研究、图像处理管道优化
 
-**🤖 Agentic AI**
+** Agentic AI**
 
 多模态 LLM 系统开发、多智能体架构、自主决策系统
 
-**🧠 具身智能**
+**具身智能**
 
 Vision-Language-Action 模型、SpatialVLA、端到端学习
 
-**⚡ LLM 系统**
+**LLM 系统**
 
 vLLM 优化、KV Cache 管理、推理系统部署
 
