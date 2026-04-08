@@ -1,14 +1,90 @@
 .redacted {
-    color: #000; /* 文字颜色设为黑色 */
-    background-color: #000; /* 背景颜色设为黑色 */
+    color: #000;
+    background-color: #000;
     border-radius: 3px;
     transition: all 0.3s ease;
     cursor: pointer;
-    text-shadow: 0 0 0 #000; /* 确保文字完全隐藏 */
+    text-shadow: 0 0 0 #000;
 }
 
 .redacted:hover {
-    color: inherit; /* 悬停时恢复原始文字颜色 */
-    background-color: transparent; /* 悬停时背景透明 */
-    text-shadow: none; /* 移除文字阴影 */
+    color: inherit;
+    background-color: transparent;
+    text-shadow: none;
 }
+
+/* 高级感样式 */
+:root {
+    --md-primary-fg-color: #7c3aed;
+    --md-accent-fg-color: #fbbf24;
+}
+
+/* 文章卡片效果 */
+.md-content {
+    line-height: 1.8;
+    letter-spacing: 0.3px;
+}
+
+/* 代码块美化 */
+.md-typeset code {
+    background-color: rgba(124, 58, 237, 0.1);
+    color: #7c3aed;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.md-typeset pre {
+    background-color: #1e1e2e;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 标题美化 */
+.md-typeset h1 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 1.5rem;
+}
+
+.md-typeset h2 {
+    border-bottom: 2px solid #7c3aed;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+/* 链接美化 */
+.md-typeset a {
+    color: #7c3aed;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.md-typeset a:hover {
+    border-bottom: 1px solid #7c3aed;
+    opacity: 0.8;
+}
+
+/* 导航栏美化 */
+.md-header {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 侧边栏美化 */
+.md-sidebar {
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+}
+
+[data-md-color-scheme="slate"] .md-sidebar {
+    background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+}
+
+/* 卡片阴影 */
+.md-typeset blockquote {
+    border-left: 4px solid #7c3aed;
+    background-color: rgba(124, 58, 237, 0.05);
+    padding: 1rem;
+    border-radius: 4px;
+}
+

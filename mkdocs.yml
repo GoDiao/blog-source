@@ -10,6 +10,19 @@ theme:
   icon:
     repo: fontawesome/brands/github
   language: zh
+  palette:
+    - scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+    - scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
   features:
     - navigation.instant
     - navigation.instant.progress
@@ -21,6 +34,7 @@ theme:
     - content.code.copy
     - toc.follow
     - toc.integrate
+    - header.autohide
 
 nav:
   - 首页: index.md
