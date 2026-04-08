@@ -1,0 +1,7 @@
+.hugo_build.lock
+*.bkp
+
+/.quarto/
+/site/
+
+__pycache__

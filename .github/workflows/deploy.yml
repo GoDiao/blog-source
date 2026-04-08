@@ -1,0 +1,45 @@
+# learned from:
+# https://stackoverflow.com/questions/64374179/how-to-push-to-another-repository-in-github-actions
+# https://stackoverflow.com/questions/71361539/github-action-test-if-a-commit-containing-a-specific-word-was-previously-made
+name: Deploy GitHub Pages to external repository
+
+on:
+  push:
+     branches: [ "master" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-group
+      cancel-in-progress: true
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # for git history
+          submodules: recursive # for projects
+      - uses: actions/cache@v4
+        with:
+          key: ${{ github.ref }}
+          path: /home/runner/.cache
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13' 
+      - uses: Gr1N/setup-poetry@v9
+      - run: poetry install
+      - run: cd docs/benchmark/data && poetry run python3 ../scripts/plot.py
+      - run: cd docs/benchmark/data-trixie && poetry run python3 ../scripts/plot.py
+      - run: cd docs/benchmark/data-harmonyos && poetry run python3 ../scripts/plot.py
+      - run: DEPLOY=true poetry run mkdocs build
+      - run: cd site && ln -s feed_rss_updated.xml feed.xml
+       - name: Deploy to external repository
+         uses: cpina/github-action-push-to-another-repository@main
+         env:
+           SSH_DEPLOY_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+         with:
+           source-directory: site/
+           destination-github-username: GoDiao
+           destination-repository-name: godiao.github.io
+           user-email: diaoshengjia@gmail.com
+           target-branch: "master"
