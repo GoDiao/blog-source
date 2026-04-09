@@ -4,7 +4,7 @@
 
 智能面试助手系统，通过持久化候选人档案实现跨会话的成长追踪。
 
-![面试界面](../images/interview_page.png)
+![面试界面](../../images/interview_page.png)
 
 ## 核心功能
 
@@ -16,7 +16,7 @@
 
 **趋势分析** - Dashboard展示分数趋势、问题分布、经验热力图
 
-![候选人Dashboard](../images/dashboard.png)
+![候选人Dashboard](../../images/dashboard.png)
 
 ## 技术架构
 
@@ -28,7 +28,7 @@
 
 **LLM**：OpenAI兼容API
 
-![报告页面](../images/report_page_head.png)
+![报告页面](../../images/report_page_head.png)
 
 ## 关键特性
 
@@ -55,4 +55,4 @@ python run.py
 ## 项目链接
 
 * [GitHub仓库](https://github.com/GoDiao/ai-interview-agent)
-* [返回项目列表](./README.md)
+* [返回项目列表](../README.md)

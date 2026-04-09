@@ -8,7 +8,7 @@
 
 这种"看了等于没看"的体验让我决定开发这个工具。核心思路是：用 MinerU 做高保真 PDF 解析，然后设计多个专业 Agent 分工协作——Context Hunter 挖掘背景动机、Math Specialist 推导公式、Data Auditor 审查实验数据——最后由 Editor 整合成一份真正有深度的分析报告。
 
-这不是又一个"论文摘要生成器"，而是一个能帮你真正理解论文的研究助手。
+这是一个能帮你真正理解论文的研究助手。
 
 ![Paper Reader界面](../../images/webui_en.png)
 
