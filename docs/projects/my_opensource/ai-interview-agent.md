@@ -20,6 +20,10 @@
 
 ## 技术架构
 
+系统采用三层架构设计，通过显式状态机驱动面试流程。
+
+![系统架构](../../images/ai_interview_agent_arch.png)
+
 **后端**：FastAPI + Pydantic + 异步编排
 
 **前端**：HTML/CSS/JS + Chart.js
