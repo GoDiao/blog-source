@@ -37,7 +37,7 @@ hide:
 
 ## 开源项目
 
-### [Paper Reader Agent](./paper-reader.md) ⭐
+### [Paper Reader Agent](./my_opensource/paper-reader.md) ⭐
 
 分层多智能体系统，用于学术论文深度分析和AI驱动的网络研究。
 
@@ -45,7 +45,7 @@ hide:
 
 ---
 
-### [AI Interview Agent](./ai-interview-agent.md) ⭐
+### [AI Interview Agent](./my_opensource/ai-interview-agent.md) ⭐
 
 智能面试助手系统，通过持久化候选人档案实现跨会话的成长追踪。
 
