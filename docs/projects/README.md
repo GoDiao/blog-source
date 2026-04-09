@@ -57,11 +57,9 @@ hide:
 
 ---
 
-### AgentDriver - 自主驾驶 AI Agent
+### AgentDriver - 自动驾驶 AI Agent
 
 **类型**：研究项目 | **时间**：Huawei Singapore Research Center
-
-迁移完整自主驾驶栈到华为 Ascend 平台，集成大语言模型进行决策。
 
 **关键成果**：
 
