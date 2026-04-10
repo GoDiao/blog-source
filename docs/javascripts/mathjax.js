@@ -3,10 +3,14 @@ window.MathJax = {
         inlineMath: [["\\(", "\\)"], ['$', '$']],
         displayMath: [["\\[", "\\]"], ['$$', '$$']],
         processEscapes: true,
-        processEnvironments: true
+        processEnvironments: true,
+        packages: {'[+]': ['ams']}
     },
     options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    loader: {
+        load: ['[tex]/ams']
     }
 };
 
