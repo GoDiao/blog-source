@@ -24,8 +24,6 @@ theme:
         icon: material/weather-night
         name: 切换至亮色模式
   features:
-    - navigation.instant
-    - navigation.instant.progress
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
