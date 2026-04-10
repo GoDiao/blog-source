@@ -28,10 +28,13 @@
 - [**Native Sparse Attention: 硬件对齐的原生可训练稀疏注意力**](Naive_Sparse_Attention/paper_analysis_zh.md)  
   提出NSA机制实现硬件友好的线性复杂度计算,在64K长序列上实现11.6倍加速
 
-### 大语言模型训练
+### 大语言模型
 
 - [**OPUS: 面向大语言模型的优化器感知动态数据选择**](Opus/paper_analysis_zh.md)  
   首个优化器感知的数据选择框架,通过Ghost技巧和CountSketch投影实现高效效用评分
+
+- [**GLM-5: 从氛围编码到智能体工程**](GLM5_Report/paper_analysis_zh.md)  
+  744B参数模型,通过深度寻求稀疏注意力和异步智能体强化学习实现自主AI工程师能力
 
 ---
 
