@@ -4,25 +4,23 @@ window.MathJax = {
         displayMath: [["\\[", "\\]"], ['$$', '$$']],
         processEscapes: true,
         processEnvironments: true,
-        packages: {'[+]': ['ams']}
+        packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
     },
     options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-        processHtmlClass: 'tex2jax_process',
-        ignoreHtmlClass: 'tex2jax_ignore'
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
     },
     loader: {
-        load: ['[tex]/ams']
+        load: ['[tex]/ams', '[tex]/newcommand', '[tex]/configmacros']
     },
     startup: {
         pageReady: () => {
-            return MathJax.startup.defaultPageReady().then(() => {
-                console.log('MathJax initial typesetting complete');
-            });
+            return MathJax.startup.defaultPageReady();
         }
     }
 };
 
 document$.subscribe(() => {
-    MathJax.typesetPromise()
+    MathJax.startup.promise.then(() => {
+        MathJax.typesetPromise();
+    });
 })
