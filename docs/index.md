@@ -41,5 +41,5 @@ vLLM 优化、KV Cache 管理、推理系统部署
 
 * [详细背景](/about/) - 教育、工作经历、技能
 * [研究项目](/projects/) - RGB-to-RAW、VLA、LMCache、AgentDriver
-* [论文阅读](/papers/) - 论文分析与报告
+* [论文笔记](/papers/) - 论文分析与报告
 * [工具资源](/tools/) - 常用工具与参考资料
