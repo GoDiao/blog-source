@@ -31,7 +31,7 @@ vLLM 优化、KV Cache 管理、推理系统部署
 
 ## 最新动态
 
-* **[2025.01]** 华为杰出研发贡献奖（团队）- RGB-to-RAW 重建与 VLA 研究
+* **[2026.01]** 华为杰出研发贡献奖（团队）- RGB-to-RAW 重建与 VLA 研究
 * **[2024.12]** WSDM Cup 排名 154/950 - 多语言聊天机器人竞赛
 * **[2024.08]** 硕士阶段获得 EEE Global Merit Award 与 S$5,000 优秀奖学金
 
@@ -41,4 +41,5 @@ vLLM 优化、KV Cache 管理、推理系统部署
 
 * [详细背景](/about/) - 教育、工作经历、技能
 * [研究项目](/projects/) - RGB-to-RAW、VLA、LMCache、AgentDriver
+* [论文阅读](/papers/) - 论文分析与报告
 * [工具资源](/tools/) - 常用工具与参考资料
