@@ -1,78 +1,320 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const experience = [
+  {
+    role: 'Algorithm Research Engineer Intern',
+    company: 'Huawei Singapore Research Center',
+    period: 'Jul 2025 — Dec 2025',
+    details: [
+      'RGB-to-RAW reconstruction: ReRAW model, PSNR 52.81 → 56.98, SSIM 0.91 → 0.95',
+      'LMCache on Ascend 910B: CacheBlend integration, KV hit rate surpassing vLLM prefix cache',
+      'VLA/RAW-to-Action: SpatialVLA on Bridge dataset, success rate 34.5% → 49.5%',
+      'RawAdaptationModule: learnable channel projection, bridging 4-ch RAW to RGB encoder',
+      'AgentDriver: full-stack Ascend migration, Qwen2.5-32B + MindSpeed-LLM fine-tuning',
+      'Outstanding R&D Contribution Award (team)',
+    ],
+  },
+  {
+    role: 'Chip Verification Engineer Intern',
+    company: 'Infineon Technologies',
+    period: 'Dec 2022 — Jul 2023',
+    details: [
+      'Tcl/Python automation tools, qualification runtime reduced ~33%',
+      'RTL bring-up qualification experiments with chip design engineers',
+    ],
+  },
+  {
+    role: 'Implementation Engineer Intern',
+    company: 'Kingdee International Software',
+    period: 'May 2024 — Jul 2024',
+    details: [
+      'ERP system implementation for Chongqing Xinhua Bookstore Group',
+      'Python data processing automation, efficiency improved over 70%',
+    ],
+  },
+];
+
+const education = [
+  {
+    degree: 'M.Sc. Electrical & Electronic Engineering',
+    school: 'Nanyang Technological University',
+    period: 'Aug 2024 — Present',
+    details: ['CGPA 4.50/5.00 — Highest Distinction', 'EEE Global Merit Award (21/2114)', 'Genetic Algorithms & ML, NLP'],
+  },
+  {
+    degree: 'B.Eng. Electrical & Electronic Engineering',
+    school: 'Nanyang Technological University',
+    period: 'Aug 2020 — May 2024',
+    details: ['CGPA 4.33/5.00', 'SM2 Scholarship'],
+  },
+];
+
+const competitions = [
+  { name: 'WSDM Cup — Multilingual Chatbot', result: 'Rank 154 / 950', detail: 'Fine-tuned Gemma2-9b-it with LoRA + int4 quantization' },
+  { name: 'LLM 20 Questions', result: 'Accuracy 83%', detail: 'GRPO training from scratch, multi-agent cooperative architecture' },
+];
+
+const skills = [
+  { label: 'Languages', items: ['Python', 'TypeScript', 'SQL', 'Tcl'] },
+  { label: 'ML / AI', items: ['PyTorch', 'vLLM', 'PEFT', 'Ascend 910B', 'MindSpeed-LLM'] },
+  { label: 'Research', items: ['Computer Vision', 'Inverse ISP', 'RAW Processing', 'Embodied AI'] },
+  { label: 'Engineering', items: ['Git', 'LMCache', 'Docker', 'Linux'] },
+];
 ---
 
-<BaseLayout title="About - Diao Shengjia">
+<BaseLayout title="About — Diao Shengjia">
   <main>
-    <h1>About Me</h1>
+    <section class="page-intro">
+      <h1 class="intro-h reveal">About</h1>
+      <div class="intro-bio reveal">
+        <p>
+          AI/ML researcher pursuing an M.Sc. in EEE at <strong>NTU Singapore</strong>.
+          I work at the intersection of computer vision, LLM systems, and embodied intelligence —
+          currently at <strong>Huawei Singapore</strong> on RAW image reconstruction and VLA models.
+        </p>
+      </div>
+    </section>
 
-    <p>
-      I am <strong>Diao Shengjia</strong> (刁盛家), an AI/ML researcher pursuing an
-      M.Sc. in Electrical & Electronic Engineering at NTU Singapore, where I also earned
-      my B.Eng. My interests sit at the intersection of <strong>object detection, multimodal
-      intelligence, LLM systems, and agentic workflows</strong>, with a strong preference
-      for building systems that are both technically interesting and operationally useful.
-    </p>
+    <section class="section">
+      <h2 class="section-h reveal">Experience</h2>
+      <div class="entry-list">
+        {experience.map((exp, i) => (
+          <article class="entry reveal" style="--ei:{i}">
+            <div class="entry-head">
+              <div class="entry-left">
+                <h3 class="entry-role">{exp.role}</h3>
+                <span class="entry-org">{exp.company}</span>
+              </div>
+              <span class="entry-period">{exp.period}</span>
+            </div>
+            <ul class="entry-details">
+              {exp.details.map((d) => <li>{d}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
 
-    <h2>Education</h2>
-    <div class="entry">
-      <h3>M.Sc. Electrical & Electronic Engineering</h3>
-      <p class="meta">Nanyang Technological University &middot; Aug 2024 - Present</p>
-      <ul>
-        <li>CGPA 4.50/5.00 (Highest Distinction)</li>
-        <li>EEE Global Merit Award, S$5,000 scholarship (21/2114)</li>
-        <li>Relevant: Genetic Algorithms & ML, Prob & Stochastic Processes, NLP</li>
-      </ul>
-    </div>
-    <div class="entry">
-      <h3>B.Eng. Electrical & Electronic Engineering</h3>
-      <p class="meta">Nanyang Technological University &middot; Aug 2020 - May 2024</p>
-      <ul>
-        <li>CGPA 4.33/5.00</li>
-        <li>SM2 Scholarship</li>
-      </ul>
-    </div>
+    <section class="section">
+      <h2 class="section-h reveal">Education</h2>
+      <div class="entry-list">
+        {education.map((edu, i) => (
+          <article class="entry reveal" style="--ei:{i}">
+            <div class="entry-head">
+              <div class="entry-left">
+                <h3 class="entry-role">{edu.degree}</h3>
+                <span class="entry-org">{edu.school}</span>
+              </div>
+              <span class="entry-period">{edu.period}</span>
+            </div>
+            <ul class="entry-details">
+              {edu.details.map((d) => <li>{d}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
 
-    <h2>Experience</h2>
-    <div class="entry">
-      <h3>Huawei Singapore Research Center &mdash; Algorithm Research Engineer Intern</h3>
-      <p class="meta">Jul 2025 - Present</p>
-      <ul>
-        <li>RGB-to-RAW reconstruction: lightweight ReRAW model, PSNR 52.81→56.98</li>
-        <li>LMCache on Ascend 910B: KV hit rate surpassing vLLM prefix cache</li>
-        <li>VLA/RAW-to-Action: SpatialVLA fine-tuning, success rate 34.5%→49.5%</li>
-        <li>Outstanding R&D Contribution Award (team)</li>
-      </ul>
-    </div>
-    <div class="entry">
-      <h3>Infineon Technologies &mdash; Chip Verification Engineer Intern</h3>
-      <p class="meta">Dec 2022 - Jul 2023</p>
-      <ul>
-        <li>Tcl/Python automation tools, runtime reduced ~33%</li>
-        <li>RTL bring-up qualification experiments</li>
-      </ul>
-    </div>
+    <section class="section">
+      <h2 class="section-h reveal">Competitions</h2>
+      <div class="entry-list">
+        {competitions.map((comp, i) => (
+          <article class="entry reveal" style="--ei:{i}">
+            <div class="entry-head">
+              <div class="entry-left">
+                <h3 class="entry-role">{comp.name}</h3>
+                <span class="entry-org">{comp.detail}</span>
+              </div>
+              <span class="entry-result">{comp.result}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
 
-    <h2>Contact</h2>
-    <ul class="contact">
-      <li>Email: <a href="mailto:diaoshengjia@gmail.com">diaoshengjia@gmail.com</a></li>
-      <li>GitHub: <a href="https://github.com/GoDiao">@GoDiao</a></li>
-      <li>Location: Singapore</li>
-    </ul>
+    <section class="section">
+      <h2 class="section-h reveal">Toolbox</h2>
+      <div class="skills-grid">
+        {skills.map((group) => (
+          <div class="skill-group reveal">
+            <h3 class="skill-label">{group.label}</h3>
+            <div class="skill-tags">
+              {group.items.map((item) => <span class="skill-tag">{item}</span>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-h reveal">Contact</h2>
+      <div class="contact-list">
+        <a href="mailto:diaoshengjia@gmail.com" class="contact-row reveal">
+          <span class="contact-key">Email</span>
+          <span class="contact-val">diaoshengjia@gmail.com</span>
+        </a>
+        <a href="https://github.com/GoDiao" target="_blank" rel="noopener" class="contact-row reveal">
+          <span class="contact-key">GitHub</span>
+          <span class="contact-val">@GoDiao</span>
+        </a>
+        <div class="contact-row reveal">
+          <span class="contact-key">Location</span>
+          <span class="contact-val">Singapore</span>
+        </div>
+      </div>
+    </section>
   </main>
 </BaseLayout>
 
 <style>
-  h1 { font-size: 2rem; margin-bottom: 1rem; }
-  h2 { font-size: 1.3rem; margin: 2rem 0 0.75rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
-  p { margin-bottom: 0.75rem; }
+  .page-intro {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .intro-h {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 6vw, 3.8rem);
+    font-weight: 350;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.25rem;
+  }
+  .intro-bio { max-width: 560px; }
+  .intro-bio p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+  .intro-bio strong { color: var(--text); font-weight: 500; }
 
-  .entry { margin-bottom: 1.25rem; }
-  .entry h3 { font-size: 1rem; font-weight: 600; }
-  .entry .meta { color: var(--text-secondary); font-size: 0.9rem; }
-  .entry ul { margin: 0.5rem 0 0 1.5rem; }
-  .entry li { margin-bottom: 0.25rem; }
+  .section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-of-type { border-bottom: none; padding-bottom: 0; }
 
-  .contact { list-style: none; }
-  .contact li { padding: 0.25rem 0; }
+  /* ── Entries ── */
+  .entry-list { display: flex; flex-direction: column; }
+  .entry {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .entry:last-child { border-bottom: none; }
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 0.6rem;
+  }
+  .entry-left { flex: 1; }
+  .entry-role {
+    font-weight: 500;
+    font-size: 0.92rem;
+    color: var(--text);
+    margin-bottom: 0.15rem;
+  }
+  .entry-org {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+  }
+  .entry-period {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--text-dim);
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-top: 0.15rem;
+  }
+  .entry-result {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-top: 0.15rem;
+  }
+  .entry-details { list-style: none; }
+  .entry-details li {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    padding: 0.16rem 0 0.16rem 1rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .entry-details li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--text-dim);
+    opacity: 0.4;
+  }
+
+  /* ── Skills ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .skill-label {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  .skill-tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    transition: all var(--transition);
+  }
+  .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── Contact ── */
+  .contact-list { max-width: 500px; }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: all var(--transition);
+  }
+  .contact-row:last-child { border-bottom: none; }
+  a.contact-row:hover { padding-left: 0.5rem; }
+  .contact-key {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    min-width: 5rem;
+  }
+  .contact-val {
+    font-size: 0.9rem;
+    color: var(--text);
+    transition: color var(--transition);
+  }
+  a.contact-row:hover .contact-val { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .page-intro { padding: 3rem 0 2rem; }
+    .intro-h { font-size: clamp(2rem, 7vw, 2.8rem); }
+    .skills-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .entry-head { flex-direction: column; gap: 0.1rem; }
+    .section { padding: 2.5rem 0; }
+  }
 </style>

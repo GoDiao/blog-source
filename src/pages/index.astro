@@ -1,61 +1,505 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const research = [
+  { label: 'Computer Vision', detail: 'RAW reconstruction · Inverse ISP', img: null },
+  { label: 'Agentic AI', detail: 'Multi-agent architectures', img: null },
+  { label: 'Embodied Intelligence', detail: 'VLA models · SpatialVLA', img: null },
+  { label: 'LLM Systems', detail: 'vLLM · KV cache · Ascend 910B', img: null },
+];
+
+const experience = [
+  {
+    role: 'Algorithm Research Engineer',
+    org: 'Huawei Singapore',
+    period: 'Jul 2025 – Dec 2025',
+    img: null,
+    highlights: ['RGB-to-RAW (PSNR 52→57)', 'LMCache on Ascend 910B', 'SpatialVLA (34%→50%)', 'AgentDriver · R&D Award'],
+  },
+  {
+    role: 'Chip Verification Engineer',
+    org: 'Infineon Technologies',
+    period: 'Dec 2022 – Jul 2023',
+    img: null,
+    highlights: ['Tcl/Python automation', 'Qualification runtime ↓33%'],
+  },
+  {
+    role: 'Implementation Engineer',
+    org: 'Kingdee International',
+    period: 'May 2024 – Jul 2024',
+    img: null,
+    highlights: ['ERP for Xinhua Bookstore Group', 'Data automation efficiency ↑70%'],
+  },
+];
+
+const education = [
+  { degree: 'M.Sc. EEE', school: 'Nanyang Technological University', period: '2024 — 2026', note: 'Highest Distinction' },
+  { degree: 'B.Eng. EEE', school: 'Nanyang Technological University', period: '2020 — 2024', note: 'CGPA 4.33/5.00' },
+];
+
+const timeline = [
+  { date: '2025.01', text: 'Huawei Outstanding R&D Contribution Award' },
+  { date: '2024.12', text: 'WSDM Cup — ranked 154 / 950' },
+  { date: '2024.08', text: 'EEE Global Merit Award, S$5,000 scholarship' },
+];
+
+const oss = [
+  { name: 'paperclip', url: 'https://github.com/paperclipai/paperclip', desc: '零人工公司开源编排框架', stars: 58758 },
+  { name: 'MiniCode', url: 'https://github.com/LiuMengxuan04/MiniCode', desc: '轻量级终端 AI 编码助手', stars: 503 },
+  { name: 'investing-algorithm-framework', url: 'https://github.com/coding-kitties/investing-algorithm-framework', desc: '自动化交易算法回测框架', stars: 947 },
+];
 ---
 
-<BaseLayout title="Diao Shengjia - AI/ML Researcher">
+<BaseLayout title="Diao Shengjia">
   <main>
+    <!-- Hero -->
     <section class="hero">
-      <h1>Diao Shengjia</h1>
-      <p class="tagline">AI/ML Researcher @ NTU Singapore</p>
-      <p class="focus">Computer Vision &middot; LLM Systems &middot; Agentic AI &middot; Embodied Intelligence</p>
+      <div class="hero-avatar reveal">
+        <img src="/avatar.jpg" alt="Diao Shengjia" class="avatar-img" />
+      </div>
+      <h1 class="hero-name reveal">Diao Shengjia</h1>
+      <p class="hero-role reveal">
+        AI/ML Researcher<span class="role-sep">·</span>NTU Singapore
+      </p>
+      <p class="hero-status reveal">
+        <span class="status-ring"></span>
+        Available for opportunities
+      </p>
+
+      <div class="hero-icons reveal">
+        <a href="mailto:diaoshengjia@gmail.com" class="hi-link" title="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        </a>
+        <a href="https://github.com/GoDiao" target="_blank" rel="noopener" class="hi-link" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/shengjia-diao-800964222/" target="_blank" rel="noopener" class="hi-link" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
     </section>
 
-    <section class="about">
-      <p>
-        I build research-driven AI systems with a bias toward robust engineering,
-        open-source contribution, and practical deployment. Currently pursuing an
-        M.Sc. in Electrical & Electronic Engineering at NTU Singapore.
+    <!-- Research -->
+    <section class="section">
+      <h2 class="section-h reveal">Research</h2>
+      <div class="research-grid">
+        {research.map((r, i) => (
+          <div class="rc-card reveal" style="--ri:{i}">
+            <h3 class="rc-label">{r.label}</h3>
+            <p class="rc-detail">{r.detail}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section">
+      <h2 class="section-h reveal">About</h2>
+      <p class="bio reveal">
+        AI/ML researcher at <strong>NTU Singapore</strong> (M.Sc. EEE, Highest Distinction).
+        Previously B.Eng. from NTU with SM2 Scholarship. Working across computer vision,
+        LLM systems, and embodied intelligence at <strong>Huawei Singapore</strong>.
       </p>
     </section>
 
-    <section class="highlights">
-      <h2>Recent</h2>
-      <ul>
-        <li><strong>[2025.01]</strong> Huawei Outstanding R&D Contribution Award (team) &mdash; RGB-to-RAW reconstruction & VLA research</li>
-        <li><strong>[2024.12]</strong> WSDM Cup ranked 154/950 &mdash; Multilingual chatbot competition</li>
-        <li><strong>[2024.08]</strong> EEE Global Merit Award & S$5,000 scholarship (21/2114 students)</li>
-      </ul>
+    <!-- Experience -->
+    <section class="section">
+      <h2 class="section-h reveal">Experience</h2>
+      <div class="exp-grid">
+        {experience.map((exp, i) => (
+          <div class="exp-card reveal" style="--ei:{i}">
+            <div class="exp-card-top">
+              <h3 class="exp-role">{exp.role}</h3>
+              <span class="exp-period">{exp.period}</span>
+            </div>
+            <span class="exp-org">{exp.org}</span>
+            <ul class="exp-hl">
+              {exp.highlights.map((h) => <li>{h}</li>)}
+            </ul>
+            {exp.img && <img src={exp.img} alt={exp.org} class="exp-logo" />}
+          </div>
+        ))}
+      </div>
     </section>
 
-    <section class="links">
-      <a href="/about">About Me</a>
-      <a href="/projects">Projects</a>
-      <a href="https://godiao.github.io/blog/">Blog</a>
-      <a href="https://github.com/GoDiao">GitHub</a>
+    <!-- Education + Timeline side by side -->
+    <section class="section">
+      <div class="two-col">
+        <div>
+          <h2 class="section-h reveal">Education</h2>
+          <div class="edu-list">
+            {education.map((edu, i) => (
+              <div class="edu-item reveal" style="--ei:{i}">
+                <span class="edu-degree">{edu.degree}</span>
+                <span class="edu-school">{edu.school}</span>
+                <span class="edu-period">{edu.period} &middot; {edu.note}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h2 class="section-h reveal">Timeline</h2>
+          <div class="tl-list">
+            {timeline.map((t, i) => (
+              <div class="tl-item reveal" style="--ti:{i}">
+                <span class="tl-date">{t.date}</span>
+                <span class="tl-text">{t.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open Source -->
+    <section class="section">
+      <h2 class="section-h reveal">Open Source Projects I Contribute</h2>
+      <div class="oss-list">
+        {oss.map((p) => (
+          <a href={p.url} target="_blank" rel="noopener" class="oss-card reveal">
+            <span class="oss-name">{p.name}</span>
+            <span class="oss-desc">{p.desc}</span>
+            <span class="oss-stars">&#9733; {p.stars.toLocaleString()}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Links -->
+    <section class="section">
+      <h2 class="section-h reveal">Elsewhere</h2>
+      <div class="links-grid">
+        <a href="/projects" class="link-card reveal">
+          <span class="lc-label">Projects</span>
+          <span class="lc-desc">Things I've built</span>
+        </a>
+        <a href="https://godiao.github.io/blog/" class="link-card reveal">
+          <span class="lc-label">Blog</span>
+          <span class="lc-desc">Thoughts & notes</span>
+        </a>
+      </div>
     </section>
   </main>
 </BaseLayout>
 
 <style>
-  .hero { margin-bottom: 2rem; }
-  .hero h1 { font-size: 2rem; font-weight: 700; }
-  .tagline { font-size: 1.2rem; color: var(--text-secondary); margin-top: 0.5rem; }
-  .focus { font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.25rem; }
-
-  .about { margin-bottom: 2rem; }
-
-  .highlights { margin-bottom: 2rem; }
-  .highlights h2 { font-size: 1.2rem; margin-bottom: 0.75rem; }
-  .highlights ul { list-style: none; }
-  .highlights li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
-
-  .links { display: flex; gap: 1.5rem; }
-  .links a {
-    padding: 0.5rem 1.25rem;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    font-weight: 500;
-    transition: border-color 0.2s;
+  /* ── Hero ── */
+  .hero {
+    padding: 4.5rem 0 4rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
   }
-  .links a:hover { border-color: var(--accent); text-decoration: none; }
+  .hero-avatar {
+    width: 88px; height: 88px;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1.5px solid var(--border-hover);
+    box-shadow: 0 0 40px rgba(184,149,106,0.08);
+  }
+  .avatar-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 350;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+  }
+  .hero-role {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 350;
+    margin-bottom: 0.75rem;
+  }
+  .role-sep { margin: 0 0.5rem; color: var(--text-dim); }
+  .hero-status {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+  .status-ring {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.7;
+  }
+
+  .hero-icons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+  .hi-link {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    transition: all var(--transition);
+  }
+  .hi-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+  .hi-link svg {
+    width: 15px; height: 15px;
+  }
+
+  /* ── Section ── */
+  .section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
+  .section:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+  /* ── Research Grid (2x2 cards) ── */
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .rc-card {
+    background: var(--bg);
+    padding: 1.5rem;
+    transition: background var(--transition);
+  }
+  .rc-card:hover { background: var(--bg-elevated); }
+  .rc-label {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+    transition: color var(--transition);
+  }
+  .rc-card:hover .rc-label { color: var(--accent); }
+  .rc-detail {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Bio ── */
+  .bio {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    max-width: 620px;
+  }
+  .bio strong { color: var(--text); font-weight: 500; }
+
+  /* ── Experience (card grid) ── */
+  .exp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .exp-card {
+    background: var(--bg);
+    padding: 1.75rem;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr;
+    gap: 0.4rem;
+    transition: background var(--transition);
+  }
+  .exp-card:hover { background: var(--bg-elevated); }
+  .exp-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+  .exp-role {
+    font-weight: 500;
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+  }
+  .exp-period {
+    font-family: var(--mono);
+    font-size: 0.52rem;
+    color: var(--text-dim);
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 9.5rem;
+    text-align: right;
+    padding-top: 0.1rem;
+  }
+  .exp-org {
+    font-family: var(--mono);
+    font-size: 0.56rem;
+    color: var(--accent);
+    opacity: 0.7;
+    letter-spacing: 0.04em;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-hl {
+    list-style: none;
+    padding-top: 0.25rem;
+  }
+  .exp-hl li {
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    padding: 0.12rem 0 0.12rem 0.7rem;
+    position: relative;
+  }
+  .exp-hl li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 0.5rem;
+    top: 0.12rem;
+  }
+
+  /* ── Two column: Education + Timeline ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .edu-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .edu-item:last-child { border-bottom: none; }
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--text);
+  }
+  .edu-school {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+  }
+  .edu-period {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+  .tl-list { display: flex; flex-direction: column; }
+  .tl-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-date {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    min-width: 4.5rem;
+    letter-spacing: 0.03em;
+  }
+  .tl-text { font-size: 0.88rem; color: var(--text); }
+
+  /* ── Open Source ── */
+  .oss-intro {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+    margin-bottom: 1.25rem;
+  }
+  .oss-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .oss-card {
+    background: var(--bg);
+    padding: 1.5rem;
+    transition: all var(--transition);
+    position: relative;
+  }
+  .oss-card:hover { background: var(--bg-elevated); }
+  .oss-name {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--text);
+    transition: color var(--transition);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .oss-card:hover .oss-name { color: var(--accent); }
+  .oss-desc {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+  }
+  .oss-stars {
+    display: block;
+    margin-top: 0.35rem;
+    font-family: var(--mono);
+    font-size: 0.56rem;
+    color: var(--accent);
+    opacity: 0.4;
+  }
+  .oss-card:hover .oss-stars { opacity: 0.7; }
+
+  /* ── Links ── */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .link-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem 1.5rem;
+    background: var(--bg);
+    transition: background var(--transition);
+    position: relative;
+    min-height: 90px;
+  }
+  .link-card:hover { background: var(--bg-elevated); }
+  .lc-label {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 400;
+    transition: color var(--transition);
+  }
+  .link-card:hover .lc-label { color: var(--accent); }
+  .lc-desc {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    margin-top: 0.2rem;
+  }
+
+  @media (max-width: 768px) {
+    .exp-grid { grid-template-columns: 1fr; }
+    .oss-list { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  @media (max-width: 640px) {
+    .hero { padding: 3.5rem 0 3rem; }
+    .hero-name { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+    .research-grid { grid-template-columns: repeat(2, 1fr); }
+    .research-grid .rc-img-wrap { height: 80px; }
+    .links-grid { grid-template-columns: 1fr; }
+    .section { padding: 2.5rem 0; }
+  }
 </style>

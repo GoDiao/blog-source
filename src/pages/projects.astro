@@ -5,90 +5,273 @@ const projects = [
   {
     name: 'Paper-Reader',
     url: 'https://github.com/GoDiao/Paper-Reader',
-    desc: 'Hierarchical multi-agent academic paper analysis system with an interactive web interface.',
+    desc: 'Hierarchical multi-agent academic paper analysis system with interactive web interface.',
+    tags: ['Python', 'Multi-Agent', 'LLM'],
+    year: '2025',
+    img: '/projects/paper_reader.png',
+    stars: 4,
   },
   {
     name: 'ai-interview-agent',
     url: 'https://github.com/GoDiao/ai-interview-agent',
-    desc: 'AI-powered interview preparation agent with structured questioning and feedback loops.',
+    desc: 'AI-powered interview preparation with structured questioning and feedback loops.',
+    tags: ['Python', 'NLP', 'Agent'],
+    year: '2025',
+    img: '/projects/ai-interview-agent.png',
+    stars: 22,
   },
   {
     name: 'Freeway',
-    url: 'https://github.com/GoDiao/Freeway',
-    desc: 'Open-source gateway aggregating free LLM APIs behind one local, OpenAI-compatible endpoint.',
+    url: 'https://github.com/GoDiao/Free-Way',
+    desc: 'Gateway aggregating free LLM APIs behind one local, OpenAI-compatible endpoint.',
+    tags: ['TypeScript', 'LLM', 'API'],
+    year: '2025',
+    img: '/projects/free_way.jpg',
+    stars: 2,
   },
   {
     name: 'oc-loop',
     url: 'https://github.com/GoDiao/oc-loop',
-    desc: 'Resumable loop plugin for opencode with /oc-loop and /oc-watch for iterative agent workflows.',
+    desc: 'Resumable loop plugin for opencode — persistent iterative agent workflows.',
+    tags: ['TypeScript', 'CLI', 'Agent'],
+    year: '2025',
+    img: '/projects/oc-loop.jpg',
+    stars: 2,
   },
 ];
 
 const oss = [
   {
     name: 'paperclip',
-    url: 'https://github.com/SolomonAIEngineering/paperclip',
-    desc: 'Open-source orchestration for zero-human companies.',
+    url: 'https://github.com/paperclipai/paperclip',
+    desc: 'AI agent orchestration framework for building autonomous, zero-human companies — multi-agent negotiation, task dispatching, and execution monitoring.',
+    img: '/oss/paperclip.png',
+    stars: 58758,
   },
   {
     name: 'MiniCode',
-    url: 'https://github.com/Gen-Verse/MiniCode',
-    desc: 'Lightweight terminal coding assistant with Claude Code-like workflow and TUI architecture.',
+    url: 'https://github.com/LiuMengxuan04/MiniCode',
+    desc: 'Terminal-native AI coding assistant with Claude Code-style workflow and lightweight TUI — built for rapid prototyping and code review.',
+    img: '/oss/minicode.jpg',
+    stars: 503,
   },
   {
     name: 'investing-algorithm-framework',
-    url: 'https://github.com/codingwithmanny/investing-algorithm-framework',
-    desc: 'Framework for developing, backtesting, and deploying automated trading algorithms.',
+    url: 'https://github.com/coding-kitties/investing-algorithm-framework',
+    desc: 'Framework for developing and backtesting automated trading strategies — backtest engine, indicator computation, and deployment pipeline.',
+    img: '/oss/investing-framework.png',
+    stars: 947,
   },
 ];
 ---
 
-<BaseLayout title="Projects - Diao Shengjia">
+<BaseLayout title="Projects — Diao Shengjia">
   <main>
-    <h1>Projects</h1>
+    <section class="page-intro">
+      <h1 class="intro-h reveal">Projects</h1>
+    </section>
 
-    <h2>Featured Builds</h2>
-    <div class="grid">
-      {projects.map((p) => (
-        <a class="card" href={p.url}>
-          <h3>{p.name}</h3>
-          <p>{p.desc}</p>
-        </a>
-      ))}
-    </div>
+    <section class="section">
+      <h2 class="section-h reveal">Featured</h2>
+      <div class="project-grid">
+        {projects.map((p, i) => (
+          <a href={p.url} target="_blank" rel="noopener" class="proj-card reveal" style="--pi:{i}">
+            <div class="proj-thumb">
+              <img src={p.img} alt={p.name} class="proj-img" />
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-num">{String(i + 1).padStart(2, '0')}</span>
+                <span class="proj-year">{p.year}</span>
+              </div>
+              <h3 class="proj-name">{p.name}</h3>
+              <p class="proj-desc">{p.desc}</p>
+              <div class="proj-tags">
+                {p.tags.map((tag) => <span class="proj-tag">{tag}</span>)}
+                <span class="proj-stars">&#9733; {p.stars}</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
 
-    <h2>Open Source Contributions</h2>
-    <div class="grid">
-      {oss.map((p) => (
-        <a class="card" href={p.url}>
-          <h3>{p.name}</h3>
-          <p>{p.desc}</p>
-        </a>
-      ))}
-    </div>
+    <section class="section">
+      <h2 class="section-h reveal">Open Source Projects I Contribute</h2>
+      <div class="oss-grid">
+        {oss.map((p) => (
+          <a href={p.url} target="_blank" rel="noopener" class="oss-card reveal">
+            <div class="oss-img-wrap">
+              <img src={p.img} alt="" class="oss-img" />
+            </div>
+            <div class="oss-body">
+              <span class="oss-name">{p.name}</span>
+              <span class="oss-desc">{p.desc}</span>
+              <span class="oss-stars">&#9733; {p.stars.toLocaleString()}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
   </main>
 </BaseLayout>
 
 <style>
-  h1 { font-size: 2rem; margin-bottom: 1rem; }
-  h2 { font-size: 1.3rem; margin: 2rem 0 0.75rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+  .page-intro {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .intro-h {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 6vw, 3.8rem);
+    font-weight: 350;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-of-type { border-bottom: none; padding-bottom: 0; }
 
-  .grid {
+  /* ── Project Grid ── */
+  .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .proj-card {
+    background: var(--bg);
+    transition: background var(--transition);
+  }
+  .proj-card:hover { background: var(--bg-elevated); }
+  .proj-thumb {
+    height: 140px;
+    background: var(--bg-elevated);
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .proj-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .proj-body { padding: 1.5rem 1.75rem 1.75rem; }
+  .proj-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  .proj-num {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    color: var(--accent);
+    opacity: 0.5;
+    letter-spacing: 0.1em;
+  }
+  .proj-year {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    color: var(--text-dim);
+  }
+  .proj-name {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 0.35rem;
+    transition: color var(--transition);
+  }
+  .proj-card:hover .proj-name { color: var(--accent); }
+  .proj-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
     margin-bottom: 1rem;
   }
-
-  .card {
-    display: block;
-    padding: 1.25rem;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    transition: border-color 0.2s;
-    color: var(--text);
+  .proj-tags {
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
   }
-  .card:hover { border-color: var(--accent); text-decoration: none; }
-  .card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
-  .card p { font-size: 0.9rem; color: var(--text-secondary); }
+  .proj-tag {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    padding: 0.15rem 0.4rem;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .proj-card:hover .proj-tag { border-color: var(--border-hover); color: var(--text-secondary); }
+  .proj-stars {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--accent);
+    opacity: 0.5;
+    flex-shrink: 0;
+    padding-top: 0.15rem;
+  }
+  .proj-card:hover .proj-stars { opacity: 0.85; }
+
+  /* ── OSS ── */
+  .oss-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .oss-card {
+    background: var(--bg);
+    transition: all var(--transition);
+  }
+  .oss-card:hover { background: var(--bg-elevated); }
+  .oss-img-wrap {
+    height: 120px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .oss-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .oss-card:hover .oss-img { transform: scale(1.03); }
+  .oss-body { padding: 1.25rem 1.5rem 1.5rem; }
+  .oss-name {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--text);
+    transition: color var(--transition);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .oss-card:hover .oss-name { color: var(--accent); }
+  .oss-desc {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+  }
+  .oss-stars {
+    display: block;
+    margin-top: 0.4rem;
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    color: var(--accent);
+    opacity: 0.45;
+  }
+  .oss-card:hover .oss-stars { opacity: 0.75; }
+
+  @media (max-width: 768px) {
+    .oss-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .page-intro { padding: 3rem 0 2rem; }
+    .intro-h { font-size: clamp(2rem, 7vw, 2.8rem); }
+    .project-grid { grid-template-columns: 1fr; }
+    .proj-thumb { height: 200px; }
+    .section { padding: 2.5rem 0; }
+  }
 </style>
