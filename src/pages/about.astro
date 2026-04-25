@@ -46,7 +46,7 @@ const education = [
     degree: 'B.Eng. Electrical & Electronic Engineering',
     school: 'Nanyang Technological University',
     period: 'Aug 2020 — May 2024',
-    details: ['CGPA 4.33/5.00', 'SM2 Scholarship'],
+    details: ['SM2 Scholarship'],
   },
 ];
 
@@ -170,7 +170,6 @@ const skills = [
 <style>
   .page-intro {
     padding: 4rem 0 3rem;
-    border-bottom: 1px solid var(--border);
   }
   .intro-h {
     font-family: var(--serif);
@@ -181,25 +180,21 @@ const skills = [
   }
   .intro-bio { max-width: 560px; }
   .intro-bio p {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.75;
   }
   .intro-bio strong { color: var(--text); font-weight: 500; }
 
-  .section {
-    padding: 3.5rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .section:last-of-type { border-bottom: none; padding-bottom: 0; }
+  .section { padding: 3.5rem 0; }
+  .section + .section { border-top: 1px solid var(--border); }
 
   /* ── Entries ── */
   .entry-list { display: flex; flex-direction: column; }
   .entry {
     padding: 1.25rem 0;
-    border-bottom: 1px solid var(--border);
   }
-  .entry:last-child { border-bottom: none; }
+  .entry + .entry { border-top: 1px solid var(--border); }
   .entry-head {
     display: flex;
     justify-content: space-between;
@@ -290,10 +285,9 @@ const skills = [
     align-items: center;
     gap: 1.5rem;
     padding: 0.85rem 0;
-    border-bottom: 1px solid var(--border);
     transition: all var(--transition);
   }
-  .contact-row:last-child { border-bottom: none; }
+  .contact-row + .contact-row { border-top: 1px solid var(--border); }
   a.contact-row:hover { padding-left: 0.5rem; }
   .contact-key {
     font-family: var(--mono);

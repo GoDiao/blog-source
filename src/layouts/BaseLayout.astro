@@ -41,7 +41,7 @@ const { title } = Astro.props;
 
 <style is:global>
   :root {
-    --bg: #0f0f0e;
+    --bg: #121210;
     --bg-elevated: #151513;
     --bg-card: #191916;
     --text: #d4cfc6;
@@ -70,7 +70,10 @@ const { title } = Astro.props;
 
   body {
     font-family: var(--sans);
-    background: var(--bg);
+    background:
+      radial-gradient(ellipse 800px 500px at 50% -100px, rgba(184,149,106,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 400px at 100% 80%, rgba(184,149,106,0.03) 0%, transparent 70%),
+      var(--bg);
     color: var(--text);
     line-height: 1.7;
     font-weight: 350;
@@ -182,7 +185,7 @@ const { title } = Astro.props;
   /* ── Shared heading ── */
   .section-h {
     font-family: var(--mono);
-    font-size: 0.6rem;
+    font-size: 0.68rem;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.16em;

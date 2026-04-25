@@ -69,26 +69,29 @@ const oss = [
   <main>
     <section class="page-intro">
       <h1 class="intro-h reveal">Projects</h1>
+      <p class="intro-sub reveal">Things I've built</p>
     </section>
 
+    <!-- ── Featured ── -->
     <section class="section">
       <h2 class="section-h reveal">Featured</h2>
-      <div class="project-grid">
+      <div class="proj-list">
         {projects.map((p, i) => (
-          <a href={p.url} target="_blank" rel="noopener" class="proj-card reveal" style="--pi:{i}">
+          <a href={p.url} target="_blank" rel="noopener" class="proj-row reveal" style="--pi:{i}">
             <div class="proj-thumb">
-              <img src={p.img} alt={p.name} class="proj-img" />
+              <img src={p.img} alt={p.name} class="proj-img" loading="lazy" />
             </div>
             <div class="proj-body">
-              <div class="proj-meta">
-                <span class="proj-num">{String(i + 1).padStart(2, '0')}</span>
-                <span class="proj-year">{p.year}</span>
-              </div>
-              <h3 class="proj-name">{p.name}</h3>
-              <p class="proj-desc">{p.desc}</p>
-              <div class="proj-tags">
-                {p.tags.map((tag) => <span class="proj-tag">{tag}</span>)}
+              <div class="proj-top">
+                <h3 class="proj-name">{p.name}</h3>
                 <span class="proj-stars">&#9733; {p.stars}</span>
+              </div>
+              <p class="proj-desc">{p.desc}</p>
+              <div class="proj-bottom">
+                <div class="proj-tags">
+                  {p.tags.map((tag) => <span class="proj-tag">{tag}</span>)}
+                </div>
+                <span class="proj-year">{p.year}</span>
               </div>
             </div>
           </a>
@@ -96,13 +99,14 @@ const oss = [
       </div>
     </section>
 
+    <!-- ── OSS ── -->
     <section class="section">
       <h2 class="section-h reveal">Open Source Projects I Contribute</h2>
       <div class="oss-grid">
         {oss.map((p) => (
           <a href={p.url} target="_blank" rel="noopener" class="oss-card reveal">
             <div class="oss-img-wrap">
-              <img src={p.img} alt="" class="oss-img" />
+              <img src={p.img} alt="" class="oss-img" loading="lazy" />
             </div>
             <div class="oss-body">
               <span class="oss-name">{p.name}</span>
@@ -119,7 +123,6 @@ const oss = [
 <style>
   .page-intro {
     padding: 4rem 0 3rem;
-    border-bottom: 1px solid var(--border);
   }
   .intro-h {
     font-family: var(--serif);
@@ -127,65 +130,91 @@ const oss = [
     font-weight: 350;
     letter-spacing: -0.025em;
     line-height: 1.1;
+    margin-bottom: 0.4rem;
   }
-  .section {
-    padding: 3.5rem 0;
-    border-bottom: 1px solid var(--border);
+  .intro-sub {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
   }
-  .section:last-of-type { border-bottom: none; padding-bottom: 0; }
+  .section { padding: 3.5rem 0; }
+  .section + .section { border-top: 1px solid var(--border); }
 
-  /* ── Project Grid ── */
-  .project-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
+  /* ── Project List (image left, text right, scalable) ── */
+  .proj-list { display: flex; flex-direction: column; }
+  .proj-row {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    transition: all var(--transition);
+    align-items: start;
   }
-  .proj-card {
-    background: var(--bg);
-    transition: background var(--transition);
+  .proj-row + .proj-row { border-top: 1px solid var(--border); }
+  .proj-row:hover {
+    padding-left: 0.5rem;
   }
-  .proj-card:hover { background: var(--bg-elevated); }
+
   .proj-thumb {
-    height: 140px;
-    background: var(--bg-elevated);
+    width: 260px;
+    height: 150px;
+    border-radius: 4px;
     overflow: hidden;
-    border-bottom: 1px solid var(--border);
+    background: var(--bg-elevated);
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    transition: border-color var(--transition);
   }
-  .proj-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .proj-body { padding: 1.5rem 1.75rem 1.75rem; }
-  .proj-meta {
+  .proj-row:hover .proj-thumb { border-color: var(--border-hover); }
+  .proj-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .proj-body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.1rem;
+  }
+  .proj-top {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
-  }
-  .proj-num {
-    font-family: var(--mono);
-    font-size: 0.55rem;
-    color: var(--accent);
-    opacity: 0.5;
-    letter-spacing: 0.1em;
-  }
-  .proj-year {
-    font-family: var(--mono);
-    font-size: 0.55rem;
-    color: var(--text-dim);
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
   }
   .proj-name {
     font-family: var(--serif);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-style: italic;
     font-weight: 400;
-    margin-bottom: 0.35rem;
+    color: var(--text);
     transition: color var(--transition);
   }
-  .proj-card:hover .proj-name { color: var(--accent); }
+  .proj-row:hover .proj-name { color: var(--accent); }
+  .proj-stars {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    opacity: 0.55;
+    flex-shrink: 0;
+  }
   .proj-desc {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 1rem;
+    line-height: 1.55;
+    margin-bottom: 0.6rem;
+    flex: 1;
+  }
+  .proj-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
   }
   .proj-tags {
     display: flex;
@@ -194,24 +223,22 @@ const oss = [
   }
   .proj-tag {
     font-family: var(--mono);
-    font-size: 0.55rem;
-    padding: 0.15rem 0.4rem;
+    font-size: 0.5rem;
+    padding: 0.1rem 0.35rem;
     border: 1px solid var(--border);
     color: var(--text-dim);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    transition: all var(--transition);
+    border-radius: 2px;
   }
-  .proj-card:hover .proj-tag { border-color: var(--border-hover); color: var(--text-secondary); }
-  .proj-stars {
-    margin-left: auto;
+  .proj-row:hover .proj-tag { border-color: var(--border-hover); color: var(--text-secondary); }
+  .proj-year {
     font-family: var(--mono);
-    font-size: 0.6rem;
-    color: var(--accent);
-    opacity: 0.5;
+    font-size: 0.65rem;
+    color: var(--text-dim);
     flex-shrink: 0;
-    padding-top: 0.15rem;
   }
-  .proj-card:hover .proj-stars { opacity: 0.85; }
 
   /* ── OSS ── */
   .oss-grid {
@@ -219,11 +246,10 @@ const oss = [
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: var(--border);
-    border: 1px solid var(--border);
   }
   .oss-card {
     background: var(--bg);
-    transition: all var(--transition);
+    transition: background var(--transition);
   }
   .oss-card:hover { background: var(--bg-elevated); }
   .oss-img-wrap {
@@ -265,13 +291,16 @@ const oss = [
   .oss-card:hover .oss-stars { opacity: 0.75; }
 
   @media (max-width: 768px) {
+    .proj-row { gap: 1rem; }
+    .proj-thumb { width: 180px; height: 110px; }
     .oss-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 640px) {
     .page-intro { padding: 3rem 0 2rem; }
     .intro-h { font-size: clamp(2rem, 7vw, 2.8rem); }
-    .project-grid { grid-template-columns: 1fr; }
-    .proj-thumb { height: 200px; }
+    .proj-row { flex-direction: column; gap: 0.75rem; }
+    .proj-row:hover { padding-left: 0; }
+    .proj-thumb { width: 100%; height: 180px; }
     .section { padding: 2.5rem 0; }
   }
 </style>

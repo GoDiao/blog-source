@@ -2,10 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const research = [
-  { label: 'Computer Vision', detail: 'RAW reconstruction · Inverse ISP', img: null },
-  { label: 'Agentic AI', detail: 'Multi-agent architectures', img: null },
-  { label: 'Embodied Intelligence', detail: 'VLA models · SpatialVLA', img: null },
-  { label: 'LLM Systems', detail: 'vLLM · KV cache · Ascend 910B', img: null },
+  { label: 'Computer Vision', detail: 'RAW reconstruction · Inverse ISP' },
+  { label: 'Agentic AI', detail: 'Multi-agent architectures' },
+  { label: 'Embodied Intelligence', detail: 'VLA models · SpatialVLA' },
+  { label: 'LLM Systems', detail: 'vLLM · KV cache · Ascend 910B' },
 ];
 
 const experience = [
@@ -13,28 +13,25 @@ const experience = [
     role: 'Algorithm Research Engineer',
     org: 'Huawei Singapore',
     period: 'Jul 2025 – Dec 2025',
-    img: null,
-    highlights: ['RGB-to-RAW (PSNR 52→57)', 'LMCache on Ascend 910B', 'SpatialVLA (34%→50%)', 'AgentDriver · R&D Award'],
+    directions: ['RGB to RAW', 'VLA', 'KV Cache System', 'Agentic AI'],
   },
   {
     role: 'Chip Verification Engineer',
     org: 'Infineon Technologies',
     period: 'Dec 2022 – Jul 2023',
-    img: null,
-    highlights: ['Tcl/Python automation', 'Qualification runtime ↓33%'],
+    directions: ['Chip Verification', 'Tcl/Python Automation'],
   },
   {
     role: 'Implementation Engineer',
     org: 'Kingdee International',
     period: 'May 2024 – Jul 2024',
-    img: null,
-    highlights: ['ERP for Xinhua Bookstore Group', 'Data automation efficiency ↑70%'],
+    directions: ['ERP System Implementation', 'Data Automation'],
   },
 ];
 
 const education = [
   { degree: 'M.Sc. EEE', school: 'Nanyang Technological University', period: '2024 — 2026', note: 'Highest Distinction' },
-  { degree: 'B.Eng. EEE', school: 'Nanyang Technological University', period: '2020 — 2024', note: 'CGPA 4.33/5.00' },
+  { degree: 'B.Eng. EEE', school: 'Nanyang Technological University', period: '2020 — 2024', note: 'SM2 Scholarship' },
 ];
 
 const timeline = [
@@ -44,28 +41,26 @@ const timeline = [
 ];
 
 const oss = [
-  { name: 'paperclip', url: 'https://github.com/paperclipai/paperclip', desc: '零人工公司开源编排框架', stars: 58758 },
-  { name: 'MiniCode', url: 'https://github.com/LiuMengxuan04/MiniCode', desc: '轻量级终端 AI 编码助手', stars: 503 },
-  { name: 'investing-algorithm-framework', url: 'https://github.com/coding-kitties/investing-algorithm-framework', desc: '自动化交易算法回测框架', stars: 947 },
+  { name: 'paperclip', url: 'https://github.com/paperclipai/paperclip', desc: 'AI agent orchestration framework for building autonomous, zero-human companies', stars: 58758 },
+  { name: 'MiniCode', url: 'https://github.com/LiuMengxuan04/MiniCode', desc: 'Terminal-native AI coding assistant with lightweight TUI', stars: 503 },
+  { name: 'investing-algorithm-framework', url: 'https://github.com/coding-kitties/investing-algorithm-framework', desc: 'Framework for developing and backtesting automated trading strategies', stars: 947 },
 ];
 ---
 
 <BaseLayout title="Diao Shengjia">
   <main>
-    <!-- Hero -->
+    <!-- ── Hero ── -->
     <section class="hero">
+      <div class="hero-glow"></div>
       <div class="hero-avatar reveal">
         <img src="/avatar.jpg" alt="Diao Shengjia" class="avatar-img" />
       </div>
       <h1 class="hero-name reveal">Diao Shengjia</h1>
-      <p class="hero-role reveal">
-        AI/ML Researcher<span class="role-sep">·</span>NTU Singapore
-      </p>
+      <p class="hero-role reveal">AI/ML Researcher &middot; NTU Singapore</p>
       <p class="hero-status reveal">
         <span class="status-ring"></span>
         Available for opportunities
       </p>
-
       <div class="hero-icons reveal">
         <a href="mailto:diaoshengjia@gmail.com" class="hi-link" title="Email">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
@@ -79,12 +74,12 @@ const oss = [
       </div>
     </section>
 
-    <!-- Research -->
+    <!-- ── Research ── -->
     <section class="section">
       <h2 class="section-h reveal">Research</h2>
       <div class="research-grid">
         {research.map((r, i) => (
-          <div class="rc-card reveal" style="--ri:{i}">
+          <div class="rc-card" style="--ri:{i}">
             <h3 class="rc-label">{r.label}</h3>
             <p class="rc-detail">{r.detail}</p>
           </div>
@@ -92,9 +87,8 @@ const oss = [
       </div>
     </section>
 
-    <!-- About -->
+    <!-- ── Bio ── -->
     <section class="section">
-      <h2 class="section-h reveal">About</h2>
       <p class="bio reveal">
         AI/ML researcher at <strong>NTU Singapore</strong> (M.Sc. EEE, Highest Distinction).
         Previously B.Eng. from NTU with SM2 Scholarship. Working across computer vision,
@@ -102,27 +96,34 @@ const oss = [
       </p>
     </section>
 
-    <!-- Experience -->
+    <!-- ── Experience (Timeline) ── -->
     <section class="section">
       <h2 class="section-h reveal">Experience</h2>
-      <div class="exp-grid">
+      <div class="timeline">
         {experience.map((exp, i) => (
-          <div class="exp-card reveal" style="--ei:{i}">
-            <div class="exp-card-top">
-              <h3 class="exp-role">{exp.role}</h3>
-              <span class="exp-period">{exp.period}</span>
+          <div class="tl-entry reveal" style="--ti:{i}">
+            <div class="tl-marker">
+              <span class="tl-dot"></span>
+              {i < experience.length - 1 && <span class="tl-line"></span>}
             </div>
-            <span class="exp-org">{exp.org}</span>
-            <ul class="exp-hl">
-              {exp.highlights.map((h) => <li>{h}</li>)}
-            </ul>
-            {exp.img && <img src={exp.img} alt={exp.org} class="exp-logo" />}
+            <div class="tl-card">
+              <div class="tl-head">
+                <div>
+                  <h3 class="tl-role">{exp.role}</h3>
+                  <span class="tl-org">{exp.org}</span>
+                </div>
+                <span class="tl-period">{exp.period}</span>
+              </div>
+              <ul class="tl-highlights">
+                {exp.directions.map((d) => <li>{d}</li>)}
+              </ul>
+            </div>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- Education + Timeline side by side -->
+    <!-- ── Education + Timeline ── -->
     <section class="section">
       <div class="two-col">
         <div>
@@ -141,7 +142,7 @@ const oss = [
           <h2 class="section-h reveal">Timeline</h2>
           <div class="tl-list">
             {timeline.map((t, i) => (
-              <div class="tl-item reveal" style="--ti:{i}">
+              <div class="tl-row reveal" style="--ti:{i}">
                 <span class="tl-date">{t.date}</span>
                 <span class="tl-text">{t.text}</span>
               </div>
@@ -151,24 +152,23 @@ const oss = [
       </div>
     </section>
 
-    <!-- Open Source -->
+    <!-- ── Open Source ── -->
     <section class="section">
       <h2 class="section-h reveal">Open Source Projects I Contribute</h2>
       <div class="oss-list">
         {oss.map((p) => (
-          <a href={p.url} target="_blank" rel="noopener" class="oss-card reveal">
+          <a href={p.url} target="_blank" rel="noopener" class="oss-row reveal">
             <span class="oss-name">{p.name}</span>
-            <span class="oss-desc">{p.desc}</span>
             <span class="oss-stars">&#9733; {p.stars.toLocaleString()}</span>
+            <span class="oss-desc">{p.desc}</span>
           </a>
         ))}
       </div>
     </section>
 
-    <!-- Links -->
+    <!-- ── Links ── -->
     <section class="section">
-      <h2 class="section-h reveal">Elsewhere</h2>
-      <div class="links-grid">
+      <div class="links-row">
         <a href="/projects" class="link-card reveal">
           <span class="lc-label">Projects</span>
           <span class="lc-desc">Things I've built</span>
@@ -187,15 +187,35 @@ const oss = [
   .hero {
     padding: 4.5rem 0 4rem;
     text-align: center;
-    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,149,106,0.08) 0%, transparent 70%);
+    pointer-events: none;
   }
   .hero-avatar {
-    width: 88px; height: 88px;
+    width: 112px; height: 112px;
     margin: 0 auto 2rem;
     border-radius: 50%;
     overflow: hidden;
     border: 1.5px solid var(--border-hover);
-    box-shadow: 0 0 40px rgba(184,149,106,0.08);
+    position: relative;
+  }
+  .hero-avatar::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,149,106,0.15) 0%, transparent 60%);
+    z-index: -1;
   }
   .avatar-img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .hero-name {
@@ -211,7 +231,6 @@ const oss = [
     font-weight: 350;
     margin-bottom: 0.75rem;
   }
-  .role-sep { margin: 0 0.5rem; color: var(--text-dim); }
   .hero-status {
     font-family: var(--mono);
     font-size: 0.58rem;
@@ -228,7 +247,6 @@ const oss = [
     background: var(--accent);
     opacity: 0.7;
   }
-
   .hero-icons {
     display: flex;
     justify-content: center;
@@ -250,35 +268,34 @@ const oss = [
     color: var(--accent);
     background: var(--accent-dim);
   }
-  .hi-link svg {
-    width: 15px; height: 15px;
-  }
+  .hi-link svg { width: 15px; height: 15px; }
 
   /* ── Section ── */
-  .section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
-  .section:last-of-type { border-bottom: none; padding-bottom: 0; }
+  .section { padding: 3.5rem 0; }
+  .section + .section { border-top: 1px solid var(--border); }
 
-  /* ── Research Grid (2x2 cards) ── */
+  /* ── Research ── */
   .research-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
   }
   .rc-card {
     background: var(--bg);
-    padding: 1.5rem;
-    transition: background var(--transition);
+    padding: 1.75rem 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
   }
-  .rc-card:hover { background: var(--bg-elevated); }
+  .rc-card:hover {
+    background: var(--bg-elevated);
+  }
   .rc-label {
     font-family: var(--serif);
     font-size: 1rem;
     font-style: italic;
     font-weight: 400;
     color: var(--text);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.3rem;
     transition: color var(--transition);
   }
   .rc-card:hover .rc-label { color: var(--accent); }
@@ -287,88 +304,91 @@ const oss = [
     font-size: 0.6rem;
     color: var(--text-dim);
     letter-spacing: 0.03em;
+    line-height: 1.6;
   }
 
   /* ── Bio ── */
   .bio {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.75;
     max-width: 620px;
   }
   .bio strong { color: var(--text); font-weight: 500; }
 
-  /* ── Experience (card grid) ── */
-  .exp-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
+  /* ── Timeline ── */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .tl-entry { display: flex; gap: 1.5rem; }
+  .tl-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 12px;
+    flex-shrink: 0;
+    padding-top: 0.35rem;
+  }
+  .tl-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.35;
+    flex-shrink: 0;
+  }
+  .tl-line {
+    width: 1px;
+    flex: 1;
     background: var(--border);
-    border: 1px solid var(--border);
+    margin-top: 0.4rem;
   }
-  .exp-card {
-    background: var(--bg);
-    padding: 1.75rem;
-    display: grid;
-    grid-template-rows: auto auto auto 1fr;
-    gap: 0.4rem;
-    transition: background var(--transition);
+  .tl-card {
+    flex: 1;
+    padding-bottom: 2rem;
   }
-  .exp-card:hover { background: var(--bg-elevated); }
-  .exp-card-top {
+  .tl-head {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 0.4rem;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
   }
-  .exp-role {
+  .tl-role {
     font-weight: 500;
-    font-size: 0.82rem;
+    font-size: 0.92rem;
     color: var(--text);
-    line-height: 1.25;
-    letter-spacing: -0.005em;
+    margin-bottom: 0.05rem;
   }
-  .exp-period {
+  .tl-org {
     font-family: var(--mono);
-    font-size: 0.52rem;
+    font-size: 0.6rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+  .tl-period {
+    font-family: var(--mono);
+    font-size: 0.58rem;
     color: var(--text-dim);
     white-space: nowrap;
     flex-shrink: 0;
-    min-width: 9.5rem;
-    text-align: right;
-    padding-top: 0.1rem;
+    padding-top: 0.15rem;
   }
-  .exp-org {
-    font-family: var(--mono);
-    font-size: 0.56rem;
-    color: var(--accent);
-    opacity: 0.7;
-    letter-spacing: 0.04em;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .exp-hl {
+  .tl-highlights {
     list-style: none;
-    padding-top: 0.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.25rem;
   }
-  .exp-hl li {
-    font-size: 0.76rem;
+  .tl-highlights li {
+    font-size: 0.78rem;
     color: var(--text-secondary);
-    line-height: 1.55;
-    padding: 0.12rem 0 0.12rem 0.7rem;
-    position: relative;
-  }
-  .exp-hl li::before {
-    content: '+';
-    position: absolute;
-    left: 0;
-    color: var(--text-dim);
-    font-family: var(--mono);
-    font-size: 0.5rem;
-    top: 0.12rem;
+    padding: 0.15rem 0.55rem;
+    background: var(--bg-elevated);
+    border-radius: 3px;
+    line-height: 1.5;
   }
 
-  /* ── Two column: Education + Timeline ── */
+  /* ── Education + Timeline 2-col ── */
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -376,12 +396,11 @@ const oss = [
   }
   .edu-item {
     padding: 0.75rem 0;
-    border-bottom: 1px solid var(--border);
     display: flex;
     flex-direction: column;
     gap: 0.15rem;
   }
-  .edu-item:last-child { border-bottom: none; }
+  .edu-item + .edu-item { border-top: 1px solid var(--border); }
   .edu-degree {
     font-family: var(--serif);
     font-size: 0.95rem;
@@ -394,19 +413,15 @@ const oss = [
     color: var(--text-dim);
     letter-spacing: 0.03em;
   }
-  .edu-period {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-  }
-  .tl-list { display: flex; flex-direction: column; }
-  .tl-item {
+  .edu-period { font-size: 0.78rem; color: var(--text-secondary); }
+
+  .tl-row {
     display: flex;
     align-items: baseline;
     gap: 0.75rem;
     padding: 0.75rem 0;
-    border-bottom: 1px solid var(--border);
   }
-  .tl-item:last-child { border-bottom: none; }
+  .tl-row + .tl-row { border-top: 1px solid var(--border); }
   .tl-date {
     font-family: var(--mono);
     font-size: 0.6rem;
@@ -416,62 +431,53 @@ const oss = [
   }
   .tl-text { font-size: 0.88rem; color: var(--text); }
 
-  /* ── Open Source ── */
-  .oss-intro {
-    font-family: var(--mono);
-    font-size: 0.6rem;
-    color: var(--text-dim);
-    letter-spacing: 0.04em;
-    margin-bottom: 1.25rem;
-  }
-  .oss-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-  .oss-card {
-    background: var(--bg);
-    padding: 1.5rem;
+  /* ── Open Source (clean list, no borders) ── */
+  .oss-list { display: flex; flex-direction: column; }
+  .oss-row {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    gap: 0.75rem;
+    align-items: baseline;
+    padding: 0.9rem 0;
     transition: all var(--transition);
-    position: relative;
   }
-  .oss-card:hover { background: var(--bg-elevated); }
+  .oss-row + .oss-row { border-top: 1px solid var(--border); }
+  .oss-row:hover { padding-left: 0.5rem; }
   .oss-name {
     font-family: var(--serif);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-style: italic;
     color: var(--text);
     transition: color var(--transition);
-    display: block;
-    margin-bottom: 0.15rem;
   }
-  .oss-card:hover .oss-name { color: var(--accent); }
-  .oss-desc {
-    font-size: 0.72rem;
-    color: var(--text-secondary);
-  }
+  .oss-row:hover .oss-name { color: var(--accent); }
   .oss-stars {
-    display: block;
-    margin-top: 0.35rem;
     font-family: var(--mono);
     font-size: 0.56rem;
     color: var(--accent);
-    opacity: 0.4;
+    opacity: 0.45;
+    flex-shrink: 0;
   }
-  .oss-card:hover .oss-stars { opacity: 0.7; }
+  .oss-desc {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+  }
 
   /* ── Links ── */
-  .links-grid {
+  .links-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1px;
     background: var(--border);
-    border: 1px solid var(--border);
   }
   .link-card {
     display: flex;
     flex-direction: column;
-    padding: 1.75rem 1.5rem;
+    justify-content: center;
+    padding: 2rem 1.75rem;
     background: var(--bg);
     transition: background var(--transition);
-    position: relative;
-    min-height: 90px;
+    min-height: 100px;
   }
   .link-card:hover { background: var(--bg-elevated); }
   .lc-label {
@@ -490,16 +496,16 @@ const oss = [
   }
 
   @media (max-width: 768px) {
-    .exp-grid { grid-template-columns: 1fr; }
-    .oss-list { grid-template-columns: 1fr; }
     .two-col { grid-template-columns: 1fr; gap: 2rem; }
+    .tl-head { flex-direction: column; gap: 0.1rem; }
+    .oss-row { grid-template-columns: 1fr; gap: 0.2rem; }
   }
   @media (max-width: 640px) {
     .hero { padding: 3.5rem 0 3rem; }
     .hero-name { font-size: clamp(2.2rem, 8vw, 3.5rem); }
     .research-grid { grid-template-columns: repeat(2, 1fr); }
-    .research-grid .rc-img-wrap { height: 80px; }
-    .links-grid { grid-template-columns: 1fr; }
+    .links-row { grid-template-columns: 1fr; }
     .section { padding: 2.5rem 0; }
+    .tl-card { padding-bottom: 1.5rem; }
   }
 </style>
