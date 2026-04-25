@@ -46,7 +46,7 @@ const { title } = Astro.props;
     --bg-card: #191916;
     --text: #d4cfc6;
     --text-secondary: #7c766c;
-    --text-dim: #3e3b35;
+    --text-dim: #6a655b;
     --accent: #b8956a;
     --accent-dim: rgba(184, 149, 106, 0.06);
     --accent-soft: rgba(184, 149, 106, 0.12);
@@ -55,14 +55,14 @@ const { title } = Astro.props;
     --sans: 'DM Sans', -apple-system, sans-serif;
     --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
     --mono: 'JetBrains Mono', monospace;
-    --max-width: 880px;
+    --max-width: 1040px;
     --transition: 0.25s ease;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html {
-    font-size: 115%;
+    font-size: 120%;
     scrollbar-width: thin;
     scrollbar-color: var(--border-hover) transparent;
     scroll-behavior: smooth;
@@ -78,6 +78,19 @@ const { title } = Astro.props;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+  }
+
+  /* ── Noise Texture Overlay ── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.04;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 300px 300px;
   }
 
   ::selection {
@@ -173,7 +186,7 @@ const { title } = Astro.props;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    color: var(--text-dim);
+    color: #6a655b;
     margin-bottom: 1.75rem;
   }
 
