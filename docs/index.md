@@ -3,43 +3,57 @@ hide:
   - navigation
 ---
 
-# Diao Shengjia
+# Diao Shengjia · Blog
 
-普通人
-
----
-
-## 核心研究方向
-
-**计算机视觉**
-
-RAW 图像重建、Inverse ISP 算法研究、图像处理管道优化
-
-**Agentic AI**
-
-多模态 LLM 系统开发、多智能体架构、自主决策系统
-
-**具身智能**
-
-Vision-Language-Action 模型、SpatialVLA、端到端学习
-
-**LLM 系统**
-
-vLLM 优化、KV Cache 管理、推理系统部署
+Writing about AI research, engineering, and things I'm building.
 
 ---
 
-## 最新动态
+## Recent Posts
 
-* **[2026.01]** 华为杰出研发贡献奖（团队）- RGB-to-RAW 重建与 VLA 研究
-* **[2024.12]** WSDM Cup 排名 154/950 - 多语言聊天机器人竞赛
-* **[2024.08]** 硕士阶段获得 EEE Global Merit Award 与 S$5,000 优秀奖学金
+<div class="grid cards" markdown>
+
+- [:material-post: **RGB-to-RAW 图像重建完整指南**](blog/rgb-to-raw-guide.md)
+  ---
+  从相机传感器数据到最终 RGB 图像的完整 pipeline 解析。
+
+</div>
 
 ---
 
-## 快速导航
+## Paper Notes
 
-* [详细背景](/about/) - 教育、工作经历、技能
-* [研究项目](/projects/) - RGB-to-RAW、VLA、LMCache、AgentDriver
-* [论文笔记](/papers/) - 论文分析与报告
-* [工具资源](/tools/) - 常用工具与参考资料
+<div class="grid cards" markdown>
+
+- [:material-book-open-page-variant: **DINO**](papers/DINO/index.md)
+  Self-Distillation with No Labels
+
+- [:material-book-open-page-variant: **SAM & DETR**](papers/SAM_Detr/index.md)
+  Segment Anything & Detection Transformer
+
+- [:material-book-open-page-variant: **Stable DINO**](papers/Stable_DINO/index.md)
+  Stable self-distillation for vision models
+
+- [:material-book-open-page-variant: **VLDet**](papers/VLDet/index.md)
+  Vision-Language Detection
+
+- [:material-book-open-page-variant: **Naive Sparse Attention**](papers/Naive_Sparse_Attention/index.md)
+  Efficient attention mechanisms
+
+- [:material-book-open-page-variant: **GLM-5 Report**](papers/GLM5_Report/index.md)
+  Notes on the GLM-5 technical report
+
+- [:material-book-open-page-variant: **Opus**](papers/Opus/index.md)
+  Anthropic Opus model family
+
+- [:material-book-open-page-variant: **Revisiting CLS**](papers/revisiting_CLS/index.md)
+  Rethinking classification tokens
+
+</div>
+
+---
+
+## Elsewhere
+
+- [:fontawesome-brands-github: **GoDiao**](https://github.com/GoDiao) — Open source projects
+- [:material-web: **godiao.com**](https://godiao.com) — Personal site

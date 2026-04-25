@@ -1,5 +1,5 @@
-site_description: Diao Shengjia 的技术博客
-site_name: Diao Shengjia's Blog
+site_description: Diao Shengjia — AI/ML research, engineering, and paper notes
+site_name: Diao Shengjia · Blog
 site_url: https://godiao.github.io/blog/
 repo_url: https://github.com/GoDiao/blog-source
 copyright: Copyright &copy; 2024 Diao Shengjia
@@ -7,39 +7,31 @@ copyright: Copyright &copy; 2024 Diao Shengjia
 theme:
   name: material
   custom_dir: overrides
-  language: zh
   icon:
     repo: fontawesome/brands/github
   palette:
-    - scheme: default
-      primary: white
-      accent: black
-      toggle:
-        icon: material/weather-sunny
-        name: 切换至深色模式
     - scheme: slate
       primary: black
       accent: grey
       toggle:
+        icon: material/weather-sunny
+        name: Switch to light
+    - scheme: default
+      primary: white
+      accent: black
+      toggle:
         icon: material/weather-night
-        name: 切换至亮色模式
+        name: Switch to dark
   features:
-    - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.top
-    - header.autohide
-    - navigation.path
     - content.code.copy
     - content.code.annotate
     - toc.follow
 
 nav:
-  - 首页: index.md
-  - 博客: blog/index.md
-  - 论文笔记: papers/index.md
-  - 关于: about.md
-  - 项目: projects/README.md
-  - 工具: tools.md
+  - Home: index.md
+  - Blog: blog/index.md
+  - Paper Notes: papers/index.md
 
 plugins:
   - search
