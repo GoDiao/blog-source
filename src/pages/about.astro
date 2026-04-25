@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About - Diao Shengjia">
+  <main>
+    <h1>About Me</h1>
+
+    <p>
+      I am <strong>Diao Shengjia</strong> (刁盛家), an AI/ML researcher pursuing an
+      M.Sc. in Electrical & Electronic Engineering at NTU Singapore, where I also earned
+      my B.Eng. My interests sit at the intersection of <strong>object detection, multimodal
+      intelligence, LLM systems, and agentic workflows</strong>, with a strong preference
+      for building systems that are both technically interesting and operationally useful.
+    </p>
+
+    <h2>Education</h2>
+    <div class="entry">
+      <h3>M.Sc. Electrical & Electronic Engineering</h3>
+      <p class="meta">Nanyang Technological University &middot; Aug 2024 - Present</p>
+      <ul>
+        <li>CGPA 4.50/5.00 (Highest Distinction)</li>
+        <li>EEE Global Merit Award, S$5,000 scholarship (21/2114)</li>
+        <li>Relevant: Genetic Algorithms & ML, Prob & Stochastic Processes, NLP</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <h3>B.Eng. Electrical & Electronic Engineering</h3>
+      <p class="meta">Nanyang Technological University &middot; Aug 2020 - May 2024</p>
+      <ul>
+        <li>CGPA 4.33/5.00</li>
+        <li>SM2 Scholarship</li>
+      </ul>
+    </div>
+
+    <h2>Experience</h2>
+    <div class="entry">
+      <h3>Huawei Singapore Research Center &mdash; Algorithm Research Engineer Intern</h3>
+      <p class="meta">Jul 2025 - Present</p>
+      <ul>
+        <li>RGB-to-RAW reconstruction: lightweight ReRAW model, PSNR 52.81→56.98</li>
+        <li>LMCache on Ascend 910B: KV hit rate surpassing vLLM prefix cache</li>
+        <li>VLA/RAW-to-Action: SpatialVLA fine-tuning, success rate 34.5%→49.5%</li>
+        <li>Outstanding R&D Contribution Award (team)</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <h3>Infineon Technologies &mdash; Chip Verification Engineer Intern</h3>
+      <p class="meta">Dec 2022 - Jul 2023</p>
+      <ul>
+        <li>Tcl/Python automation tools, runtime reduced ~33%</li>
+        <li>RTL bring-up qualification experiments</li>
+      </ul>
+    </div>
+
+    <h2>Contact</h2>
+    <ul class="contact">
+      <li>Email: <a href="mailto:diaoshengjia@gmail.com">diaoshengjia@gmail.com</a></li>
+      <li>GitHub: <a href="https://github.com/GoDiao">@GoDiao</a></li>
+      <li>Location: Singapore</li>
+    </ul>
+  </main>
+</BaseLayout>
+
+<style>
+  h1 { font-size: 2rem; margin-bottom: 1rem; }
+  h2 { font-size: 1.3rem; margin: 2rem 0 0.75rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+  p { margin-bottom: 0.75rem; }
+
+  .entry { margin-bottom: 1.25rem; }
+  .entry h3 { font-size: 1rem; font-weight: 600; }
+  .entry .meta { color: var(--text-secondary); font-size: 0.9rem; }
+  .entry ul { margin: 0.5rem 0 0 1.5rem; }
+  .entry li { margin-bottom: 0.25rem; }
+
+  .contact { list-style: none; }
+  .contact li { padding: 0.25rem 0; }
+</style>

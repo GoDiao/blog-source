@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Diao Shengjia - AI/ML Researcher">
+  <main>
+    <section class="hero">
+      <h1>Diao Shengjia</h1>
+      <p class="tagline">AI/ML Researcher @ NTU Singapore</p>
+      <p class="focus">Computer Vision &middot; LLM Systems &middot; Agentic AI &middot; Embodied Intelligence</p>
+    </section>
+
+    <section class="about">
+      <p>
+        I build research-driven AI systems with a bias toward robust engineering,
+        open-source contribution, and practical deployment. Currently pursuing an
+        M.Sc. in Electrical & Electronic Engineering at NTU Singapore.
+      </p>
+    </section>
+
+    <section class="highlights">
+      <h2>Recent</h2>
+      <ul>
+        <li><strong>[2025.01]</strong> Huawei Outstanding R&D Contribution Award (team) &mdash; RGB-to-RAW reconstruction & VLA research</li>
+        <li><strong>[2024.12]</strong> WSDM Cup ranked 154/950 &mdash; Multilingual chatbot competition</li>
+        <li><strong>[2024.08]</strong> EEE Global Merit Award & S$5,000 scholarship (21/2114 students)</li>
+      </ul>
+    </section>
+
+    <section class="links">
+      <a href="/about">About Me</a>
+      <a href="/projects">Projects</a>
+      <a href="https://godiao.github.io/blog/">Blog</a>
+      <a href="https://github.com/GoDiao">GitHub</a>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .hero { margin-bottom: 2rem; }
+  .hero h1 { font-size: 2rem; font-weight: 700; }
+  .tagline { font-size: 1.2rem; color: var(--text-secondary); margin-top: 0.5rem; }
+  .focus { font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.25rem; }
+
+  .about { margin-bottom: 2rem; }
+
+  .highlights { margin-bottom: 2rem; }
+  .highlights h2 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+  .highlights ul { list-style: none; }
+  .highlights li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+
+  .links { display: flex; gap: 1.5rem; }
+  .links a {
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-weight: 500;
+    transition: border-color 0.2s;
+  }
+  .links a:hover { border-color: var(--accent); text-decoration: none; }
+</style>

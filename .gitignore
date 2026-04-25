@@ -1,7 +1,4 @@
-.hugo_build.lock
-*.bkp
-
-/.quarto/
-/site/
-
-__pycache__
+node_modules/
+dist/
+.astro/
+.env
