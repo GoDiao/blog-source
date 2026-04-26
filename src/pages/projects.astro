@@ -49,6 +49,20 @@ const oss = [
     stars: 58758,
   },
   {
+    name: 'claude-context',
+    url: 'https://github.com/zilliztech/claude-context',
+    desc: 'Code search MCP for Claude Code — make entire codebase the context for any coding agent.',
+    img: '/oss/claude-context.png',
+    stars: 9390,
+  },
+  {
+    name: 'opensre',
+    url: 'https://github.com/Tracer-Cloud/opensre',
+    desc: 'Open-source framework for AI SRE agents — 60+ integrations for incident investigation, root-cause analysis, and automated remediation.',
+    img: '/oss/opensre.png',
+    stars: 3128,
+  },
+  {
     name: 'MiniCode',
     url: 'https://github.com/LiuMengxuan04/MiniCode',
     desc: 'Terminal-native AI coding assistant with Claude Code-style workflow and lightweight TUI — built for rapid prototyping and code review.',
@@ -240,14 +254,21 @@ const oss = [
     flex-shrink: 0;
   }
 
-  /* ── OSS ── */
+  /* ── OSS (3-column grid, last row centered) ── */
   .oss-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 1px;
     background: var(--border);
   }
+  .oss-grid::after {
+    content: '';
+    flex: 1 1 calc(33.333% - 1px);
+    background: var(--bg);
+  }
   .oss-card {
+    flex: 1 1 calc(33.333% - 1px);
+    min-width: calc(33.333% - 1px);
     background: var(--bg);
     transition: background var(--transition);
   }
@@ -293,7 +314,7 @@ const oss = [
   @media (max-width: 768px) {
     .proj-row { gap: 1rem; }
     .proj-thumb { width: 180px; height: 110px; }
-    .oss-grid { grid-template-columns: 1fr; }
+    .oss-card { flex: 1 1 100%; min-width: 100%; }
   }
   @media (max-width: 640px) {
     .page-intro { padding: 3rem 0 2rem; }
