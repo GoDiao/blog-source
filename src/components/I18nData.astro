@@ -1,0 +1,6 @@
+---
+import { translations } from '../i18n.js';
+const json = JSON.stringify(translations);
+---
+
+<script id="i18n-data" type="application/json" set:html={json} />

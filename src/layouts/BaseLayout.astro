@@ -22,10 +22,13 @@ const { title } = Astro.props;
     <nav>
       <a href="/" class="logo">DS</a>
       <div class="nav-links">
-        <a href="/about">About</a>
-        <a href="/projects">Projects</a>
-        <a href="https://godiao.github.io/blog/">Blog</a>
-        <a href="https://github.com/GoDiao" target="_blank" rel="noopener">GitHub</a>
+        <a href="/about" data-i18n="nav.about">About</a>
+        <a href="/projects" data-i18n="nav.projects">Projects</a>
+        <a href="https://godiao.github.io/blog/" data-i18n="nav.blog">Blog</a>
+        <a href="https://github.com/GoDiao" target="_blank" rel="noopener" data-i18n="nav.github">GitHub</a>
+        <button class="lang-toggle" title="Switch language">
+          <span class="lang-label">中</span>
+        </button>
       </div>
     </nav>
     <slot />
@@ -150,6 +153,23 @@ const { title } = Astro.props;
   .nav-links a { color: var(--text-secondary); }
   .nav-links a:hover { color: var(--text); }
 
+  .lang-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    transition: all var(--transition);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+  .lang-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
   /* ── Main ── */
   main {
     max-width: var(--max-width);
@@ -210,75 +230,121 @@ const { title } = Astro.props;
 </style>
 
 <script>
-  (function() {
+  document.addEventListener('DOMContentLoaded', function() {
     // ── Particle Canvas ──
-    const canvas = document.getElementById('particles');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let w, h, particles = [];
+    var canvas = document.getElementById('particles');
+    if (canvas) {
+      var ctx = canvas.getContext('2d');
+      var w, h, particles = [];
 
-    function resize() {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    const count = Math.min(80, Math.floor((w * h) / 12000));
-    for (let i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        r: Math.random() * 0.8 + 0.3,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        alpha: Math.random() * 0.35 + 0.1,
-      });
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-      for (const p of particles) {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
-        if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(184,149,106,${p.alpha})`;
-        ctx.fill();
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
       }
-      // draw subtle connections between nearby particles
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 100) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(184,149,106,${0.03 * (1 - dist / 100)})`;
-            ctx.lineWidth = 0.3;
-            ctx.stroke();
+      resize();
+      window.addEventListener('resize', resize);
+
+      var count = Math.min(80, Math.floor((w * h) / 12000));
+      for (var i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 0.8 + 0.3,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          alpha: Math.random() * 0.35 + 0.1,
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        for (var i = 0; i < particles.length; i++) {
+          var p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+          if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(184,149,106,' + p.alpha + ')';
+          ctx.fill();
+        }
+        for (var i = 0; i < particles.length; i++) {
+          for (var j = i + 1; j < particles.length; j++) {
+            var dx = particles[i].x - particles[j].x;
+            var dy = particles[i].y - particles[j].y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 100) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = 'rgba(184,149,106,' + (0.03 * (1 - dist / 100)) + ')';
+              ctx.lineWidth = 0.3;
+              ctx.stroke();
+            }
           }
         }
+        requestAnimationFrame(draw);
       }
-      requestAnimationFrame(draw);
+      draw();
     }
-    draw();
 
     // ── Scroll Reveal ──
-    const revealEls = document.querySelectorAll('.reveal');
-    if (!revealEls.length) return;
-    const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry, i) {
-        if (entry.isIntersecting) {
-          setTimeout(function() { entry.target.classList.add('revealed'); }, i * 50);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
-    revealEls.forEach(function(el) { observer.observe(el); });
-  })();
+    var revealEls = document.querySelectorAll('.reveal');
+    if (revealEls.length) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry, i) {
+          if (entry.isIntersecting) {
+            setTimeout(function() { entry.target.classList.add('revealed'); }, i * 50);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+      revealEls.forEach(function(el) { observer.observe(el); });
+    }
+
+    // ── i18n Language Toggle ──
+    var translations = null;
+    var currentLang = localStorage.getItem('lang') || 'en';
+
+    function getTranslations() {
+      if (!translations) {
+        var el = document.getElementById('i18n-data');
+        if (el) translations = JSON.parse(el.textContent);
+      }
+      return translations;
+    }
+
+    function applyLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+      var t = getTranslations();
+      if (!t) return;
+
+      var els = document.querySelectorAll('[data-i18n]');
+      for (var i = 0; i < els.length; i++) {
+        var key = els[i].getAttribute('data-i18n');
+        if (t[lang] && t[lang][key]) els[i].textContent = t[lang][key];
+      }
+
+      var htmlEls = document.querySelectorAll('[data-i18n-html]');
+      for (var i = 0; i < htmlEls.length; i++) {
+        var key = htmlEls[i].getAttribute('data-i18n-html');
+        if (t[lang] && t[lang][key]) htmlEls[i].innerHTML = t[lang][key];
+      }
+
+      var label = document.querySelector('.lang-label');
+      if (label) label.textContent = lang === 'en' ? '中' : 'EN';
+    }
+
+    applyLang(currentLang);
+
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('.lang-toggle')) {
+        applyLang(currentLang === 'en' ? 'zh' : 'en');
+      }
+    });
+  });
 </script>

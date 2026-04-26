@@ -1,11 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import I18nData from '../components/I18nData.astro';
 
 const experience = [
   {
     role: 'Algorithm Research Engineer Intern',
     company: 'Huawei Singapore Research Center',
     period: 'Jul 2025 — Dec 2025',
+    roleKey: 'about.exp0.role', companyKey: 'about.exp0.company', periodKey: 'about.exp0.period',
+    detailKeys: ['about.exp0.d0', 'about.exp0.d1', 'about.exp0.d2', 'about.exp0.d3', 'about.exp0.d4', 'about.exp0.d5'],
     details: [
       'RGB-to-RAW reconstruction: ReRAW model, PSNR 52.81 → 56.98, SSIM 0.91 → 0.95',
       'LMCache on Ascend 910B: CacheBlend integration, KV hit rate surpassing vLLM prefix cache',
@@ -19,6 +22,8 @@ const experience = [
     role: 'Chip Verification Engineer Intern',
     company: 'Infineon Technologies',
     period: 'Dec 2022 — Jul 2023',
+    roleKey: 'about.exp1.role', companyKey: 'about.exp1.company', periodKey: 'about.exp1.period',
+    detailKeys: ['about.exp1.d0', 'about.exp1.d1'],
     details: [
       'Tcl/Python automation tools, qualification runtime reduced ~33%',
       'RTL bring-up qualification experiments with chip design engineers',
@@ -28,6 +33,8 @@ const experience = [
     role: 'Implementation Engineer Intern',
     company: 'Kingdee International Software',
     period: 'May 2024 — Jul 2024',
+    roleKey: 'about.exp2.role', companyKey: 'about.exp2.company', periodKey: 'about.exp2.period',
+    detailKeys: ['about.exp2.d0', 'about.exp2.d1'],
     details: [
       'ERP system implementation for Chongqing Xinhua Bookstore Group',
       'Python data processing automation, efficiency improved over 70%',
@@ -40,35 +47,40 @@ const education = [
     degree: 'M.Sc. Electrical & Electronic Engineering',
     school: 'Nanyang Technological University',
     period: 'Aug 2024 — Present',
+    degreeKey: 'about.edu0.degree', schoolKey: 'about.edu0.school', periodKey: 'about.edu0.period',
+    detailKeys: ['about.edu0.d0', 'about.edu0.d1', 'about.edu0.d2'],
     details: ['CGPA 4.50/5.00 — Highest Distinction', 'EEE Global Merit Award (21/2114)', 'Genetic Algorithms & ML, NLP'],
   },
   {
     degree: 'B.Eng. Electrical & Electronic Engineering',
     school: 'Nanyang Technological University',
     period: 'Aug 2020 — May 2024',
+    degreeKey: 'about.edu1.degree', schoolKey: 'about.edu1.school', periodKey: 'about.edu1.period',
+    detailKeys: ['about.edu1.d0'],
     details: ['SM2 Scholarship'],
   },
 ];
 
 const competitions = [
-  { name: 'WSDM Cup — Multilingual Chatbot', result: 'Rank 154 / 950', detail: 'Fine-tuned Gemma2-9b-it with LoRA + int4 quantization' },
-  { name: 'LLM 20 Questions', result: 'Accuracy 83%', detail: 'GRPO training from scratch, multi-agent cooperative architecture' },
+  { name: 'WSDM Cup — Multilingual Chatbot', result: 'Rank 154 / 950', detail: 'Fine-tuned Gemma2-9b-it with LoRA + int4 quantization', nameKey: 'about.comp0.name', resultKey: 'about.comp0.result', detailKey: 'about.comp0.detail' },
+  { name: 'LLM 20 Questions', result: 'Accuracy 83%', detail: 'GRPO training from scratch, multi-agent cooperative architecture', nameKey: 'about.comp1.name', resultKey: 'about.comp1.result', detailKey: 'about.comp1.detail' },
 ];
 
 const skills = [
-  { label: 'Languages', items: ['Python', 'TypeScript', 'SQL', 'Tcl'] },
-  { label: 'ML / AI', items: ['PyTorch', 'vLLM', 'PEFT', 'Ascend 910B', 'MindSpeed-LLM'] },
-  { label: 'Research', items: ['Computer Vision', 'Inverse ISP', 'RAW Processing', 'Embodied AI'] },
-  { label: 'Engineering', items: ['Git', 'LMCache', 'Docker', 'Linux'] },
+  { label: 'Languages', labelKey: 'skills.languages', items: ['Python', 'TypeScript', 'SQL', 'Tcl'] },
+  { label: 'ML / AI', labelKey: 'skills.ml', items: ['PyTorch', 'vLLM', 'PEFT', 'Ascend 910B', 'MindSpeed-LLM'] },
+  { label: 'Research', labelKey: 'skills.research', items: ['Computer Vision', 'Inverse ISP', 'RAW Processing', 'Embodied AI'] },
+  { label: 'Engineering', labelKey: 'skills.engineering', items: ['Git', 'LMCache', 'Docker', 'Linux'] },
 ];
 ---
 
 <BaseLayout title="About — Diao Shengjia">
+  <I18nData />
   <main>
     <section class="page-intro">
-      <h1 class="intro-h reveal">About</h1>
+      <h1 class="intro-h reveal" data-i18n="about.title">About</h1>
       <div class="intro-bio reveal">
-        <p>
+        <p data-i18n-html="about.bio">
           AI/ML researcher pursuing an M.Sc. in EEE at <strong>NTU Singapore</strong>.
           I work at the intersection of computer vision, LLM systems, and embodied intelligence —
           currently at <strong>Huawei Singapore</strong> on RAW image reconstruction and VLA models.
@@ -77,19 +89,19 @@ const skills = [
     </section>
 
     <section class="section">
-      <h2 class="section-h reveal">Experience</h2>
+      <h2 class="section-h reveal" data-i18n="about.experience">Experience</h2>
       <div class="entry-list">
         {experience.map((exp, i) => (
           <article class="entry reveal" style="--ei:{i}">
             <div class="entry-head">
               <div class="entry-left">
-                <h3 class="entry-role">{exp.role}</h3>
-                <span class="entry-org">{exp.company}</span>
+                <h3 class="entry-role" data-i18n={exp.roleKey}>{exp.role}</h3>
+                <span class="entry-org" data-i18n={exp.companyKey}>{exp.company}</span>
               </div>
-              <span class="entry-period">{exp.period}</span>
+              <span class="entry-period" data-i18n={exp.periodKey}>{exp.period}</span>
             </div>
             <ul class="entry-details">
-              {exp.details.map((d) => <li>{d}</li>)}
+              {exp.details.map((d, j) => <li data-i18n={exp.detailKeys[j]}>{d}</li>)}
             </ul>
           </article>
         ))}
@@ -97,19 +109,19 @@ const skills = [
     </section>
 
     <section class="section">
-      <h2 class="section-h reveal">Education</h2>
+      <h2 class="section-h reveal" data-i18n="about.education">Education</h2>
       <div class="entry-list">
         {education.map((edu, i) => (
           <article class="entry reveal" style="--ei:{i}">
             <div class="entry-head">
               <div class="entry-left">
-                <h3 class="entry-role">{edu.degree}</h3>
-                <span class="entry-org">{edu.school}</span>
+                <h3 class="entry-role" data-i18n={edu.degreeKey}>{edu.degree}</h3>
+                <span class="entry-org" data-i18n={edu.schoolKey}>{edu.school}</span>
               </div>
-              <span class="entry-period">{edu.period}</span>
+              <span class="entry-period" data-i18n={edu.periodKey}>{edu.period}</span>
             </div>
             <ul class="entry-details">
-              {edu.details.map((d) => <li>{d}</li>)}
+              {edu.details.map((d, j) => <li data-i18n={edu.detailKeys[j]}>{d}</li>)}
             </ul>
           </article>
         ))}
@@ -117,16 +129,16 @@ const skills = [
     </section>
 
     <section class="section">
-      <h2 class="section-h reveal">Competitions</h2>
+      <h2 class="section-h reveal" data-i18n="about.competitions">Competitions</h2>
       <div class="entry-list">
         {competitions.map((comp, i) => (
           <article class="entry reveal" style="--ei:{i}">
             <div class="entry-head">
               <div class="entry-left">
-                <h3 class="entry-role">{comp.name}</h3>
-                <span class="entry-org">{comp.detail}</span>
+                <h3 class="entry-role" data-i18n={comp.nameKey}>{comp.name}</h3>
+                <span class="entry-org" data-i18n={comp.detailKey}>{comp.detail}</span>
               </div>
-              <span class="entry-result">{comp.result}</span>
+              <span class="entry-result" data-i18n={comp.resultKey}>{comp.result}</span>
             </div>
           </article>
         ))}
@@ -134,11 +146,11 @@ const skills = [
     </section>
 
     <section class="section">
-      <h2 class="section-h reveal">Toolbox</h2>
+      <h2 class="section-h reveal" data-i18n="about.toolbox">Toolbox</h2>
       <div class="skills-grid">
         {skills.map((group) => (
           <div class="skill-group reveal">
-            <h3 class="skill-label">{group.label}</h3>
+            <h3 class="skill-label" data-i18n={group.labelKey}>{group.label}</h3>
             <div class="skill-tags">
               {group.items.map((item) => <span class="skill-tag">{item}</span>)}
             </div>
@@ -148,18 +160,18 @@ const skills = [
     </section>
 
     <section class="section">
-      <h2 class="section-h reveal">Contact</h2>
+      <h2 class="section-h reveal" data-i18n="about.contact">Contact</h2>
       <div class="contact-list">
         <a href="mailto:diaoshengjia@gmail.com" class="contact-row reveal">
-          <span class="contact-key">Email</span>
+          <span class="contact-key" data-i18n="contact.email">Email</span>
           <span class="contact-val">diaoshengjia@gmail.com</span>
         </a>
         <a href="https://github.com/GoDiao" target="_blank" rel="noopener" class="contact-row reveal">
-          <span class="contact-key">GitHub</span>
+          <span class="contact-key" data-i18n="contact.github">GitHub</span>
           <span class="contact-val">@GoDiao</span>
         </a>
         <div class="contact-row reveal">
-          <span class="contact-key">Location</span>
+          <span class="contact-key" data-i18n="contact.location">Location</span>
           <span class="contact-val">Singapore</span>
         </div>
       </div>

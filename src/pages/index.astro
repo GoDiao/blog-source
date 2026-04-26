@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import I18nData from '../components/I18nData.astro';
 
 const research = [
-  { label: 'Computer Vision', detail: 'RAW reconstruction · Inverse ISP' },
-  { label: 'Agentic AI', detail: 'Multi-agent architectures' },
-  { label: 'Embodied Intelligence', detail: 'VLA models · SpatialVLA' },
-  { label: 'LLM Systems', detail: 'vLLM · KV cache · Ascend 910B' },
+  { label: 'Computer Vision', detail: 'RAW reconstruction · Inverse ISP', labelKey: 'research.cv.label', detailKey: 'research.cv.detail' },
+  { label: 'Agentic AI', detail: 'Multi-agent architectures', labelKey: 'research.agent.label', detailKey: 'research.agent.detail' },
+  { label: 'Embodied Intelligence', detail: 'VLA models · SpatialVLA', labelKey: 'research.embodied.label', detailKey: 'research.embodied.detail' },
+  { label: 'LLM Systems', detail: 'vLLM · KV cache · Ascend 910B', labelKey: 'research.llm.label', detailKey: 'research.llm.detail' },
 ];
 
 const experience = [
@@ -14,42 +15,49 @@ const experience = [
     org: 'Huawei Singapore',
     period: 'Jul 2025 – Dec 2025',
     directions: ['RGB to RAW', 'VLA', 'KV Cache System', 'Agentic AI'],
+    roleKey: 'exp0.role', orgKey: 'exp0.org', periodKey: 'exp0.period',
+    dirKeys: ['exp0.d0', 'exp0.d1', 'exp0.d2', 'exp0.d3'],
   },
   {
     role: 'Chip Verification Engineer',
     org: 'Infineon Technologies',
     period: 'Dec 2022 – Jul 2023',
     directions: ['Chip Verification', 'Tcl/Python Automation'],
+    roleKey: 'exp1.role', orgKey: 'exp1.org', periodKey: 'exp1.period',
+    dirKeys: ['exp1.d0', 'exp1.d1'],
   },
   {
     role: 'Implementation Engineer',
     org: 'Kingdee International',
     period: 'May 2024 – Jul 2024',
     directions: ['ERP System Implementation', 'Data Automation'],
+    roleKey: 'exp2.role', orgKey: 'exp2.org', periodKey: 'exp2.period',
+    dirKeys: ['exp2.d0', 'exp2.d1'],
   },
 ];
 
 const education = [
-  { degree: 'M.Sc. EEE', school: 'Nanyang Technological University', period: '2024 — 2026', note: 'Highest Distinction' },
-  { degree: 'B.Eng. EEE', school: 'Nanyang Technological University', period: '2020 — 2024', note: 'SM2 Scholarship' },
+  { degree: 'M.Sc. EEE', school: 'Nanyang Technological University', period: '2024 — 2026', note: 'Highest Distinction', degreeKey: 'edu0.degree', schoolKey: 'edu0.school', periodKey: 'edu0.period', noteKey: 'edu0.note' },
+  { degree: 'B.Eng. EEE', school: 'Nanyang Technological University', period: '2020 — 2024', note: 'SM2 Scholarship', degreeKey: 'edu1.degree', schoolKey: 'edu1.school', periodKey: 'edu1.period', noteKey: 'edu1.note' },
 ];
 
 const timeline = [
-  { date: '2025.01', text: 'Huawei Outstanding R&D Contribution Award' },
-  { date: '2024.12', text: 'WSDM Cup — ranked 154 / 950' },
-  { date: '2024.08', text: 'EEE Global Merit Award, S$5,000 scholarship' },
+  { date: '2025.01', text: 'Huawei Outstanding R&D Contribution Award', dateKey: 'tl0.date', textKey: 'tl0.text' },
+  { date: '2024.12', text: 'WSDM Cup — ranked 154 / 950', dateKey: 'tl1.date', textKey: 'tl1.text' },
+  { date: '2024.08', text: 'EEE Global Merit Award, S$5,000 scholarship', dateKey: 'tl2.date', textKey: 'tl2.text' },
 ];
 
 const oss = [
-  { name: 'paperclip', url: 'https://github.com/paperclipai/paperclip', desc: 'AI agent orchestration framework for building autonomous, zero-human companies', stars: 58758 },
-  { name: 'claude-context', url: 'https://github.com/zilliztech/claude-context', desc: 'Code search MCP for Claude Code — make entire codebase the context for any coding agent', stars: 9390 },
-  { name: 'opensre', url: 'https://github.com/Tracer-Cloud/opensre', desc: 'Open-source framework for AI SRE agents — 60+ integrations for incident investigation and response', stars: 3128 },
-  { name: 'MiniCode', url: 'https://github.com/LiuMengxuan04/MiniCode', desc: 'Terminal-native AI coding assistant with lightweight TUI', stars: 503 },
-  { name: 'investing-algorithm-framework', url: 'https://github.com/coding-kitties/investing-algorithm-framework', desc: 'Framework for developing and backtesting automated trading strategies', stars: 947 },
+  { name: 'paperclip', url: 'https://github.com/paperclipai/paperclip', desc: 'AI agent orchestration framework for building autonomous, zero-human companies', stars: 58874, descKey: 'oss.paperclip.desc' },
+  { name: 'claude-context', url: 'https://github.com/zilliztech/claude-context', desc: 'Code search MCP for Claude Code — make entire codebase the context for any coding agent', stars: 9434, descKey: 'oss.claude-context.desc' },
+  { name: 'opensre', url: 'https://github.com/Tracer-Cloud/opensre', desc: 'Open-source framework for AI SRE agents — 60+ integrations for incident investigation and response', stars: 3171, descKey: 'oss.opensre.desc' },
+  { name: 'MiniCode', url: 'https://github.com/LiuMengxuan04/MiniCode', desc: 'Terminal-native AI coding assistant with lightweight TUI', stars: 503, descKey: 'oss.minicode.desc' },
+  { name: 'investing-algorithm-framework', url: 'https://github.com/coding-kitties/investing-algorithm-framework', desc: 'Framework for developing and backtesting automated trading strategies', stars: 949, descKey: 'oss.investing.desc' },
 ];
 ---
 
 <BaseLayout title="Diao Shengjia">
+  <I18nData />
   <main>
     <!-- ── Hero ── -->
     <section class="hero">
@@ -58,10 +66,10 @@ const oss = [
         <img src="/avatar.jpg" alt="Diao Shengjia" class="avatar-img" />
       </div>
       <h1 class="hero-name reveal">Diao Shengjia</h1>
-      <p class="hero-role reveal">AI/ML Researcher &middot; NTU Singapore</p>
+      <p class="hero-role reveal" data-i18n="hero.role">AI/ML Researcher &middot; NTU Singapore</p>
       <p class="hero-status reveal">
         <span class="status-ring"></span>
-        Available for opportunities
+        <span data-i18n="hero.status">Available for opportunities</span>
       </p>
       <div class="hero-icons reveal">
         <a href="mailto:diaoshengjia@gmail.com" class="hi-link" title="Email">
@@ -78,12 +86,12 @@ const oss = [
 
     <!-- ── Research ── -->
     <section class="section">
-      <h2 class="section-h reveal">Research</h2>
+      <h2 class="section-h reveal" data-i18n="index.research">Research</h2>
       <div class="research-grid">
         {research.map((r, i) => (
           <div class="rc-card" style="--ri:{i}">
-            <h3 class="rc-label">{r.label}</h3>
-            <p class="rc-detail">{r.detail}</p>
+            <h3 class="rc-label" data-i18n={r.labelKey}>{r.label}</h3>
+            <p class="rc-detail" data-i18n={r.detailKey}>{r.detail}</p>
           </div>
         ))}
       </div>
@@ -91,7 +99,7 @@ const oss = [
 
     <!-- ── Bio ── -->
     <section class="section">
-      <p class="bio reveal">
+      <p class="bio reveal" data-i18n-html="index.bio">
         AI/ML researcher at <strong>NTU Singapore</strong> (M.Sc. EEE, Highest Distinction).
         Previously B.Eng. from NTU with SM2 Scholarship. Working across computer vision,
         LLM systems, and embodied intelligence at <strong>Huawei Singapore</strong>.
@@ -100,7 +108,7 @@ const oss = [
 
     <!-- ── Experience (Timeline) ── -->
     <section class="section">
-      <h2 class="section-h reveal">Experience</h2>
+      <h2 class="section-h reveal" data-i18n="index.experience">Experience</h2>
       <div class="timeline">
         {experience.map((exp, i) => (
           <div class="tl-entry reveal" style="--ti:{i}">
@@ -111,13 +119,13 @@ const oss = [
             <div class="tl-card">
               <div class="tl-head">
                 <div>
-                  <h3 class="tl-role">{exp.role}</h3>
-                  <span class="tl-org">{exp.org}</span>
+                  <h3 class="tl-role" data-i18n={exp.roleKey}>{exp.role}</h3>
+                  <span class="tl-org" data-i18n={exp.orgKey}>{exp.org}</span>
                 </div>
-                <span class="tl-period">{exp.period}</span>
+                <span class="tl-period" data-i18n={exp.periodKey}>{exp.period}</span>
               </div>
               <ul class="tl-highlights">
-                {exp.directions.map((d) => <li>{d}</li>)}
+                {exp.directions.map((d, j) => <li data-i18n={exp.dirKeys[j]}>{d}</li>)}
               </ul>
             </div>
           </div>
@@ -129,24 +137,24 @@ const oss = [
     <section class="section">
       <div class="two-col">
         <div>
-          <h2 class="section-h reveal">Education</h2>
+          <h2 class="section-h reveal" data-i18n="index.education">Education</h2>
           <div class="edu-list">
             {education.map((edu, i) => (
               <div class="edu-item reveal" style="--ei:{i}">
-                <span class="edu-degree">{edu.degree}</span>
-                <span class="edu-school">{edu.school}</span>
-                <span class="edu-period">{edu.period} &middot; {edu.note}</span>
+                <span class="edu-degree" data-i18n={edu.degreeKey}>{edu.degree}</span>
+                <span class="edu-school" data-i18n={edu.schoolKey}>{edu.school}</span>
+                <span class="edu-period"><span data-i18n={edu.periodKey}>{edu.period}</span> &middot; <span data-i18n={edu.noteKey}>{edu.note}</span></span>
               </div>
             ))}
           </div>
         </div>
         <div>
-          <h2 class="section-h reveal">Timeline</h2>
+          <h2 class="section-h reveal" data-i18n="index.timeline">Timeline</h2>
           <div class="tl-list">
             {timeline.map((t, i) => (
               <div class="tl-row reveal" style="--ti:{i}">
-                <span class="tl-date">{t.date}</span>
-                <span class="tl-text">{t.text}</span>
+                <span class="tl-date" data-i18n={t.dateKey}>{t.date}</span>
+                <span class="tl-text" data-i18n={t.textKey}>{t.text}</span>
               </div>
             ))}
           </div>
@@ -156,13 +164,13 @@ const oss = [
 
     <!-- ── Open Source ── -->
     <section class="section">
-      <h2 class="section-h reveal">Open Source Projects I Contribute</h2>
+      <h2 class="section-h reveal" data-i18n="index.oss">Open Source Projects I Contribute</h2>
       <div class="oss-list">
         {oss.map((p) => (
           <a href={p.url} target="_blank" rel="noopener" class="oss-row reveal">
             <span class="oss-name">{p.name}</span>
             <span class="oss-stars">&#9733; {p.stars.toLocaleString()}</span>
-            <span class="oss-desc">{p.desc}</span>
+            <span class="oss-desc" data-i18n={p.descKey}>{p.desc}</span>
           </a>
         ))}
       </div>
@@ -172,12 +180,12 @@ const oss = [
     <section class="section">
       <div class="links-row">
         <a href="/projects" class="link-card reveal">
-          <span class="lc-label">Projects</span>
-          <span class="lc-desc">Things I've built</span>
+          <span class="lc-label" data-i18n="link.projects">Projects</span>
+          <span class="lc-desc" data-i18n="link.projects.desc">Things I've built</span>
         </a>
         <a href="https://godiao.github.io/blog/" class="link-card reveal">
-          <span class="lc-label">Blog</span>
-          <span class="lc-desc">Thoughts & notes</span>
+          <span class="lc-label" data-i18n="link.blog">Blog</span>
+          <span class="lc-desc" data-i18n="link.blog.desc">Thoughts & notes</span>
         </a>
       </div>
     </section>
@@ -433,7 +441,7 @@ const oss = [
   }
   .tl-text { font-size: 0.88rem; color: var(--text); }
 
-  /* ── Open Source (clean list, no borders) ── */
+  /* ── Open Source ── */
   .oss-list { display: flex; flex-direction: column; }
   .oss-row {
     display: grid;

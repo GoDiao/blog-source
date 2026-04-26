@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import I18nData from '../components/I18nData.astro';
 
 const projects = [
   {
     name: 'Paper-Reader',
     url: 'https://github.com/GoDiao/Paper-Reader',
     desc: 'Hierarchical multi-agent academic paper analysis system with interactive web interface.',
+    descKey: 'proj.paper-reader.desc',
     tags: ['Python', 'Multi-Agent', 'LLM'],
     year: '2025',
     img: '/projects/paper_reader.png',
@@ -15,6 +17,7 @@ const projects = [
     name: 'ai-interview-agent',
     url: 'https://github.com/GoDiao/ai-interview-agent',
     desc: 'AI-powered interview preparation with structured questioning and feedback loops.',
+    descKey: 'proj.ai-interview.desc',
     tags: ['Python', 'NLP', 'Agent'],
     year: '2026',
     img: '/projects/ai-interview-agent.png',
@@ -24,6 +27,7 @@ const projects = [
     name: 'Freeway',
     url: 'https://github.com/GoDiao/Free-Way',
     desc: 'Gateway aggregating free LLM APIs behind one local, OpenAI-compatible endpoint.',
+    descKey: 'proj.freeway.desc',
     tags: ['TypeScript', 'LLM', 'API'],
     year: '2026',
     img: '/projects/free_way.jpg',
@@ -33,6 +37,7 @@ const projects = [
     name: 'oc-loop',
     url: 'https://github.com/GoDiao/oc-loop',
     desc: 'Resumable loop plugin for opencode — persistent iterative agent workflows.',
+    descKey: 'proj.oc-loop.desc',
     tags: ['TypeScript', 'CLI', 'Agent'],
     year: '2026',
     img: '/projects/oc-loop.jpg',
@@ -45,27 +50,31 @@ const oss = [
     name: 'paperclip',
     url: 'https://github.com/paperclipai/paperclip',
     desc: 'AI agent orchestration framework for building autonomous, zero-human companies — multi-agent negotiation, task dispatching, and execution monitoring.',
+    descKey: 'oss-page.paperclip.desc',
     img: '/oss/paperclip.png',
-    stars: 58758,
+    stars: 58874,
   },
   {
     name: 'claude-context',
     url: 'https://github.com/zilliztech/claude-context',
     desc: 'Code search MCP for Claude Code — make entire codebase the context for any coding agent.',
+    descKey: 'oss-page.claude-context.desc',
     img: '/oss/claude-context.png',
-    stars: 9390,
+    stars: 9434,
   },
   {
     name: 'opensre',
     url: 'https://github.com/Tracer-Cloud/opensre',
     desc: 'Open-source framework for AI SRE agents — 60+ integrations for incident investigation, root-cause analysis, and automated remediation.',
+    descKey: 'oss-page.opensre.desc',
     img: '/oss/opensre.png',
-    stars: 3128,
+    stars: 3171,
   },
   {
     name: 'MiniCode',
     url: 'https://github.com/LiuMengxuan04/MiniCode',
     desc: 'Terminal-native AI coding assistant with Claude Code-style workflow and lightweight TUI — built for rapid prototyping and code review.',
+    descKey: 'oss-page.minicode.desc',
     img: '/oss/minicode.jpg',
     stars: 503,
   },
@@ -73,22 +82,24 @@ const oss = [
     name: 'investing-algorithm-framework',
     url: 'https://github.com/coding-kitties/investing-algorithm-framework',
     desc: 'Framework for developing and backtesting automated trading strategies — backtest engine, indicator computation, and deployment pipeline.',
+    descKey: 'oss-page.investing.desc',
     img: '/oss/investing-framework.png',
-    stars: 947,
+    stars: 949,
   },
 ];
 ---
 
 <BaseLayout title="Projects — Diao Shengjia">
+  <I18nData />
   <main>
     <section class="page-intro">
-      <h1 class="intro-h reveal">Projects</h1>
-      <p class="intro-sub reveal">Things I've built</p>
+      <h1 class="intro-h reveal" data-i18n="projects.title">Projects</h1>
+      <p class="intro-sub reveal" data-i18n="projects.subtitle">Things I've built</p>
     </section>
 
     <!-- ── Featured ── -->
     <section class="section">
-      <h2 class="section-h reveal">Featured</h2>
+      <h2 class="section-h reveal" data-i18n="projects.featured">Featured</h2>
       <div class="proj-list">
         {projects.map((p, i) => (
           <a href={p.url} target="_blank" rel="noopener" class="proj-row reveal" style="--pi:{i}">
@@ -100,7 +111,7 @@ const oss = [
                 <h3 class="proj-name">{p.name}</h3>
                 <span class="proj-stars">&#9733; {p.stars}</span>
               </div>
-              <p class="proj-desc">{p.desc}</p>
+              <p class="proj-desc" data-i18n={p.descKey}>{p.desc}</p>
               <div class="proj-bottom">
                 <div class="proj-tags">
                   {p.tags.map((tag) => <span class="proj-tag">{tag}</span>)}
@@ -115,7 +126,7 @@ const oss = [
 
     <!-- ── OSS ── -->
     <section class="section">
-      <h2 class="section-h reveal">Open Source Projects I Contribute</h2>
+      <h2 class="section-h reveal" data-i18n="projects.oss">Open Source Projects I Contribute</h2>
       <div class="oss-grid">
         {oss.map((p) => (
           <a href={p.url} target="_blank" rel="noopener" class="oss-card reveal">
@@ -124,7 +135,7 @@ const oss = [
             </div>
             <div class="oss-body">
               <span class="oss-name">{p.name}</span>
-              <span class="oss-desc">{p.desc}</span>
+              <span class="oss-desc" data-i18n={p.descKey}>{p.desc}</span>
               <span class="oss-stars">&#9733; {p.stars.toLocaleString()}</span>
             </div>
           </a>
