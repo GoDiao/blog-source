@@ -1,331 +1,710 @@
-/* 1. 字体全局优化 - 使用无衬线现代字体 */
+/* ──────────────────────────────────────────────
+   Blog — Editorial companion to godiao.github.io
+   Design direction: literary journal with warm glow
+   ────────────────────────────────────────────── */
+
+/* ── Tokens ── */
 :root {
-    --md-text-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    --md-code-font: "JetBrains Mono", monospace;
-    --md-typeset-color: #1a1a1a;
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", "Consolas", monospace;
+  --accent: #b8956a;
+  --accent-dim: rgba(184, 149, 106, 0.05);
+  --accent-mid: rgba(184, 149, 106, 0.10);
+  --accent-soft: rgba(184, 149, 106, 0.18);
+  --transition: 0.3s ease;
 }
 
-/* 2. 标题进化：去掉生硬的深蓝色，改为更有质感的炭黑 */
+/* ── Dark palette (default) ── */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0f0f0d;
+  --md-default-fg-color: #c8c3b8;
+  --md-default-fg-color--light: #837d72;
+  --md-default-fg-color--lighter: #5c584f;
+  --md-primary-fg-color: #c8c3b8;
+  --md-accent-fg-color: #b8956a;
+  --md-typeset-color: #c8c3b8;
+  --md-code-bg-color: #161614;
+  --md-code-fg-color: #c8c3b8;
+  --md-hue: 45;
+}
+
+/* ── Light palette ── */
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: #f8f6f1;
+  --md-default-fg-color: #1a1916;
+  --md-default-fg-color--light: #6b665c;
+  --md-default-fg-color--lighter: #9e9889;
+  --md-primary-fg-color: #1a1916;
+  --md-accent-fg-color: #a07d52;
+  --md-typeset-color: #33302a;
+  --md-code-bg-color: #edeae3;
+  --md-code-fg-color: #1a1916;
+}
+
+/* ── Noise texture ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+}
+
+/* ── Warm ambient glow ── */
+body {
+  background:
+    radial-gradient(ellipse 900px 600px at 50% -200px, rgba(184,149,106,0.07) 0%, transparent 70%),
+    var(--md-default-bg-color) !important;
+}
+
+[data-md-color-scheme="default"] body {
+  background:
+    radial-gradient(ellipse 900px 600px at 50% -200px, rgba(184,149,106,0.06) 0%, transparent 70%),
+    var(--md-default-bg-color) !important;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ────────────────────────────
+   HEADER — ghost bar
+   ──────────────────────────── */
+.md-header {
+  background: rgba(15, 15, 13, 0.85) !important;
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(255,255,255,0.03) !important;
+}
+
+[data-md-color-scheme="default"] .md-header {
+  background: rgba(248, 246, 241, 0.88) !important;
+  border-bottom-color: rgba(0,0,0,0.06) !important;
+}
+
+.md-header__title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.md-tabs {
+  background: transparent !important;
+  border-bottom: none !important;
+}
+
+/* ────────────────────────────
+   BACK-LINK (injected by main.html)
+   ──────────────────────────── */
+.blog-back {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0 2rem;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--md-default-fg-color--lighter);
+}
+
+.blog-back a {
+  color: var(--md-default-fg-color--lighter);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.blog-back a:hover {
+  color: var(--accent);
+}
+
+.back-link {
+  font-family: var(--serif);
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+.back-links {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ────────────────────────────
+   HIDE MKDOCS PERMALINKS
+   ──────────────────────────── */
+.md-typeset .headerlink {
+  display: none !important;
+}
+
+/* ────────────────────────────
+   TYPOGRAPHY — editorial hierarchy
+   ──────────────────────────── */
+.md-typeset {
+  line-height: 1.85;
+  font-size: 0.86rem;
+}
+
 .md-typeset h1 {
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: #000;
-    margin-bottom: 1.5rem;
-    margin-top: 0;
+  font-family: var(--serif);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  color: var(--md-default-fg-color);
+  margin-bottom: 0.15rem;
+  margin-top: 0;
+  font-size: 2.2rem;
+  line-height: 1.15;
 }
 
 .md-typeset h2 {
-    font-weight: 700;
-    margin-top: 2.5rem;
-    margin-bottom: 1.2rem;
-    border-bottom: none;
-    position: relative;
-    padding-left: 15px;
-    color: #000;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 3rem;
+  margin-bottom: 0.8rem;
+  color: var(--md-default-fg-color);
+  border: none;
+  padding: 0;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
 }
 
 .md-typeset h2::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 20%;
-    height: 60%;
-    width: 4px;
-    background: #000;
-    border-radius: 2px;
+  display: none;
 }
 
 .md-typeset h3 {
-    font-weight: 600;
-    margin-top: 1.8rem;
-    margin-bottom: 0.8rem;
-    color: #1a1a1a;
+  font-weight: 500;
+  font-size: 0.88rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--md-default-fg-color);
+  letter-spacing: -0.005em;
 }
 
-/* 3. 顶部导航：去掉阴影，改用超细边框 */
-.md-header {
-    background-color: rgba(255, 255, 255, 0.8) !important;
-    backdrop-filter: blur(10px);
-    box-shadow: none !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+.md-typeset h4 {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--md-default-fg-color--lighter);
+  margin-top: 2rem;
+  margin-bottom: 0.4rem;
 }
 
-[data-md-color-scheme="slate"] .md-header {
-    background-color: rgba(15, 18, 20, 0.8) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+/* ── Subtitle ── */
+.subtitle {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--lighter);
+  margin-top: 0.4rem;
+  margin-bottom: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 1.7;
 }
 
-/* 4. 搜索框：圆角化与质感 */
-.md-search__inner {
-    background-color: rgba(0, 0, 0, 0.03) !important;
-    border-radius: 20px;
-}
-
-[data-md-color-scheme="slate"] .md-search__inner {
-    background-color: rgba(255, 255, 255, 0.05) !important;
-}
-
-/* 5. 列表与正文：增加行高，提升阅读体验 */
+/* ── Body text ── */
 .md-typeset p {
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 1.2rem;
+  line-height: 1.85;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 1.3rem;
 }
 
-[data-md-color-scheme="slate"] .md-typeset p {
-    color: #ccc;
+.md-typeset strong {
+  font-weight: 500;
+  color: var(--md-default-fg-color);
 }
 
-.md-typeset ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 1.2rem 0;
-}
-
-.md-typeset ol {
-    margin: 1.2rem 0;
-}
-
-.md-typeset li {
-    padding: 8px 16px;
-    margin-bottom: 8px;
-    background: #f8f9fa;
-    border-radius: 6px;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    color: #333;
-}
-
-.md-typeset li:hover {
-    transform: translateX(5px);
-    background: #f1f3f5;
-}
-
-[data-md-color-scheme="slate"] .md-typeset li {
-    background: rgba(255, 255, 255, 0.05);
-    color: #ddd;
-}
-
-[data-md-color-scheme="slate"] .md-typeset li:hover {
-    background: rgba(255, 255, 255, 0.08);
-}
-
-/* 6. 代码块 */
-.md-typeset code {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: #000;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-weight: 500;
-    font-family: var(--md-code-font);
-}
-
-[data-md-color-scheme="slate"] .md-typeset code {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
-}
-
-.md-typeset pre {
-    background-color: #f5f5f5;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 1.2em !important;
-    margin: 1.5rem 0;
-}
-
-[data-md-color-scheme="slate"] .md-typeset pre {
-    background-color: #0d1117;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* 7. 引用块 */
-.md-typeset blockquote {
-    border-left: 3px solid #000;
-    background-color: rgba(0, 0, 0, 0.02);
-    padding: 1em;
-    border-radius: 4px;
-    margin: 1.5em 0;
-    color: #555;
-}
-
-[data-md-color-scheme="slate"] .md-typeset blockquote {
-    border-left: 3px solid #fff;
-    background-color: rgba(255, 255, 255, 0.02);
-    color: #aaa;
-}
-
-/* 8. 表格 */
-.md-typeset table {
-    border-collapse: collapse;
-    margin: 1.5em 0;
-    width: 100%;
-}
-
-.md-typeset table tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.02);
-}
-
-[data-md-color-scheme="slate"] .md-typeset table tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.02);
-}
-
-/* 9. 链接 */
+/* ────────────────────────────
+   LINKS — accent with restraint
+   ──────────────────────────── */
 .md-typeset a {
-    color: #000;
-    text-decoration: none;
-    border-bottom: 1px solid #000;
-    transition: all 0.2s ease;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition);
 }
 
 .md-typeset a:hover {
-    opacity: 0.6;
-}
-
-[data-md-color-scheme="slate"] .md-typeset a {
-    color: #fff;
-    border-bottom: 1px solid #fff;
-}
-
-[data-md-color-scheme="slate"] .md-typeset a:hover {
-    opacity: 0.7;
-}
-
-/* 10. 侧边栏 */
-.md-sidebar {
-    background-color: transparent;
+  color: var(--md-default-fg-color);
 }
 
 .md-nav__link {
-    transition: all 0.2s ease;
-    opacity: 0.7;
+  color: var(--md-default-fg-color--light);
+  transition: color var(--transition);
+  font-size: 0.84rem;
+}
+
+.md-nav__link:hover {
+  color: var(--accent);
 }
 
 .md-nav__link--active {
-    opacity: 1 !important;
-    font-weight: 600;
+  color: var(--accent) !important;
+  font-weight: 500;
 }
 
-/* 11. 主容器 */
+/* ────────────────────────────
+   LISTS — architectural dots
+   ──────────────────────────── */
+.md-typeset ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.8rem 0;
+}
+
+.md-typeset ol {
+  margin: 0.8rem 0;
+  padding-left: 1.5rem;
+}
+
+.md-typeset li {
+  padding: 0.25rem 0 0.25rem 1rem;
+  background: none;
+  border-radius: 0;
+  color: var(--md-default-fg-color--light);
+  position: relative;
+}
+
+.md-typeset li:hover {
+  transform: none;
+  background: none;
+}
+
+.md-typeset ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.3;
+}
+
+/* ────────────────────────────
+   CODE — muted blocks
+   ──────────────────────────── */
+.md-typeset code {
+  background: var(--md-code-bg-color);
+  color: var(--md-default-fg-color);
+  padding: 0.12em 0.35em;
+  border-radius: 3px;
+  font-size: 0.84em;
+  font-family: var(--mono);
+}
+
+.md-typeset pre {
+  background: var(--md-code-bg-color);
+  border-radius: 4px;
+  box-shadow: none;
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 1.1em 1.3em !important;
+  margin: 1.5rem 0;
+}
+
+.md-typeset pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.8em;
+}
+
+/* ────────────────────────────
+   BLOCKQUOTES — accent left bar
+   ──────────────────────────── */
+.md-typeset blockquote {
+  border-left: 2px solid var(--accent);
+  background: var(--accent-dim);
+  padding: 0.75rem 1rem;
+  border-radius: 0 3px 3px 0;
+  margin: 1.5rem 0;
+  color: var(--md-default-fg-color--light);
+}
+
+/* ────────────────────────────
+   TABLES — mono headers
+   ──────────────────────────── */
+.md-typeset table {
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  width: 100%;
+  font-size: 0.84em;
+}
+
+.md-typeset table th {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--md-default-fg-color--lighter);
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  text-align: left;
+}
+
+.md-typeset table td {
+  padding: 0.45rem 0.7rem;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset table tbody tr:hover {
+  background: var(--accent-dim);
+}
+
+/* ────────────────────────────
+   HR — whisper-thin dividers
+   ──────────────────────────── */
+.md-typeset hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  margin: 3rem 0;
+}
+
+[data-md-color-scheme="default"] .md-typeset hr {
+  border-top-color: rgba(0,0,0,0.06);
+}
+
+/* ────────────────────────────
+   CONTENT WIDTH — narrow, readable
+   ──────────────────────────── */
+.md-content__inner {
+  max-width: 720px;
+}
+
+/* ────────────────────────────
+   SIDEBAR — ghost
+   ──────────────────────────── */
+.md-sidebar {
+  background: transparent;
+}
+
+.md-sidebar__scrollwrap {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(184,149,106,0.12) transparent;
+}
+
+.md-nav--secondary .md-nav__link {
+  font-size: 0.8em;
+  opacity: 0.5;
+}
+
+.md-nav--secondary .md-nav__link--active {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* ────────────────────────────
+   SEARCH
+   ──────────────────────────── */
+.md-search__inner {
+  background: rgba(255,255,255,0.03) !important;
+  border-radius: 8px;
+}
+
+[data-md-color-scheme="default"] .md-search__inner {
+  background: rgba(0,0,0,0.03) !important;
+}
+
+/* ────────────────────────────
+   FOOTER — minimal
+   ──────────────────────────── */
 .md-main {
-    background-color: #fff;
+  background: transparent;
 }
 
-[data-md-color-scheme="slate"] .md-main {
-    background-color: #0f1217;
-}
-
-/* 12. 页脚 */
 .md-footer {
-    background-color: #f5f5f5;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  background: transparent !important;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  color: var(--md-default-fg-color--lighter);
 }
 
-[data-md-color-scheme="slate"] .md-footer {
-    background-color: #0d1117;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+[data-md-color-scheme="default"] .md-footer {
+  border-top-color: rgba(0,0,0,0.06);
 }
 
-/* 13. 隐藏滚动条 */
+.md-footer-meta {
+  background: transparent !important;
+}
+
+/* ────────────────────────────
+   IMAGES — soft shadow, no hover gimmick
+   ──────────────────────────── */
+.md-content__inner img {
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+/* ────────────────────────────
+   ADMONITIONS
+   ──────────────────────────── */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 4px;
+  border: none;
+  box-shadow: none;
+  background: var(--accent-dim);
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-weight: 500;
+  color: var(--accent);
+}
+
+/* ────────────────────────────
+   SCROLLBAR
+   ──────────────────────────── */
 ::-webkit-scrollbar {
-    width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
+  background: rgba(184,149,106,0.15);
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: transparent;
+  background: transparent;
 }
 
-[data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* 14. 图片 */
-.md-content__inner img {
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-}
-
-.md-content__inner img:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-[data-md-color-scheme="slate"] .md-content__inner img {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-[data-md-color-scheme="slate"] .md-content__inner img:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-/* 15. 内容区域最大宽度 */
-.md-content__inner {
-    max-width: 900px;
-}
-
-/* 16. 平滑过渡 */
+/* ────────────────────────────
+   TRANSITIONS — intentional only
+   ──────────────────────────── */
 * {
-    transition: background-color 0.2s ease, color 0.2s ease;
+  transition: none;
 }
 
-/* 17. 去掉导航栏的笨重感 */
-.md-tabs {
-    background-color: transparent !important;
-    border-bottom: none;
+.md-typeset a,
+.md-nav__link,
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li {
+  transition: color var(--transition);
 }
 
-/* 18. 卡片样式 - 用于首页的研究方向展示 */
-.focus-card {
-    padding: 20px;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    background: #fafafa;
-    transition: all 0.3s ease;
-    margin-bottom: 12px;
+/* ────────────────────────────
+   GRID CARDS
+   ──────────────────────────── */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li {
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 4px;
+  background: transparent;
+  padding: 1rem 1.2rem;
 }
 
-.focus-card:hover {
-    border-color: #000;
-    background: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid.cards > ol > li:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  transform: none;
 }
 
-[data-md-color-scheme="slate"] .focus-card {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.02);
+.md-typeset .grid.cards > ul > li::before,
+.md-typeset .grid.cards > ol > li::before {
+  display: none;
 }
 
-[data-md-color-scheme="slate"] .focus-card:hover {
-    border-color: #fff;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li,
+[data-md-color-scheme="default"] .md-typeset .grid.cards > ol > li {
+  border-color: rgba(0,0,0,0.07);
 }
 
-/* 19. 强调文本 */
-.md-typeset strong {
-    font-weight: 700;
-    color: #000;
+/* ══════════════════════════════
+   CUSTOM SECTIONS
+   ══════════════════════════════ */
+
+/* ── Paper Notes: category groups ── */
+.paper-group {
+  margin: 0.5rem 0 1.5rem;
 }
 
-[data-md-color-scheme="slate"] .md-typeset strong {
-    color: #fff;
+.paper-group h3 {
+  font-family: var(--mono) !important;
+  font-size: 0.62rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.16em !important;
+  color: var(--md-default-fg-color--lighter) !important;
+  margin: 1.8rem 0 0.4rem !important;
+  padding: 0 !important;
 }
 
-/* 20. 副标题样式 */
-.subtitle {
-    font-size: 1.1rem;
-    color: #666;
-    margin-top: -0.5rem;
-    margin-bottom: 2rem;
-    font-weight: 400;
+.paper-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-[data-md-color-scheme="slate"] .subtitle {
-    color: #999;
+.paper-list li {
+  padding: 0.55rem 0 !important;
+  padding-left: 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+[data-md-color-scheme="default"] .paper-list li {
+  border-bottom-color: rgba(0,0,0,0.05);
+}
+
+.paper-list li::before {
+  display: none !important;
+}
+
+.paper-list li:last-child {
+  border-bottom: none;
+}
+
+.paper-list li a {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--md-default-fg-color);
+  font-size: 0.92rem;
+  letter-spacing: -0.005em;
+}
+
+.paper-list li a:hover {
+  color: var(--accent);
+}
+
+.paper-tag {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  color: var(--md-default-fg-color--lighter);
+  letter-spacing: 0.02em;
+}
+
+/* ── Post listing ── */
+.post-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.post-list li {
+  padding: 1.2rem 0 !important;
+  padding-left: 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+[data-md-color-scheme="default"] .post-list li {
+  border-bottom-color: rgba(0,0,0,0.05);
+}
+
+.post-list li::before {
+  display: none !important;
+}
+
+.post-list li:first-child {
+  padding-top: 0 !important;
+}
+
+.post-list li:last-child {
+  border-bottom: none;
+}
+
+.post-list li a {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--md-default-fg-color);
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.post-list li a:hover {
+  color: var(--accent);
+}
+
+.post-meta {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  color: var(--md-default-fg-color--lighter);
+  letter-spacing: 0.03em;
+}
+
+.post-desc {
+  font-size: 0.84rem;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Elsewhere links ── */
+.elsewhere {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 0.8rem;
+}
+
+.elsewhere a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.4rem 0;
+  color: var(--md-default-fg-color--lighter);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.elsewhere a:hover {
+  color: var(--accent);
+}
+
+.elsewhere a:hover .label {
+  color: var(--accent);
+}
+
+.elsewhere .label {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--md-default-fg-color);
+  font-size: 0.9rem;
+  letter-spacing: -0.005em;
+  transition: color var(--transition);
+}
+
+.elsewhere .hint {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--md-default-fg-color--lighter);
+  letter-spacing: 0.02em;
+}
+
+/* ── Page fade-in ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.md-content__inner {
+  animation: fadeUp 0.5s ease both;
+}
+
+/* ── Light mode subtle borders ── */
+[data-md-color-scheme="default"] .md-typeset hr {
+  border-top-color: rgba(0,0,0,0.07);
+}
+
+[data-md-color-scheme="default"] .md-typeset pre {
+  border-color: rgba(0,0,0,0.06);
+}
+
+[data-md-color-scheme="default"] .md-typeset blockquote {
+  border-left-color: var(--accent);
 }

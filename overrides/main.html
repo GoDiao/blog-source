@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if page.meta and page.meta.hide %}
+  {% if "navigation" in page.meta.hide %}
+    {% set hide_nav = true %}
+  {% endif %}
+{% endif %}
+
+<div class="blog-back">
+  <a href="https://godiao.github.io" class="back-link">&larr; Diao Shengjia</a>
+  <div class="back-links">
+    <a href="https://github.com/GoDiao" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div>
+
+{{ page.content }}
+
+{% if page.meta and page.meta.comments %}
+  {% include "partials/comments.html" %}
+{% endif %}
+{% endblock %}

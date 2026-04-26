@@ -1,59 +1,63 @@
 ---
 hide:
   - navigation
+  - toc
 ---
 
-# Diao Shengjia · Blog
+# Blog
 
-Writing about AI research, engineering, and things I'm building.
+<p class="subtitle">Writing about AI research, engineering, and things I'm building.</p>
 
 ---
 
-## Recent Posts
+## Recent
 
-<div class="grid cards" markdown>
-
-- [:material-post: **RGB-to-RAW 图像重建完整指南**](blog/rgb-to-raw-guide.md)
-  ---
-  从相机传感器数据到最终 RGB 图像的完整 pipeline 解析。
-
-</div>
+<ul class="post-list">
+<li>
+<a href="blog/object-detection-future/">目标检测何去何从</a>
+<span class="post-meta">2025-01-18 · Object Detection</span>
+</li>
+<li>
+<a href="blog/rgb-to-raw-guide/">RGB-to-RAW 图像重建完整指南</a>
+<span class="post-meta">2025-01-15 · Computer Vision</span>
+</li>
+</ul>
 
 ---
 
 ## Paper Notes
 
-<div class="grid cards" markdown>
+<div class="paper-group">
+<h3>Object Detection</h3>
+<ul class="paper-list">
+<li><a href="papers/DINO/paper_analysis_zh/">DINO</a> <span class="paper-tag">Emerging Properties in Self-Supervised Vision Transformers</span></li>
+<li><a href="papers/Stable_DINO/paper_analysis_zh/">Stable DINO</a> <span class="paper-tag">Stable self-distillation with no labels</span></li>
+<li><a href="papers/SAM_Detr/paper_analysis_zh/">SAM-DETR++</a> <span class="paper-tag">Semantic-Aligned Matching for DETR Convergence</span></li>
+<li><a href="papers/VLDet/paper_analysis_zh/">VLDet</a> <span class="paper-tag">Open-Vocabulary Detection with Vision-Language Pre-Training</span></li>
+</ul>
+</div>
 
-- [:material-book-open-page-variant: **DINO**](papers/DINO/index.md)
-  Self-Distillation with No Labels
+<div class="paper-group">
+<h3>Transformer Architecture</h3>
+<ul class="paper-list">
+<li><a href="papers/revisiting_CLS/paper_analysis_zh/">Revisiting [CLS]</a> <span class="paper-tag">Token decoupling in Vision Transformers</span></li>
+<li><a href="papers/Naive_Sparse_Attention/paper_analysis_zh/">Naive Sparse Attention</a> <span class="paper-tag">Hardware-aligned trainable sparse attention</span></li>
+</ul>
+</div>
 
-- [:material-book-open-page-variant: **SAM & DETR**](papers/SAM_Detr/index.md)
-  Segment Anything & Detection Transformer
-
-- [:material-book-open-page-variant: **Stable DINO**](papers/Stable_DINO/index.md)
-  Stable self-distillation for vision models
-
-- [:material-book-open-page-variant: **VLDet**](papers/VLDet/index.md)
-  Vision-Language Detection
-
-- [:material-book-open-page-variant: **Naive Sparse Attention**](papers/Naive_Sparse_Attention/index.md)
-  Efficient attention mechanisms
-
-- [:material-book-open-page-variant: **GLM-5 Report**](papers/GLM5_Report/index.md)
-  Notes on the GLM-5 technical report
-
-- [:material-book-open-page-variant: **Opus**](papers/Opus/index.md)
-  Anthropic Opus model family
-
-- [:material-book-open-page-variant: **Revisiting CLS**](papers/revisiting_CLS/index.md)
-  Rethinking classification tokens
-
+<div class="paper-group">
+<h3>Large Language Models</h3>
+<ul class="paper-list">
+<li><a href="papers/Opus/paper_analysis_zh/">Opus</a> <span class="paper-tag">Optimizer-Aware Dynamic Data Selection for LLMs</span></li>
+<li><a href="papers/GLM5_Report/paper_analysis_zh/">GLM-5 Report</a> <span class="paper-tag">From Vibe Coding to Agent Engineering</span></li>
+</ul>
 </div>
 
 ---
 
 ## Elsewhere
 
-- [:fontawesome-brands-github: **GoDiao**](https://github.com/GoDiao) — Open source projects
-- [:material-web: **godiao.com**](https://godiao.com) — Personal site
+<div class="elsewhere">
+<a href="https://github.com/GoDiao"><span class="label">GitHub</span><span class="hint">Open source projects</span></a>
+<a href="https://godiao.github.io"><span class="label">godiao.github.io</span><span class="hint">Personal site</span></a>
+</div>

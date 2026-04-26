@@ -1,8 +1,8 @@
 site_description: Diao Shengjia — AI/ML research, engineering, and paper notes
-site_name: Diao Shengjia · Blog
+site_name: Blog
 site_url: https://godiao.github.io/blog/
 repo_url: https://github.com/GoDiao/blog-source
-copyright: Copyright &copy; 2024 Diao Shengjia
+copyright: Copyright &copy; 2024–2026 Diao Shengjia
 
 theme:
   name: material
@@ -22,6 +22,9 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to dark
+  font:
+    text: DM Sans
+    code: JetBrains Mono
   features:
     - navigation.top
     - content.code.copy
@@ -35,9 +38,6 @@ nav:
 
 plugins:
   - search
-  - wavedrom:
-      embed_svg: true
-      pymdownx: true
 
 markdown_extensions:
   - toc:
@@ -56,9 +56,6 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences:
       custom_fences:
-        - name: wavedrom
-          class: wavedrom
-          format: !!python/name:markdownwavedrom.plugin.fence_wavedrom_format
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format

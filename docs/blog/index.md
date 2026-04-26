@@ -3,14 +3,21 @@ hide:
   - toc
 ---
 
-# 博客
+# Blog
 
-最新的研究笔记、技术分享和项目总结。
-
-## 最新文章
-
-* [RGB-to-RAW 重建实践总结](./rgb-to-raw-guide.md) - 2025-01-15
+<p class="subtitle">Research notes, technical deep-dives, and project write-ups.</p>
 
 ---
 
-更多文章持续更新中...
+## All Posts
+
+<ul class="post-list">
+<li>
+<a href="object-detection-future/">目标检测何去何从</a>
+<span class="post-meta">2025-01-18 · Object Detection</span>
+</li>
+<li>
+<a href="rgb-to-raw-guide/">RGB-to-RAW 图像重建完整指南</a>
+<span class="post-meta">2025-01-15 · Computer Vision</span>
+</li>
+</ul>
