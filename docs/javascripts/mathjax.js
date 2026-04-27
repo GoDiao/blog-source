@@ -21,13 +21,12 @@ window.MathJax = {
         load: ['[tex]/ams', '[tex]/newcommand', '[tex]/configmacros']
     },
     startup: {
-        pageReady: () => {
-            return MathJax.startup.defaultPageReady().then(() => {
+        pageReady: function() {
+            return MathJax.startup.defaultPageReady().then(function() {
+                // Re-typeset on MkDocs navigation (if instant loading is enabled)
                 if (typeof document$ !== 'undefined') {
-                    document$.subscribe(() => {
-                        MathJax.startup.promise.then(() => {
-                            return MathJax.typesetPromise();
-                        }).catch((err) => console.log('MathJax typeset error:', err));
+                    document$.subscribe(function() {
+                        MathJax.typesetPromise();
                     });
                 }
             });
