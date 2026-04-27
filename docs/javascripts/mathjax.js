@@ -11,18 +11,26 @@ window.MathJax = {
         displayIndent: '2em'
     },
     options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea'],
+        processHtmlClass: 'arithmatex',
         renderActions: {
             addMenu: []
         }
     },
     loader: {
         load: ['[tex]/ams', '[tex]/newcommand', '[tex]/configmacros']
+    },
+    startup: {
+        pageReady: () => {
+            return MathJax.startup.defaultPageReady().then(() => {
+                if (typeof document$ !== 'undefined') {
+                    document$.subscribe(() => {
+                        MathJax.startup.promise.then(() => {
+                            return MathJax.typesetPromise();
+                        }).catch((err) => console.log('MathJax typeset error:', err));
+                    });
+                }
+            });
+        }
     }
 };
-
-document$.subscribe(() => {
-    MathJax.startup.promise.then(() => {
-        return MathJax.typesetPromise();
-    }).catch((err) => console.log('MathJax typeset error:', err));
-});
