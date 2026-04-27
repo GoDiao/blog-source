@@ -14,6 +14,10 @@ hide:
 
 <ul class="post-list">
 <li>
+<a href="blog/kv-cache-optimization/">KV Cache 优化：从原理到实践</a>
+<span class="post-meta">2025-01-20 · LLM Inference</span>
+</li>
+<li>
 <a href="blog/object-detection-future/">目标检测何去何从</a>
 <span class="post-meta">2025-01-18 · Object Detection</span>
 </li>
