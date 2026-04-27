@@ -70,6 +70,7 @@ export const translations = {
     'oss.claude-context.desc': 'Code search MCP for Claude Code — make entire codebase the context for any coding agent',
     'oss.opensre.desc': 'Open-source framework for AI SRE agents — 60+ integrations for incident investigation and response',
     'oss.minicode.desc': 'Terminal-native AI coding assistant with lightweight TUI',
+    'oss.open-codesign.desc': 'Open-source Claude Design alternative. Prompt → prototype / slides / PDF. Multi-model, BYOK, local-first.',
     'oss.investing.desc': 'Framework for developing and backtesting automated trading strategies',
 
     // Index - Links
@@ -95,6 +96,7 @@ export const translations = {
     'oss-page.claude-context.desc': 'Code search MCP for Claude Code — make entire codebase the context for any coding agent.',
     'oss-page.opensre.desc': 'Open-source framework for AI SRE agents — 60+ integrations for incident investigation, root-cause analysis, and automated remediation.',
     'oss-page.minicode.desc': 'Terminal-native AI coding assistant with Claude Code-style workflow and lightweight TUI — built for rapid prototyping and code review.',
+    'oss-page.open-codesign.desc': 'Open-source Claude Design alternative. One-click import your Claude Code / Codex API key. Prompt → prototype / slides / PDF. Multi-model (Claude, GPT, Gemini, Kimi, GLM, Ollama). BYOK, local-first, MIT.',
     'oss-page.investing.desc': 'Framework for developing and backtesting automated trading strategies — backtest engine, indicator computation, and deployment pipeline.',
 
     // About page
@@ -233,6 +235,7 @@ export const translations = {
     'oss.claude-context.desc': 'Claude Code 的代码搜索 MCP — 将整个代码库作为任意编程智能体的上下文',
     'oss.opensre.desc': 'AI SRE 智能体开源框架 — 60+ 集成，用于事件调查与响应',
     'oss.minicode.desc': '终端原生 AI 编程助手，轻量级 TUI',
+    'oss.open-codesign.desc': '开源 Claude Design 替代方案。Prompt → 原型 / 幻灯片 / PDF。多模型、BYOK、本地优先。',
     'oss.investing.desc': '自动化交易策略开发与回测框架',
 
     // Index - Links
@@ -258,6 +261,7 @@ export const translations = {
     'oss-page.claude-context.desc': 'Claude Code 的代码搜索 MCP — 将整个代码库作为任意编程智能体的上下文。',
     'oss-page.opensre.desc': 'AI SRE 智能体开源框架 — 60+ 集成，用于事件调查、根因分析与自动修复。',
     'oss-page.minicode.desc': '终端原生 AI 编程助手，Claude Code 风格工作流与轻量级 TUI — 为快速原型与代码审查而构建。',
+    'oss-page.open-codesign.desc': '开源 Claude Design 替代方案。一键导入 Claude Code / Codex API key。Prompt → 原型 / 幻灯片 / PDF。多模型支持（Claude、GPT、Gemini、Kimi、GLM、Ollama）。BYOK、本地优先、MIT 协议。',
     'oss-page.investing.desc': '自动化交易策略开发与回测框架 — 回测引擎、指标计算与部署管线。',
 
     // About page
