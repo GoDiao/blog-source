@@ -26,6 +26,10 @@ const { title } = Astro.props;
         <a href="/projects" data-i18n="nav.projects">Projects</a>
         <a href="https://godiao.github.io/blog/" data-i18n="nav.blog">Blog</a>
         <a href="https://github.com/GoDiao" target="_blank" rel="noopener" data-i18n="nav.github">GitHub</a>
+        <button class="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+          <svg class="theme-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          <svg class="theme-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
         <button class="lang-toggle" title="Switch language">
           <span class="lang-label">中</span>
         </button>
@@ -62,6 +66,20 @@ const { title } = Astro.props;
     --transition: 0.25s ease;
   }
 
+  [data-theme="light"] {
+    --bg: #f5f2ec;
+    --bg-elevated: #ebe7df;
+    --bg-card: #e6e2d8;
+    --text: #2a2824;
+    --text-secondary: #6b6560;
+    --text-dim: #8a8478;
+    --accent: #a07840;
+    --accent-dim: rgba(160, 120, 64, 0.08);
+    --accent-soft: rgba(160, 120, 64, 0.15);
+    --border: #ddd8ce;
+    --border-hover: #ccc6ba;
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html {
@@ -70,6 +88,10 @@ const { title } = Astro.props;
     scrollbar-color: var(--border-hover) transparent;
     scroll-behavior: smooth;
   }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 3px; }
 
   body {
     font-family: var(--sans);
@@ -84,6 +106,14 @@ const { title } = Astro.props;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transition: background-color var(--transition), color var(--transition);
+  }
+
+  [data-theme="light"] body {
+    background:
+      radial-gradient(ellipse 800px 500px at 50% -100px, rgba(160,120,64,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 400px at 100% 80%, rgba(160,120,64,0.04) 0%, transparent 70%),
+      var(--bg);
   }
 
   /* ── Noise Texture Overlay ── */
@@ -98,6 +128,8 @@ const { title } = Astro.props;
     background-repeat: repeat;
     background-size: 300px 300px;
   }
+
+  [data-theme="light"] body::after { opacity: 0.02; }
 
   ::selection {
     background: var(--accent);
@@ -153,21 +185,44 @@ const { title } = Astro.props;
   .nav-links a { color: var(--text-secondary); }
   .nav-links a:hover { color: var(--text); }
 
-  .lang-toggle {
+  .theme-toggle, .lang-toggle {
     background: none;
     border: 1px solid var(--border);
     color: var(--text-dim);
+    cursor: pointer;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .theme-toggle:hover, .lang-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .theme-toggle {
+    width: 1.8rem;
+    height: 1.6rem;
+    padding: 0;
+    border-radius: 3px;
+  }
+  .theme-toggle .theme-icon {
+    width: 14px;
+    height: 14px;
+    transition: opacity var(--transition), transform var(--transition);
+    position: absolute;
+  }
+  .theme-toggle .theme-icon.moon { opacity: 1; transform: scale(1); }
+  .theme-toggle .theme-icon.sun  { opacity: 0; transform: scale(0.7); }
+  [data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform: scale(0.7); }
+  [data-theme="light"] .theme-toggle .theme-icon.sun  { opacity: 1; transform: scale(1); }
+
+  .lang-toggle {
     font-family: var(--mono);
     font-size: 0.62rem;
     padding: 0.2rem 0.5rem;
-    cursor: pointer;
-    transition: all var(--transition);
     letter-spacing: 0.05em;
     line-height: 1;
-  }
-  .lang-toggle:hover {
-    border-color: var(--accent);
-    color: var(--accent);
   }
 
   /* ── Main ── */
@@ -209,7 +264,7 @@ const { title } = Astro.props;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    color: #6a655b;
+    color: var(--text-dim);
     margin-bottom: 1.75rem;
   }
 
@@ -227,10 +282,42 @@ const { title } = Astro.props;
     main { padding: 0 1rem; }
     footer { padding: 2rem 1rem; margin-top: 3rem; }
   }
+
+  /* ── Light theme page-specific overrides ── */
+  [data-theme="light"] .hero-glow {
+    background: radial-gradient(circle, rgba(160,120,64,0.10) 0%, transparent 70%);
+  }
+  [data-theme="light"] .hero-avatar::after {
+    background: radial-gradient(circle, rgba(160,120,64,0.20) 0%, transparent 60%);
+  }
 </style>
 
 <script>
+  (function() {
+    // ── Theme init (blocking, before paint) ──
+    var storedTheme = localStorage.getItem('theme');
+    var theme = storedTheme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+
   document.addEventListener('DOMContentLoaded', function() {
+    var currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    var particleColor = currentTheme === 'light' ? '160,120,64' : '184,149,106';
+
+    function applyTheme(theme) {
+      currentTheme = theme;
+      localStorage.setItem('theme', theme);
+      document.documentElement.setAttribute('data-theme', theme);
+      particleColor = theme === 'light' ? '160,120,64' : '184,149,106';
+    }
+
+    // ── Theme Toggle ──
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('.theme-toggle')) {
+        applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+      }
+    });
+
     // ── Particle Canvas ──
     var canvas = document.getElementById('particles');
     if (canvas) {
@@ -266,7 +353,7 @@ const { title } = Astro.props;
           if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(184,149,106,' + p.alpha + ')';
+          ctx.fillStyle = 'rgba(' + particleColor + ',' + p.alpha + ')';
           ctx.fill();
         }
         for (var i = 0; i < particles.length; i++) {
@@ -278,7 +365,7 @@ const { title } = Astro.props;
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = 'rgba(184,149,106,' + (0.03 * (1 - dist / 100)) + ')';
+              ctx.strokeStyle = 'rgba(' + particleColor + ',' + (0.03 * (1 - dist / 100)) + ')';
               ctx.lineWidth = 0.3;
               ctx.stroke();
             }
