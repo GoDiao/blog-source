@@ -65,12 +65,23 @@
     }
   });
 
-  // Add section numbers to h2 in article pages
+  // Add section numbers to h2 and h3 in article pages
   const isArticle = document.querySelector('.md-typeset h1');
   if (isArticle) {
     const h2s = document.querySelectorAll('.md-typeset h2');
     h2s.forEach(function(h2, i) {
-      h2.setAttribute('data-section', (i + 1).toString().padStart(2, '0'));
+      const h2Num = (i + 1).toString().padStart(2, '0');
+      h2.setAttribute('data-section', h2Num);
+
+      let next = h2.nextElementSibling;
+      let h3Count = 1;
+      while (next && !next.matches('h2')) {
+        if (next.matches('h3')) {
+          next.setAttribute('data-section', h2Num + '.' + h3Count);
+          h3Count++;
+        }
+        next = next.nextElementSibling;
+      }
     });
   }
 })();
