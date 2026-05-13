@@ -89,7 +89,7 @@ export const translations = {
     // Projects descriptions
     'proj.paper-reader.desc': 'Hierarchical multi-agent academic paper analysis system with interactive web interface.',
     'proj.ai-interview.desc': 'AI-powered interview preparation with structured questioning and feedback loops.',
-    'proj.freeway.desc': 'Gateway aggregating free LLM APIs behind one local, OpenAI-compatible endpoint.',
+    'proj.freeway.desc': 'Use Claude Code, Codex, OpenCode, Cline for free — one local gateway to 14+ free LLM providers.',
     'proj.oc-loop.desc': 'Resumable loop plugin for opencode — persistent iterative agent workflows.',
 
     // OSS Projects page descriptions
@@ -256,7 +256,7 @@ export const translations = {
     // Projects descriptions
     'proj.paper-reader.desc': '分层多智能体学术论文分析系统，带交互式 Web 界面。',
     'proj.ai-interview.desc': 'AI 驱动的面试准备工具，支持结构化提问与反馈循环。',
-    'proj.freeway.desc': '将免费 LLM API 聚合到一个本地 OpenAI 兼容端点的网关。',
+    'proj.freeway.desc': '免费使用 Claude Code、Codex、OpenCode、Cline — 本地网关接入 14+ 免费 LLM 提供商。',
     'proj.oc-loop.desc': 'opencode 的可恢复循环插件 — 持久化迭代智能体工作流。',
 
     // OSS Projects page descriptions
