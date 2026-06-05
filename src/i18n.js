@@ -87,9 +87,12 @@ export const translations = {
     'projects.oss': 'Open Source Projects I Contribute',
 
     // Projects descriptions
-    'proj.paper-reader.desc': 'Hierarchical multi-agent academic paper analysis system with interactive web interface.',
+    'proj.dreamcoder.desc': 'An open-source desktop GUI for Claude Code — native programming workbench with session management, integrated terminal, and multi-provider support.',
     'proj.ai-interview.desc': 'AI-powered interview preparation with structured questioning and feedback loops.',
     'proj.freeway.desc': 'Use Claude Code, Codex, OpenCode, Cline for free — one local gateway to 14+ free LLM providers.',
+    'proj.openkb.desc': 'Centralized Agent Kanban for multi-agent workflows — agents sync via CLI, humans track Spec/Plan/roadmap in a web hub.',
+    'proj.iris.desc': 'A Chrome extension bringing persistent AI assistant to your browser — with memory, DOM automation, network control, and 60+ tools.',
+    'proj.paper-reader.desc': 'Hierarchical multi-agent academic paper analysis system with interactive web interface.',
     'proj.oc-loop.desc': 'Resumable loop plugin for opencode — persistent iterative agent workflows.',
 
     // OSS Projects page descriptions
@@ -254,9 +257,12 @@ export const translations = {
     'projects.oss': '参与贡献的开源项目',
 
     // Projects descriptions
-    'proj.paper-reader.desc': '分层多智能体学术论文分析系统，带交互式 Web 界面。',
+    'proj.dreamcoder.desc': 'Claude Code 的开源桌面版 GUI — 原生编程工作台，会话管理、集成终端、多提供商支持。',
     'proj.ai-interview.desc': 'AI 驱动的面试准备工具，支持结构化提问与反馈循环。',
     'proj.freeway.desc': '免费使用 Claude Code、Codex、OpenCode、Cline — 本地网关接入 14+ 免费 LLM 提供商。',
+    'proj.openkb.desc': '多智能体工作流的集中式 Agent Kanban — 智能体通过 CLI 同步进度，人类在 Web 枢纽跟踪 Spec/Plan/路线图。',
+    'proj.iris.desc': 'Chrome 扩展，将持久化 AI 助手带入浏览器 — 支持记忆、DOM 自动化、网络控制，60+ 工具。',
+    'proj.paper-reader.desc': '分层多智能体学术论文分析系统，带交互式 Web 界面。',
     'proj.oc-loop.desc': 'opencode 的可恢复循环插件 — 持久化迭代智能体工作流。',
 
     // OSS Projects page descriptions
