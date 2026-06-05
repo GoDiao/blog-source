@@ -88,6 +88,7 @@ export const translations = {
 
     // Projects descriptions
     'proj.dreamcoder.desc': 'An open-source desktop GUI for Claude Code — native programming workbench with session management, integrated terminal, and multi-provider support.',
+    'proj.minicode.desc': 'Terminal-native AI coding assistant with Claude Code-style workflow — core contributor leading session persistence and memory features.',
     'proj.ai-interview.desc': 'AI-powered interview preparation with structured questioning and feedback loops.',
     'proj.freeway.desc': 'Use Claude Code, Codex, OpenCode, Cline for free — one local gateway to 14+ free LLM providers.',
     'proj.openkb.desc': 'Centralized Agent Kanban for multi-agent workflows — agents sync via CLI, humans track Spec/Plan/roadmap in a web hub.',
@@ -258,6 +259,7 @@ export const translations = {
 
     // Projects descriptions
     'proj.dreamcoder.desc': 'Claude Code 的开源桌面版 GUI — 原生编程工作台，会话管理、集成终端、多提供商支持。',
+    'proj.minicode.desc': '终端原生 AI 编程助手，Claude Code 风格工作流 — 核心贡献者，主导会话持久化和记忆功能。',
     'proj.ai-interview.desc': 'AI 驱动的面试准备工具，支持结构化提问与反馈循环。',
     'proj.freeway.desc': '免费使用 Claude Code、Codex、OpenCode、Cline — 本地网关接入 14+ 免费 LLM 提供商。',
     'proj.openkb.desc': '多智能体工作流的集中式 Agent Kanban — 智能体通过 CLI 同步进度，人类在 Web 枢纽跟踪 Spec/Plan/路线图。',
