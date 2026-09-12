@@ -3,12 +3,11 @@ export const translations = {
     // Nav
     'nav.about': 'About',
     'nav.projects': 'Projects',
-    'nav.blog': 'Blog',
     'nav.github': 'GitHub',
 
     // Index - Hero
-    'hero.role': 'AI/ML Researcher · NTU Singapore',
-    'hero.status': 'Available for opportunities',
+    'hero.role': 'AI Engineer · Garena (Sea)',
+    'hero.status': 'Stay Focused',
 
     // Index - Research
     'index.research': 'Research',
@@ -18,14 +17,19 @@ export const translations = {
     'research.agent.detail': 'Multi-agent architectures',
     'research.embodied.label': 'Embodied Intelligence',
     'research.embodied.detail': 'VLA models · SpatialVLA',
-    'research.llm.label': 'LLM Systems',
-    'research.llm.detail': 'vLLM · KV cache · Ascend 910B',
+    'research.infra.label': 'AI Infrastructure',
+    'research.infra.detail': 'Agent serving · LLM systems',
 
     // Index - Bio
-    'index.bio': 'AI/ML researcher at <strong>NTU Singapore</strong> (M.Sc. EEE, Highest Distinction). Previously B.Eng. from NTU with SM2 Scholarship. Working across computer vision, LLM systems, and embodied intelligence at <strong>Huawei Singapore</strong>.',
+    'index.bio': 'AI Engineer at <strong>Garena</strong> (Sea), working on Agentic AI and AI infrastructure. Pursuing an M.Sc. in EEE at <strong>NTU Singapore</strong> (Highest Distinction). Previously an Algorithm Research Engineer at <strong>Huawei Singapore</strong>.',
 
     // Index - Experience
     'index.experience': 'Experience',
+    'exp.current.role': 'AI Engineer',
+    'exp.current.org': 'Garena (Sea)',
+    'exp.current.period': 'Aug 2026 — Present',
+    'exp.current.d0': 'Agentic AI',
+    'exp.current.d1': 'AI Infrastructure',
     'exp0.role': 'Algorithm Research Engineer',
     'exp0.org': 'Huawei Singapore',
     'exp0.period': 'Jul 2025 – Dec 2025',
@@ -77,8 +81,6 @@ export const translations = {
     // Index - Links
     'link.projects': 'Projects',
     'link.projects.desc': "Things I've built",
-    'link.blog': 'Blog',
-    'link.blog.desc': 'Thoughts & notes',
 
     // Projects page
     'projects.title': 'Projects',
@@ -107,7 +109,7 @@ export const translations = {
 
     // About page
     'about.title': 'About',
-    'about.bio': 'AI/ML researcher pursuing an M.Sc. in EEE at <strong>NTU Singapore</strong>. I work at the intersection of computer vision, LLM systems, and embodied intelligence — currently at <strong>Huawei Singapore</strong> on RAW image reconstruction and VLA models.',
+    'about.bio': 'AI Engineer at <strong>Garena</strong> (Sea), working on Agentic AI and AI infrastructure. I am pursuing an M.Sc. in EEE at <strong>NTU Singapore</strong> and previously worked as an Algorithm Research Engineer at <strong>Huawei Singapore</strong>.',
     'about.experience': 'Experience',
     'about.education': 'Education',
     'about.competitions': 'Competitions',
@@ -115,6 +117,11 @@ export const translations = {
     'about.contact': 'Contact',
 
     // About experience details
+    'about.current.role': 'AI Engineer',
+    'about.current.company': 'Garena (Sea)',
+    'about.current.period': 'Aug 2026 — Present',
+    'about.current.d0': 'Agentic AI',
+    'about.current.d1': 'AI Infrastructure',
     'about.exp0.role': 'Algorithm Research Engineer Intern',
     'about.exp0.company': 'Huawei Singapore Research Center',
     'about.exp0.period': 'Jul 2025 — Dec 2025',
@@ -174,12 +181,11 @@ export const translations = {
     // Nav
     'nav.about': '关于',
     'nav.projects': '项目',
-    'nav.blog': '博客',
     'nav.github': 'GitHub',
 
     // Index - Hero
-    'hero.role': 'AI/ML 研究员 · 南洋理工大学',
-    'hero.status': '开放新机会',
+    'hero.role': 'AI Engineer · Garena（Sea）',
+    'hero.status': '保持专注',
 
     // Index - Research
     'index.research': '研究方向',
@@ -189,14 +195,19 @@ export const translations = {
     'research.agent.detail': '多智能体架构',
     'research.embodied.label': '具身智能',
     'research.embodied.detail': 'VLA 模型 · SpatialVLA',
-    'research.llm.label': 'LLM 系统',
-    'research.llm.detail': 'vLLM · KV 缓存 · 昇腾 910B',
+    'research.infra.label': 'AI 基础设施',
+    'research.infra.detail': '智能体服务 · LLM 系统',
 
     // Index - Bio
-    'index.bio': '<strong>南洋理工大学</strong> AI/ML 研究员（电气与电子工程硕士，最高荣誉）。本科获 SM2 奖学金。在<strong>华为新加坡</strong>从事计算机视觉、LLM 系统与具身智能的跨领域研究。',
+    'index.bio': '在<strong>Garena</strong>（Sea）担任 AI Engineer，从事智能体 AI 与 AI 基础设施相关工作。目前在<strong>南洋理工大学</strong>攻读电气与电子工程硕士（最高荣誉）。此前曾任<strong>华为新加坡</strong>算法研究工程师。',
 
     // Index - Experience
     'index.experience': '经历',
+    'exp.current.role': 'AI Engineer',
+    'exp.current.org': 'Garena（Sea）',
+    'exp.current.period': '2026.08 — 至今',
+    'exp.current.d0': '智能体 AI',
+    'exp.current.d1': 'AI 基础设施',
     'exp0.role': '算法研究工程师',
     'exp0.org': '华为新加坡',
     'exp0.period': '2025.07 – 2025.12',
@@ -248,8 +259,6 @@ export const translations = {
     // Index - Links
     'link.projects': '项目',
     'link.projects.desc': '我构建的东西',
-    'link.blog': '博客',
-    'link.blog.desc': '想法与笔记',
 
     // Projects page
     'projects.title': '项目',
@@ -278,7 +287,7 @@ export const translations = {
 
     // About page
     'about.title': '关于',
-    'about.bio': '<strong>南洋理工大学</strong>电气与电子工程硕士在读，AI/ML 研究员。研究方向横跨计算机视觉、LLM 系统与具身智能 — 目前在<strong>华为新加坡</strong>从事 RAW 图像重建与 VLA 模型研究。',
+    'about.bio': '在<strong>Garena</strong>（Sea）担任 AI Engineer，从事智能体 AI 与 AI 基础设施相关工作。目前在<strong>南洋理工大学</strong>攻读电气与电子工程硕士，此前曾任<strong>华为新加坡</strong>算法研究工程师。',
     'about.experience': '工作经历',
     'about.education': '教育背景',
     'about.competitions': '竞赛',
@@ -286,6 +295,11 @@ export const translations = {
     'about.contact': '联系方式',
 
     // About experience details
+    'about.current.role': 'AI Engineer',
+    'about.current.company': 'Garena（Sea）',
+    'about.current.period': '2026.08 — 至今',
+    'about.current.d0': '智能体 AI',
+    'about.current.d1': 'AI 基础设施',
     'about.exp0.role': '算法研究工程师实习生',
     'about.exp0.company': '华为新加坡研究中心',
     'about.exp0.period': '2025.07 — 2025.12',

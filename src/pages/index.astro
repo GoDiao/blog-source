@@ -6,10 +6,18 @@ const research = [
   { label: 'Computer Vision', detail: 'RAW reconstruction · Inverse ISP', labelKey: 'research.cv.label', detailKey: 'research.cv.detail' },
   { label: 'Agentic AI', detail: 'Multi-agent architectures', labelKey: 'research.agent.label', detailKey: 'research.agent.detail' },
   { label: 'Embodied Intelligence', detail: 'VLA models · SpatialVLA', labelKey: 'research.embodied.label', detailKey: 'research.embodied.detail' },
-  { label: 'LLM Systems', detail: 'vLLM · KV cache · Ascend 910B', labelKey: 'research.llm.label', detailKey: 'research.llm.detail' },
+  { label: 'AI Infrastructure', detail: 'Agent serving · LLM systems', labelKey: 'research.infra.label', detailKey: 'research.infra.detail' },
 ];
 
 const experience = [
+  {
+    role: 'AI Engineer',
+    org: 'Garena (Sea)',
+    period: 'Aug 2026 — Present',
+    directions: ['Agentic AI', 'AI Infrastructure'],
+    roleKey: 'exp.current.role', orgKey: 'exp.current.org', periodKey: 'exp.current.period',
+    dirKeys: ['exp.current.d0', 'exp.current.d1'],
+  },
   {
     role: 'Algorithm Research Engineer',
     org: 'Huawei Singapore',
@@ -19,20 +27,20 @@ const experience = [
     dirKeys: ['exp0.d0', 'exp0.d1', 'exp0.d2', 'exp0.d3'],
   },
   {
-    role: 'Chip Verification Engineer',
-    org: 'Infineon Technologies',
-    period: 'Dec 2022 – Jul 2023',
-    directions: ['Chip Verification', 'Tcl/Python Automation'],
-    roleKey: 'exp1.role', orgKey: 'exp1.org', periodKey: 'exp1.period',
-    dirKeys: ['exp1.d0', 'exp1.d1'],
-  },
-  {
     role: 'Implementation Engineer',
     org: 'Kingdee International',
     period: 'May 2024 – Jul 2024',
     directions: ['ERP System Implementation', 'Data Automation'],
     roleKey: 'exp2.role', orgKey: 'exp2.org', periodKey: 'exp2.period',
     dirKeys: ['exp2.d0', 'exp2.d1'],
+  },
+  {
+    role: 'Chip Verification Engineer',
+    org: 'Infineon Technologies',
+    period: 'Dec 2022 – Jul 2023',
+    directions: ['Chip Verification', 'Tcl/Python Automation'],
+    roleKey: 'exp1.role', orgKey: 'exp1.org', periodKey: 'exp1.period',
+    dirKeys: ['exp1.d0', 'exp1.d1'],
   },
 ];
 
@@ -48,13 +56,13 @@ const timeline = [
 ];
 
 const oss = [
-  { name: 'paperclip', url: 'https://github.com/paperclipai/paperclip', desc: 'AI agent orchestration framework for building autonomous, zero-human companies', stars: 69182, descKey: 'oss.paperclip.desc' },
-  { name: 'claude-context', url: 'https://github.com/zilliztech/claude-context', desc: 'Code search MCP for Claude Code — make entire codebase the context for any coding agent', stars: 11714, descKey: 'oss.claude-context.desc' },
-  { name: 'open-codesign', url: 'https://github.com/OpenCoworkAI/open-codesign', desc: 'Open-source Claude Design alternative. Prompt → prototype / slides / PDF. Multi-model, BYOK, local-first.', stars: 6672, descKey: 'oss.open-codesign.desc' },
-  { name: 'opensre', url: 'https://github.com/Tracer-Cloud/opensre', desc: 'Open-source framework for AI SRE agents — 60+ integrations for incident investigation and response', stars: 6419, descKey: 'oss.opensre.desc' },
-  { name: 'optillm', url: 'https://github.com/algorithmicsuperintelligence/optillm', desc: 'Optimizing inference proxy for LLMs with pluggable approaches — MoA, CoT, MCTS, auto context compression', stars: 4128, descKey: 'oss.optillm.desc' },
-  { name: 'investing-algorithm-framework', url: 'https://github.com/coding-kitties/investing-algorithm-framework', desc: 'Framework for developing and backtesting automated trading strategies', stars: 1239, descKey: 'oss.investing.desc' },
-  { name: 'MiniCode', url: 'https://github.com/LiuMengxuan04/MiniCode', desc: 'Terminal-native AI coding assistant with lightweight TUI', stars: 794, descKey: 'oss.minicode.desc' },
+  { name: 'paperclip', url: 'https://github.com/paperclipai/paperclip', desc: 'AI agent orchestration framework for building autonomous, zero-human companies', stars: 80513, descKey: 'oss.paperclip.desc' },
+  { name: 'claude-context', url: 'https://github.com/zilliztech/claude-context', desc: 'Code search MCP for Claude Code — make entire codebase the context for any coding agent', stars: 12516, descKey: 'oss.claude-context.desc' },
+  { name: 'open-codesign', url: 'https://github.com/OpenCoworkAI/open-codesign', desc: 'Open-source Claude Design alternative. Prompt → prototype / slides / PDF. Multi-model, BYOK, local-first.', stars: 7910, descKey: 'oss.open-codesign.desc' },
+  { name: 'opensre', url: 'https://github.com/Tracer-Cloud/opensre', desc: 'Open-source framework for AI SRE agents — 60+ integrations for incident investigation and response', stars: 11041, descKey: 'oss.opensre.desc' },
+  { name: 'optillm', url: 'https://github.com/algorithmicsuperintelligence/optillm', desc: 'Optimizing inference proxy for LLMs with pluggable approaches — MoA, CoT, MCTS, auto context compression', stars: 4264, descKey: 'oss.optillm.desc' },
+  { name: 'investing-algorithm-framework', url: 'https://github.com/coding-kitties/investing-algorithm-framework', desc: 'Framework for developing and backtesting automated trading strategies', stars: 2065, descKey: 'oss.investing.desc' },
+  { name: 'MiniCode', url: 'https://github.com/LiuMengxuan04/MiniCode', desc: 'Terminal-native AI coding assistant with lightweight TUI', stars: 1098, descKey: 'oss.minicode.desc' },
 ];
 ---
 
@@ -63,15 +71,23 @@ const oss = [
   <main>
     <!-- ── Hero ── -->
     <section class="hero">
+      <div class="sea-ribbons" aria-hidden="true">
+        <span class="sea-ribbon ribbon-red"></span>
+        <span class="sea-ribbon ribbon-orange"></span>
+        <span class="sea-ribbon ribbon-green"></span>
+        <span class="sea-ribbon ribbon-cyan"></span>
+        <span class="sea-ribbon ribbon-blue"></span>
+        <span class="sea-ribbon ribbon-navy"></span>
+      </div>
       <div class="hero-glow"></div>
       <div class="hero-avatar reveal">
         <img src="/avatar.jpg" alt="Diao Shengjia" class="avatar-img" />
       </div>
       <h1 class="hero-name reveal">Diao Shengjia</h1>
-      <p class="hero-role reveal" data-i18n="hero.role">AI/ML Researcher &middot; NTU Singapore</p>
+      <p class="hero-role reveal" data-i18n="hero.role">AI Engineer &middot; Garena (Sea)</p>
       <p class="hero-status reveal">
         <span class="status-ring"></span>
-        <span data-i18n="hero.status">Available for opportunities</span>
+        <span data-i18n="hero.status">Stay Focused</span>
       </p>
       <div class="hero-icons reveal">
         <a href="mailto:diaoshengjia@gmail.com" class="hi-link" title="Email">
@@ -102,9 +118,9 @@ const oss = [
     <!-- ── Bio ── -->
     <section class="section">
       <p class="bio reveal" data-i18n-html="index.bio">
-        AI/ML researcher at <strong>NTU Singapore</strong> (M.Sc. EEE, Highest Distinction).
-        Previously B.Eng. from NTU with SM2 Scholarship. Working across computer vision,
-        LLM systems, and embodied intelligence at <strong>Huawei Singapore</strong>.
+        AI Engineer at <strong>Garena</strong> (Sea), working on Agentic AI and AI infrastructure.
+        Pursuing an M.Sc. in EEE at <strong>NTU Singapore</strong> (Highest Distinction).
+        Previously an Algorithm Research Engineer at <strong>Huawei Singapore</strong>.
       </p>
     </section>
 
@@ -185,10 +201,6 @@ const oss = [
           <span class="lc-label" data-i18n="link.projects">Projects</span>
           <span class="lc-desc" data-i18n="link.projects.desc">Things I've built</span>
         </a>
-        <a href="https://godiao.github.io/blog/" class="link-card reveal">
-          <span class="lc-label" data-i18n="link.blog">Blog</span>
-          <span class="lc-desc" data-i18n="link.blog.desc">Thoughts & notes</span>
-        </a>
       </div>
     </section>
   </main>
@@ -202,6 +214,7 @@ const oss = [
     position: relative;
     overflow: hidden;
   }
+  .sea-ribbons { display: none; }
   .hero-glow {
     position: absolute;
     top: -120px;
@@ -210,7 +223,7 @@ const oss = [
     width: 400px;
     height: 400px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(184,149,106,0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(var(--accent-rgb), 0.1) 0%, transparent 70%);
     pointer-events: none;
   }
   .hero-avatar {
@@ -226,7 +239,7 @@ const oss = [
     position: absolute;
     inset: -4px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(184,149,106,0.15) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(var(--accent-rgb), 0.18) 0%, transparent 60%);
     z-index: -1;
   }
   .avatar-img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -281,6 +294,71 @@ const oss = [
     background: var(--accent-dim);
   }
   .hi-link svg { width: 15px; height: 15px; }
+
+  /* ── SEA light-mode ribbons ── */
+  :global([data-theme="light"]) .sea-ribbons {
+    display: block;
+    position: absolute;
+    inset: 3.5rem -10% 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.92;
+    transform: rotate(-2deg) scale(1.06);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 9%, #000 91%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 9%, #000 91%, transparent 100%);
+  }
+  :global([data-theme="light"]) .sea-ribbon {
+    position: absolute;
+    left: -4%;
+    width: 108%;
+    height: 5.5rem;
+    opacity: 0.25;
+    clip-path: polygon(0 28%, 9% 36%, 18% 48%, 28% 54%, 39% 48%, 50% 32%, 62% 21%, 73% 24%, 85% 39%, 100% 31%, 100% 100%, 0 100%);
+  }
+  :global([data-theme="light"]) .ribbon-red {
+    top: 0.2rem;
+    background: var(--sea-red);
+    opacity: 0.2;
+  }
+  :global([data-theme="light"]) .ribbon-orange {
+    top: 1.35rem;
+    background: var(--sea-orange);
+    opacity: 0.3;
+  }
+  :global([data-theme="light"]) .ribbon-green {
+    top: 2.55rem;
+    background: var(--sea-green);
+    opacity: 0.27;
+  }
+  :global([data-theme="light"]) .ribbon-cyan {
+    top: 3.7rem;
+    height: 7rem;
+    background: var(--sea-cyan);
+    opacity: 0.4;
+  }
+  :global([data-theme="light"]) .ribbon-blue {
+    top: 5.15rem;
+    height: 6.5rem;
+    background: var(--sea-blue);
+    opacity: 0.34;
+  }
+  :global([data-theme="light"]) .ribbon-navy {
+    top: 6.5rem;
+    height: 6rem;
+    background: var(--sea-navy);
+    opacity: 0.28;
+  }
+  :global([data-theme="light"]) .hero > .hero-avatar,
+  :global([data-theme="light"]) .hero > .hero-name,
+  :global([data-theme="light"]) .hero > .hero-role,
+  :global([data-theme="light"]) .hero > .hero-status,
+  :global([data-theme="light"]) .hero > .hero-icons {
+    position: relative;
+    z-index: 1;
+  }
+  :global([data-theme="light"]) .hero-glow {
+    z-index: 0;
+  }
 
   /* ── Section ── */
   .section { padding: 3.5rem 0; }
@@ -478,7 +556,7 @@ const oss = [
   /* ── Links ── */
   .links-row {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 1px;
     background: var(--border);
   }
@@ -516,7 +594,6 @@ const oss = [
     .hero { padding: 3.5rem 0 3rem; }
     .hero-name { font-size: clamp(2.2rem, 8vw, 3.5rem); }
     .research-grid { grid-template-columns: repeat(2, 1fr); }
-    .links-row { grid-template-columns: 1fr; }
     .section { padding: 2.5rem 0; }
     .tl-card { padding-bottom: 1.5rem; }
   }

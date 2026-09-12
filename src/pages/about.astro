@@ -4,6 +4,14 @@ import I18nData from '../components/I18nData.astro';
 
 const experience = [
   {
+    role: 'AI Engineer',
+    company: 'Garena (Sea)',
+    period: 'Aug 2026 — Present',
+    roleKey: 'about.current.role', companyKey: 'about.current.company', periodKey: 'about.current.period',
+    detailKeys: ['about.current.d0', 'about.current.d1'],
+    details: ['Agentic AI', 'AI Infrastructure'],
+  },
+  {
     role: 'Algorithm Research Engineer Intern',
     company: 'Huawei Singapore Research Center',
     period: 'Jul 2025 — Dec 2025',
@@ -19,17 +27,6 @@ const experience = [
     ],
   },
   {
-    role: 'Chip Verification Engineer Intern',
-    company: 'Infineon Technologies',
-    period: 'Dec 2022 — Jul 2023',
-    roleKey: 'about.exp1.role', companyKey: 'about.exp1.company', periodKey: 'about.exp1.period',
-    detailKeys: ['about.exp1.d0', 'about.exp1.d1'],
-    details: [
-      'Tcl/Python automation tools, qualification runtime reduced ~33%',
-      'RTL bring-up qualification experiments with chip design engineers',
-    ],
-  },
-  {
     role: 'Implementation Engineer Intern',
     company: 'Kingdee International Software',
     period: 'May 2024 — Jul 2024',
@@ -38,6 +35,17 @@ const experience = [
     details: [
       'ERP system implementation for Chongqing Xinhua Bookstore Group',
       'Python data processing automation, efficiency improved over 70%',
+    ],
+  },
+  {
+    role: 'Chip Verification Engineer Intern',
+    company: 'Infineon Technologies',
+    period: 'Dec 2022 — Jul 2023',
+    roleKey: 'about.exp1.role', companyKey: 'about.exp1.company', periodKey: 'about.exp1.period',
+    detailKeys: ['about.exp1.d0', 'about.exp1.d1'],
+    details: [
+      'Tcl/Python automation tools, qualification runtime reduced ~33%',
+      'RTL bring-up qualification experiments with chip design engineers',
     ],
   },
 ];
@@ -69,7 +77,7 @@ const competitions = [
 const skills = [
   { label: 'Languages', labelKey: 'skills.languages', items: ['Python', 'TypeScript', 'SQL', 'Tcl'] },
   { label: 'ML / AI', labelKey: 'skills.ml', items: ['PyTorch', 'vLLM', 'PEFT', 'Ascend 910B', 'MindSpeed-LLM'] },
-  { label: 'Research', labelKey: 'skills.research', items: ['Computer Vision', 'Inverse ISP', 'RAW Processing', 'Embodied AI'] },
+  { label: 'Research', labelKey: 'skills.research', items: ['Computer Vision', 'Inverse ISP', 'RAW Processing', 'Embodied AI', 'Agentic AI', 'AI Infrastructure'] },
   { label: 'Engineering', labelKey: 'skills.engineering', items: ['Git', 'LMCache', 'Docker', 'Linux'] },
 ];
 ---
@@ -81,9 +89,9 @@ const skills = [
       <h1 class="intro-h reveal" data-i18n="about.title">About</h1>
       <div class="intro-bio reveal">
         <p data-i18n-html="about.bio">
-          AI/ML researcher pursuing an M.Sc. in EEE at <strong>NTU Singapore</strong>.
-          I work at the intersection of computer vision, LLM systems, and embodied intelligence —
-          currently at <strong>Huawei Singapore</strong> on RAW image reconstruction and VLA models.
+          AI Engineer at <strong>Garena</strong> (Sea), working on Agentic AI and AI infrastructure.
+          I am pursuing an M.Sc. in EEE at <strong>NTU Singapore</strong> and previously worked
+          as an Algorithm Research Engineer at <strong>Huawei Singapore</strong>.
         </p>
       </div>
     </section>

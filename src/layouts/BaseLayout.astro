@@ -24,7 +24,6 @@ const { title } = Astro.props;
       <div class="nav-links">
         <a href="/about" data-i18n="nav.about">About</a>
         <a href="/projects" data-i18n="nav.projects">Projects</a>
-        <a href="https://godiao.github.io/blog/" data-i18n="nav.blog">Blog</a>
         <a href="https://github.com/GoDiao" target="_blank" rel="noopener" data-i18n="nav.github">GitHub</a>
         <button class="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
           <svg class="theme-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
@@ -48,17 +47,30 @@ const { title } = Astro.props;
 
 <style is:global>
   :root {
-    --bg: #121210;
-    --bg-elevated: #151513;
-    --bg-card: #191916;
-    --text: #d4cfc6;
-    --text-secondary: #7c766c;
-    --text-dim: #6a655b;
-    --accent: #b8956a;
-    --accent-dim: rgba(184, 149, 106, 0.06);
-    --accent-soft: rgba(184, 149, 106, 0.12);
-    --border: #1e1d1a;
-    --border-hover: #2c2a25;
+    --sea-navy: #0b087e;
+    --sea-navy-rgb: 11, 8, 126;
+    --sea-blue: #4b87ee;
+    --sea-blue-rgb: 75, 135, 238;
+    --sea-cyan: #08d8ea;
+    --sea-cyan-rgb: 8, 216, 234;
+    --sea-green: #00a65a;
+    --sea-green-rgb: 0, 166, 90;
+    --sea-orange: #ff572b;
+    --sea-orange-rgb: 255, 87, 43;
+    --sea-red: #ed1c24;
+    --sea-red-rgb: 237, 28, 36;
+    --bg: #0a0a0b;
+    --bg-elevated: #111113;
+    --bg-card: #151517;
+    --text: #ded9d7;
+    --text-secondary: #978d8e;
+    --text-dim: #6f6869;
+    --accent: #ed1c24;
+    --accent-rgb: 237, 28, 36;
+    --accent-dim: rgba(237, 28, 36, 0.07);
+    --accent-soft: rgba(237, 28, 36, 0.14);
+    --border: #211719;
+    --border-hover: #3a1d22;
     --sans: 'DM Sans', -apple-system, sans-serif;
     --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
     --mono: 'JetBrains Mono', monospace;
@@ -67,17 +79,18 @@ const { title } = Astro.props;
   }
 
   [data-theme="light"] {
-    --bg: #f5f2ec;
-    --bg-elevated: #ebe7df;
-    --bg-card: #e6e2d8;
-    --text: #2a2824;
-    --text-secondary: #6b6560;
-    --text-dim: #8a8478;
-    --accent: #a07840;
-    --accent-dim: rgba(160, 120, 64, 0.08);
-    --accent-soft: rgba(160, 120, 64, 0.15);
-    --border: #ddd8ce;
-    --border-hover: #ccc6ba;
+    --bg: #f6f9ff;
+    --bg-elevated: #edf3ff;
+    --bg-card: #ffffff;
+    --text: #10145e;
+    --text-secondary: #4d5a79;
+    --text-dim: #71809f;
+    --accent: var(--sea-navy);
+    --accent-rgb: var(--sea-navy-rgb);
+    --accent-dim: rgba(var(--sea-blue-rgb), 0.09);
+    --accent-soft: rgba(var(--sea-cyan-rgb), 0.15);
+    --border: rgba(var(--sea-navy-rgb), 0.12);
+    --border-hover: rgba(var(--sea-blue-rgb), 0.42);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -96,8 +109,8 @@ const { title } = Astro.props;
   body {
     font-family: var(--sans);
     background:
-      radial-gradient(ellipse 800px 500px at 50% -100px, rgba(184,149,106,0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 500px 400px at 100% 80%, rgba(184,149,106,0.03) 0%, transparent 70%),
+      radial-gradient(ellipse 800px 500px at 50% -100px, rgba(var(--accent-rgb), 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 400px at 100% 80%, rgba(var(--accent-rgb), 0.035) 0%, transparent 70%),
       var(--bg);
     color: var(--text);
     line-height: 1.7;
@@ -111,14 +124,10 @@ const { title } = Astro.props;
 
   [data-theme="light"] body {
     background:
-      /* Warm top glow */
-      radial-gradient(ellipse 900px 500px at 50% -120px, rgba(180,140,80,0.10) 0%, transparent 65%),
-      /* Soft side bloom */
-      radial-gradient(ellipse 600px 500px at 10% 40%, rgba(190,155,90,0.05) 0%, transparent 60%),
-      /* Bottom-right warmth */
-      radial-gradient(ellipse 700px 500px at 90% 90%, rgba(175,130,65,0.06) 0%, transparent 55%),
-      /* Subtle warm wash */
-      linear-gradient(180deg, rgba(160,120,64,0.03) 0%, transparent 40%, rgba(160,120,64,0.02) 100%),
+      radial-gradient(ellipse 900px 520px at 50% -120px, rgba(var(--sea-cyan-rgb), 0.14) 0%, transparent 68%),
+      radial-gradient(ellipse 680px 520px at 100% 18%, rgba(var(--sea-blue-rgb), 0.11) 0%, transparent 64%),
+      radial-gradient(ellipse 720px 560px at 12% 92%, rgba(var(--sea-orange-rgb), 0.07) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(var(--sea-blue-rgb), 0.035) 0%, transparent 45%, rgba(var(--sea-navy-rgb), 0.025) 100%),
       var(--bg);
   }
 
@@ -150,7 +159,8 @@ const { title } = Astro.props;
     transition: opacity var(--transition);
   }
   [data-theme="light"] body::before {
-    opacity: 0.14;
+    opacity: 0.16;
+    background-image: radial-gradient(circle, rgba(var(--sea-blue-rgb), 0.45) 0.6px, transparent 0.6px);
   }
 
   ::selection {
@@ -307,17 +317,81 @@ const { title } = Astro.props;
 
   /* ── Light theme page-specific overrides ── */
   [data-theme="light"] .hero-glow {
-    background: radial-gradient(circle, rgba(160,120,64,0.14) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(var(--accent-rgb), 0.14) 0%, transparent 60%);
   }
   [data-theme="light"] .hero-avatar::after {
-    background: radial-gradient(circle, rgba(160,120,64,0.25) 0%, transparent 55%);
+    background: radial-gradient(circle, rgba(var(--accent-rgb), 0.25) 0%, transparent 55%);
   }
 
-  /* ── Light theme: slightly more visible card boundaries ── */
+  /* ── Light theme: SEA surface and signal details ── */
+  [data-theme="light"] .page-intro {
+    position: relative;
+  }
+  [data-theme="light"] .page-intro::after {
+    content: '';
+    display: block;
+    width: 8rem;
+    height: 3px;
+    margin-top: 2rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--sea-cyan), var(--sea-blue) 48%, var(--sea-orange));
+    opacity: 0.78;
+  }
+
+  [data-theme="light"] .section + .section {
+    border-image: linear-gradient(90deg, var(--border), rgba(var(--sea-cyan-rgb), 0.3), var(--border)) 1;
+  }
+
+  [data-theme="light"] .rc-card,
+  [data-theme="light"] .link-card,
+  [data-theme="light"] .oss-card,
+  [data-theme="light"] .proj-row {
+    box-shadow: 0 8px 28px rgba(var(--sea-navy-rgb), 0.045);
+  }
+
   [data-theme="light"] .rc-card,
   [data-theme="light"] .link-card,
   [data-theme="light"] .oss-card {
-    box-shadow: 0 1px 3px rgba(42,40,36,0.04);
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  [data-theme="light"] .rc-card {
+    border-top: 2px solid rgba(var(--sea-blue-rgb), 0.35);
+  }
+  [data-theme="light"] .rc-card:nth-child(2) {
+    border-top-color: rgba(var(--sea-cyan-rgb), 0.65);
+  }
+  [data-theme="light"] .rc-card:nth-child(3) {
+    border-top-color: rgba(var(--sea-green-rgb), 0.55);
+  }
+  [data-theme="light"] .rc-card:nth-child(4) {
+    border-top-color: rgba(var(--sea-orange-rgb), 0.65);
+  }
+
+  [data-theme="light"] .rc-card:hover,
+  [data-theme="light"] .link-card:hover,
+  [data-theme="light"] .oss-card:hover {
+    box-shadow: 0 14px 34px rgba(var(--sea-navy-rgb), 0.09);
+  }
+
+  [data-theme="light"] .tl-highlights li,
+  [data-theme="light"] .skill-tag,
+  [data-theme="light"] .proj-tag {
+    background: rgba(var(--sea-blue-rgb), 0.055);
+    border-color: rgba(var(--sea-blue-rgb), 0.16);
+  }
+
+  [data-theme="light"] .tl-entry:first-child .tl-dot {
+    background: var(--sea-green);
+    box-shadow: 0 0 0 4px rgba(var(--sea-green-rgb), 0.1);
+  }
+  [data-theme="light"] .tl-entry:nth-child(2) .tl-dot { background: var(--sea-blue); }
+  [data-theme="light"] .tl-entry:nth-child(3) .tl-dot { background: var(--sea-orange); }
+  [data-theme="light"] .tl-entry:nth-child(4) .tl-dot { background: var(--sea-red); }
+
+  [data-theme="light"] .status-ring {
+    background: var(--sea-cyan);
+    box-shadow: 0 0 0 3px rgba(var(--sea-cyan-rgb), 0.14);
   }
 </style>
 
@@ -331,13 +405,22 @@ const { title } = Astro.props;
 
   document.addEventListener('DOMContentLoaded', function() {
     var currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-    var particleColor = currentTheme === 'light' ? '160,120,64' : '184,149,106';
+    var particleColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-rgb').trim();
+    var particlePalette = [particleColor];
+
+    function updateParticlePalette() {
+      particlePalette = currentTheme === 'light'
+        ? ['8,216,234', '75,135,238', '0,166,90', '255,87,43', '237,28,36']
+        : [particleColor];
+    }
+    updateParticlePalette();
 
     function applyTheme(theme) {
       currentTheme = theme;
       localStorage.setItem('theme', theme);
       document.documentElement.setAttribute('data-theme', theme);
-      particleColor = theme === 'light' ? '160,120,64' : '184,149,106';
+      particleColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-rgb').trim();
+      updateParticlePalette();
     }
 
     // ── Theme Toggle ──
@@ -369,6 +452,7 @@ const { title } = Astro.props;
           vx: (Math.random() - 0.5) * 0.3,
           vy: (Math.random() - 0.5) * 0.3,
           alpha: Math.random() * 0.35 + 0.1,
+          paletteIndex: Math.floor(Math.random() * 5),
         });
       }
 
@@ -382,7 +466,8 @@ const { title } = Astro.props;
           if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(' + particleColor + ',' + p.alpha + ')';
+          var particleRgb = particlePalette[p.paletteIndex % particlePalette.length];
+          ctx.fillStyle = 'rgba(' + particleRgb + ',' + p.alpha + ')';
           ctx.fill();
         }
         for (var i = 0; i < particles.length; i++) {
