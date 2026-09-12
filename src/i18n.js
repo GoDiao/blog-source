@@ -6,7 +6,7 @@ export const translations = {
     'nav.github': 'GitHub',
 
     // Index - Hero
-    'hero.role': 'AI Engineer · Garena (Sea)',
+    'hero.role': 'AI Engineer · Garena (Sea) | AI/ML Researcher',
     'hero.status': 'Stay Focused',
 
     // Index - Research
@@ -184,7 +184,7 @@ export const translations = {
     'nav.github': 'GitHub',
 
     // Index - Hero
-    'hero.role': 'AI Engineer · Garena（Sea）',
+    'hero.role': 'AI Engineer · Garena（Sea）| AI/ML Researcher',
     'hero.status': '保持专注',
 
     // Index - Research
