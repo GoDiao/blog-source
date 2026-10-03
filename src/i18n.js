@@ -77,6 +77,8 @@ export const translations = {
     'oss.open-codesign.desc': 'Open-source Claude Design alternative. Prompt → prototype / slides / PDF. Multi-model, BYOK, local-first.',
     'oss.optillm.desc': 'Optimizing inference proxy for LLMs with pluggable approaches — MoA, CoT, MCTS, auto context compression',
     'oss.investing.desc': 'Framework for developing and backtesting automated trading strategies',
+    'oss.open-file-viewer.desc': 'Framework-agnostic embedded file viewer — PDF, Office, media, archives, 3D and more in one container',
+    'oss.backpass.desc': "You don't write AGENTS.md. You train it with gradient descent.",
 
     // Index - Links
     'link.projects': 'Projects',
@@ -106,6 +108,8 @@ export const translations = {
     'oss-page.open-codesign.desc': 'Open-source Claude Design alternative. One-click import your Claude Code / Codex API key. Prompt → prototype / slides / PDF. Multi-model (Claude, GPT, Gemini, Kimi, GLM, Ollama). BYOK, local-first, MIT.',
     'oss-page.optillm.desc': 'Optimizing inference proxy for LLMs with pluggable approaches — MoA, CoT, MCTS, and auto context compression plugin.',
     'oss-page.investing.desc': 'Framework for developing and backtesting automated trading strategies — backtest engine, indicator computation, and deployment pipeline.',
+    'oss-page.open-file-viewer.desc': 'Framework-agnostic embedded file viewer for vanilla JS, React, Vue and Svelte — PDF, Office, images, media, archives, email, drawings, 3D and GIS in one container.',
+    'oss-page.backpass.desc': "You don't write AGENTS.md. You train it with gradient descent.",
 
     // About page
     'about.title': 'About',
@@ -255,6 +259,8 @@ export const translations = {
     'oss.open-codesign.desc': '开源 Claude Design 替代方案。Prompt → 原型 / 幻灯片 / PDF。多模型、BYOK、本地优先。',
     'oss.optillm.desc': 'LLM 推理优化代理，支持可插拔策略 — MoA、CoT、MCTS、自动上下文压缩',
     'oss.investing.desc': '自动化交易策略开发与回测框架',
+    'oss.open-file-viewer.desc': '框架无关的嵌入式文件预览器 — PDF、Office、媒体、压缩包、3D 等统一容器',
+    'oss.backpass.desc': '不用手写 AGENTS.md，用梯度下降把它训练出来。',
 
     // Index - Links
     'link.projects': '项目',
@@ -284,6 +290,8 @@ export const translations = {
     'oss-page.open-codesign.desc': '开源 Claude Design 替代方案。一键导入 Claude Code / Codex API key。Prompt → 原型 / 幻灯片 / PDF。多模型支持（Claude、GPT、Gemini、Kimi、GLM、Ollama）。BYOK、本地优先、MIT 协议。',
     'oss-page.optillm.desc': 'LLM 推理优化代理，支持可插拔策略 — MoA、CoT、MCTS 及自动上下文压缩插件。',
     'oss-page.investing.desc': '自动化交易策略开发与回测框架 — 回测引擎、指标计算与部署管线。',
+    'oss-page.open-file-viewer.desc': '框架无关的嵌入式文件预览器，支持原生 JS、React、Vue、Svelte — 在同一容器内预览 PDF、Office、图片、音视频、压缩包、邮件、图纸、3D 与 GIS 文件。',
+    'oss-page.backpass.desc': '不用手写 AGENTS.md，用梯度下降把它训练出来。',
 
     // About page
     'about.title': '关于',
