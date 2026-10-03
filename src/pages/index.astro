@@ -358,6 +358,11 @@ const oss = [
     position: relative;
     z-index: 1;
   }
+  :global([data-theme="light"]) .status-ring {
+    background: var(--sea-green);
+    opacity: 1;
+    box-shadow: 0 0 0 3px rgba(var(--sea-green-rgb), 0.15);
+  }
   :global([data-theme="light"]) .hero-glow {
     z-index: 0;
   }
