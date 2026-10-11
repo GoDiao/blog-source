@@ -70,6 +70,7 @@ export const translations = {
 
     // Index - OSS
     'index.oss': 'Open Source Projects I Contribute',
+    'oss.openclaw.desc': 'Cross-platform AI agent runtime that actually executes tasks on any OS',
     'oss.paperclip.desc': 'AI agent orchestration framework for building autonomous, zero-human companies',
     'oss.claude-context.desc': 'Code search MCP for Claude Code — make entire codebase the context for any coding agent',
     'oss.opensre.desc': 'Open-source framework for AI SRE agents — 60+ integrations for incident investigation and response',
@@ -102,6 +103,7 @@ export const translations = {
     'proj.oc-loop.desc': 'Resumable loop plugin for opencode — persistent iterative agent workflows.',
 
     // OSS Projects page descriptions
+    'oss-page.openclaw.desc': 'Cross-platform AI agent runtime that actually executes tasks on any OS — gateway, plugin system, and a Doctor diagnostic toolchain.',
     'oss-page.paperclip.desc': 'AI agent orchestration framework for building autonomous, zero-human companies — multi-agent negotiation, task dispatching, and execution monitoring.',
     'oss-page.claude-context.desc': 'Code search MCP for Claude Code — make entire codebase the context for any coding agent.',
     'oss-page.opensre.desc': 'Open-source framework for AI SRE agents — 60+ integrations for incident investigation, root-cause analysis, and automated remediation.',
@@ -254,6 +256,7 @@ export const translations = {
 
     // Index - OSS
     'index.oss': '参与贡献的开源项目',
+    'oss.openclaw.desc': '跨平台 AI 智能体运行时，在任意操作系统上真正执行任务',
     'oss.paperclip.desc': 'AI 智能体编排框架，用于构建自主零人工公司',
     'oss.claude-context.desc': 'Claude Code 的代码搜索 MCP — 将整个代码库作为任意编程智能体的上下文',
     'oss.opensre.desc': 'AI SRE 智能体开源框架 — 60+ 集成，用于事件调查与响应',
@@ -286,6 +289,7 @@ export const translations = {
     'proj.oc-loop.desc': 'opencode 的可恢复循环插件 — 持久化迭代智能体工作流。',
 
     // OSS Projects page descriptions
+    'oss-page.openclaw.desc': '跨平台 AI 智能体运行时，在任意操作系统上真正执行任务 — 包含网关、插件体系与 Doctor 诊断工具链。',
     'oss-page.paperclip.desc': 'AI 智能体编排框架，用于构建自主零人工公司 — 多智能体协商、任务调度与执行监控。',
     'oss-page.claude-context.desc': 'Claude Code 的代码搜索 MCP — 将整个代码库作为任意编程智能体的上下文。',
     'oss-page.opensre.desc': 'AI SRE 智能体开源框架 — 60+ 集成，用于事件调查、根因分析与自动修复。',
